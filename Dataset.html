@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 80vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        .data_full {
+            background-color: teal;
+            padding: 60px;
+        }
+        .data_empty {
+           background-color: tomato;
+           padding: 60px;
+        }
+        ul {
+            border: 4px solid black;
+            padding: 15px;
+        }
+        li {
+            padding: 10px;
+            list-style-position: inside;
+        }
+        li::after {
+            content: attr(data-style);
+        }
+        li[data-style="Crimson"] {
+            background-color: crimson;
+        }
+        li[data-style="Teal"] {
+            background-color: teal;
+        } 
+        li[data-style="Tomato"] {
+            background-color: tomato;
+        }
+        li[data-style="Cornflowerblue"] {
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="data_full" data-user="Cesar" data-id="9087" data-birth-date="17/06/92">
+            User Info
+        </div>
+        <div class="data_empty">
+            Data Empty
+        </div>
+        <ul data-item="">
+            <li data-item="color crimson" data-style="Crimson">Item 1 - </li>
+            <li data-item="color teal" data-style="Teal">Item 2 - </li>
+            <li data-item="color tomato" data-style="Tomato">Item 3 - </li>
+            <li data-item="color cornflowerblue" data-style="Cornflowerblue">Item 4 - </li>
+        </ul>
+    </div>
+    <script>
+        const dataFull = document.querySelector('.data_full');
+        const dataEmpty = document.querySelector('.data_empty');
+        const li_first = document.querySelector('li:first-child');
+
+        console.log(dataFull.dataset);
+        console.log(dataFull.dataset.user, dataFull.dataset.id, dataFull.dataset.birthDate);
+        console.log('-----------------------------');
+        console.log(dataEmpty.dataset);
+        dataEmpty.setAttribute("data-user", "Ricardo");
+        dataEmpty.setAttribute("data-id", "Ricardo");
+        dataEmpty.setAttribute("data-birth-date", "04/11/17");
+        console.log(dataEmpty.dataset);
+        console.log('-----------------------------');
+        console.log(li_first.getAttribute('data-style'));
+
+    </script>
+</body>
+</html>

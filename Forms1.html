@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            font-size: 24px;
+            background-color: gray;
+        }
+
+        .container fieldset.row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+            border: none;
+            width: 40%;
+        }
+        .container form, .result {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            border: 2px solid black;
+            width: 50%;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .container form {
+            margin-bottom: 30px;
+            background-color: teal;
+        }
+
+        label[for="username"], label[for="pokemon"] {
+            font-weight: bold;
+        }
+
+        label[for="legendary"] {
+            margin-left: 15px;
+        }
+
+        .container form input, .container form input[type="submit"], .container form select {
+            margin: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .container form input[type="submit"] {
+            margin-top: 15px;
+            padding: 10px;
+        }
+
+        .result {
+            font-weight: bold;
+            background-color: cornflowerblue;
+        }
+        .result .value, .result .checkbox {
+            font-weight: normal;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="" id="myform">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+
+            <fieldset class="row">
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+            </fieldset>
+
+            <fieldset class="row">
+                <label for="premium">Premium</label>
+                <input type="checkbox" id="premium" name="premium">
+                <label for="legendary">Legendary</label>
+                <input type="checkbox" id="legendary" name="legendary">
+            </fieldset>
+
+            <label for="pokemon">Pokemon</label>
+            <select id="pokemon" name="pokemon">
+                <option value="Charmander">Charmander</option>
+                <option value="Squirtle">Squirtle</option>
+                <option value="Bulbasaur">Bulbasaur</option>
+                <option value="Eevee">Eevee</option>
+                <option value="Pikachu">Pikachu</option>
+            </select>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <div class="result">
+            <div class="username">
+                <p>Username: <span class="value"></span></p>
+            </div>
+            <div class="gender">
+                <p>Gender: <span class="value"></span></p>
+            </div>
+            <div class="checkbox">
+                <div class="premium">none</div>
+                <div class="legendary">none</div>
+            </div>
+            <div class="pokemon">
+                <p>Pokemon: <span class="value"></span></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const form = document.querySelector("#myform");
+
+        const usernameForm = form.querySelector("#username");
+
+        const genderMaleForm = form.querySelector("#male");
+        const genderFemaleForm = form.querySelector("#female");
+
+        const premiumForm = form.querySelector("#premium");
+        const legendaryForm = form.querySelector("#legendary");
+
+        const pokemonForm = form.querySelector("#pokemon");
+
+        const result = document.querySelector(".result");
+        const usernameResult = document.querySelector(".result .username .value");
+        const genderResult = document.querySelector(".result .gender .value");
+        const premiumResult = document.querySelector(".result .checkbox .premium");
+        const legendaryResult = document.querySelector(".result .checkbox .legendary");
+        const pokemonResult = document.querySelector(".result .pokemon .value");
+
+        const data = {
+                username: '',
+                gender: '',
+                premium: false,
+                legendary: false,
+                pokemon: ''
+        };
+
+        const updateData = (e) => {
+            e.preventDefault();
+
+            // updates data object
+            data.username = usernameForm.value;
+
+            if(genderMaleForm.checked) {
+                data.gender = 'Male';
+            } else if (genderFemaleForm.checked){
+                data.gender = 'Female';
+            } else {
+                data.gender = 'Other';
+            }
+
+            data.pokemon = pokemonForm.value;
+
+            if(premiumForm.checked){
+                data.premium = 'Premium';
+            } else {
+                data.premium = 'No Premium';
+            }
+
+            if(legendaryForm.checked){
+                data.legendary = 'Legendary';
+            } else {
+                data.legendary = 'No Legendary';
+            }
+
+            updateTextContent();
+            console.log(document.forms['myform']['pokemon'].value);
+        }
+
+        form.addEventListener('submit', updateData);
+
+        function updateTextContent(){
+            usernameResult.textContent = data.username;
+            genderResult.textContent = data.gender;
+            premiumResult.textContent = data.premium;
+            legendaryResult.textContent = data.legendary;
+            pokemonResult.textContent = data.pokemon;
+        }
+
+    </script>
+</body>
+</html>

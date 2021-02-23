@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="template">
+            <h1>Template</h1>
+            <p>Some random text</p>
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+
+        // creates element you have to use a container for the child nodes
+        const temp = document.querySelector('.template');
+        const cln1 = temp.cloneNode(true);
+        const elem = document.createElement("div");
+        elem.appendChild(cln1);
+        container.insertBefore(elem, temp);
+
+        // fragment inserts the child nodes no need for a container element
+        const cln2 = temp.cloneNode(true);
+        const fragment = document.createDocumentFragment();
+        fragment.appendChild(cln2);
+        fragment.appendChild(document.createElement("hr"))
+        container.insertBefore(fragment, temp.nextSibling);
+        
+    </script>
+</body>
+</html>

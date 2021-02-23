@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 10px;
+        }
+        h1 {
+            color: tomato;
+        }
+        p {
+            background-color: teal;
+        }
+        li {
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="component1">
+            <h1>My Component 1</h1>
+            <p>Consectetur adipiscing elit. Aenean sed tellus cursus, viverra tortor ut, finibus nunc. Morbi quis arcu et quam efficitur porta. Donec pulvinar magna id auctor tristique. Morbi semper lacinia ligula. Sed at risus at tellus aliquet iaculis. Etiam mi augue, porttitor vel facilisis vel, ultricies ac velit. </p>
+            <ul>
+                <li> Pellentesque volutpat velit leo, eget blandit nulla.</li>
+                <li> Donec sed dui nec velit dapibus consequat.</li>
+            </ul>
+        </div>
+        <div class="component2"></div>
+    </div>
+    <div class="component3">
+        <h1>My Component 3</h1>
+        <p>Consectetur adipiscing elit. Aenean sed tellus cursus, viverra tortor ut, finibus nunc. Morbi quis arcu et quam efficitur porta. Donec pulvinar magna id auctor tristique. Morbi semper lacinia ligula. Sed at risus at tellus aliquet iaculis. Etiam mi augue, porttitor vel facilisis vel, ultricies ac velit. </p>
+        <ul>
+            <li> Pellentesque volutpat velit leo, eget blandit nulla.</li>
+            <li> Donec sed dui nec velit dapibus consequat.</li>
+        </ul>
+    </div>
+    <button class="btn-shadow">Add Styles to ShadowDom</button>
+    <button class="btn-remove">Remove Styles to ShadowDom</button>
+    <template id="shadow">
+        <style>
+            h1 {
+                color: goldenrod;
+            }
+            p {
+                background-color: darkolivegreen;
+            }
+            li {
+                background-color: firebrick;
+            }
+        </style>
+      </template>
+    <script>
+        const component2 = document.querySelector('.component2');
+        const root = component2.attachShadow( { mode: "open" } );
+
+        const h1 = document.createElement("h1");
+        h1.textContent = "My Component 2";
+
+        const p = document.createElement("p");
+        p.textContent = "Suspendisse pulvinar cursus orci nec accumsan. Maecenas orci enim, aliquet ac nulla in, cursus finibus sem. In diam arcu, posuere eget tortor non, gravida ornare justo. Vestibulum tincidunt massa vitae risus sodales, tincidunt interdum nibh rhoncus. Ut pretium, dui eu pharetra suscipit, elit neque dictum diam, nec euismod dolor risus in mi.";
+
+        const ul = document.createElement("ul");
+        const li1 = document.createElement("li");
+        li1.textContent = "Quisque consequat arcu eget malesuada consectetur.";
+        const li2 = document.createElement("li");
+        li2.textContent = "Pellentesque congue risus vel rutrum aliquet.";
+
+        ul.appendChild(li1);
+        ul.appendChild(li2);
+
+        root.appendChild(h1);
+        root.appendChild(p);
+        root.appendChild(ul);
+
+        const temp = document.querySelector('#shadow');
+        const btnShadow = document.querySelector('.btn-shadow');
+        btnShadow.addEventListener('click',()=>{
+            root.prepend(temp.content.cloneNode(true));
+            console.log(component2.shadowRoot);
+        });
+
+        const btnRemove = document.querySelector('.btn-remove');
+        btnRemove.addEventListener('click',()=>{
+            component2.shadowRoot.querySelector('style').remove();
+            console.log(component2.shadowRoot);
+        });
+
+    </script>
+</body>
+</html>

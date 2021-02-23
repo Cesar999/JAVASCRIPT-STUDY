@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container > div {
+            width: 100%;
+            padding: 16px 16px;
+            background-color: teal;
+            color: white;
+            font-weight: 600;
+            font-size: 24px;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            overflow-wrap: break-word;
+            flex-flow: row wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row1">Keydown: </div>
+        <div class="row2">Keyup: </div>
+        <div class="row3">Keypress: </div>
+    </div>
+    <script>
+        const container = document.querySelector(".container");
+        const row1 = document.querySelector(".row1");
+        const row2 = document.querySelector(".row2");
+        const row3 = document.querySelector(".row3");
+        let str1 = 'Keydown: ';
+        let str2 = 'Keyup: ';
+        let str3 = 'Keypress: ';
+        window.addEventListener('keydown', (e)=>{
+            console.log(e.key);
+            str1 += e.key;
+            row1.textContent = str1;
+        });
+        window.addEventListener('keyup', (e)=>{
+            console.log(e.key);
+            str2 += e.key;
+            row2.textContent = str2;
+        });
+        window.addEventListener('keypress', (e)=>{
+            console.log(e.key);
+            str3 += e.key;
+            row3.textContent = str3;
+        });
+    </script>
+</body>
+</html>
+
+keypress
+keydown
+keyup

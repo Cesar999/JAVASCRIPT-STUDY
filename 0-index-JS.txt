@@ -1,0 +1,2006 @@
+What is JavaScript?
+    Is a weak and dynamic programming language for the web. It is primarily used to enhance web pages to provide interactivity and funcionality by dynamically updating content.
+    
+EcmaScript?
+    ECMAScript is a scripting-language specification standardized by Ecma International. It was created to standardize JavaScript. 
+
+console object?
+    The console object provides access to the browser's debugging console (e.g. the Web Console in Firefox). The specifics of how it works varies from browser to browser, but there is a de facto set of features that are typically provided.
+    The console object can be accessed from any global object. Window on browsing scopes and WorkerGlobalScope as specific variants in workers via the property console.
+
+    console.log(): The Console method log() outputs a message to the web console. The message may be a single string (with optional substitution values), or it may be any one or more JavaScript objects.
+
+    console.error(): Outputs an error message to the Web Console.
+
+    console.clear(): Clear the console.
+
+    console.time(): Starts a timer you can use to track how long an operation takes. You give each timer a unique name, and may have up to 10,000 timers running on a given page. When you call console.timeEnd() with the same name, the browser will output the time, in milliseconds, that elapsed since the timer was started.
+
+    console.timeEnd(): Stops a timer that was previously started by calling console.time().
+
+    console.table(): Displays tabular data as a table. This function takes one mandatory argument data, which must be an array or an object, and one additional optional parameter columns.It logs data as a table. Each element in the array (or enumerable property if data is an object) will be a row in the table.
+
+   .\JavaScript\Console.js
+
+Javascript Types?
+    Javascript has 7 types in wich 6 are primitives.
+    The primitive types are: Number, String, Boolean, Null, Undefined and Symbol.
+    The other type is Object.
+
+    Number: represents both integer and floating point numbers. There are many operations for numbers, e.g. multiplication *, division /, addition +, subtraction -, and so on.
+    Besides regular numbers, there are so-called “special numeric values” which also belong to this data type: Infinity, -Infinity and NaN.
+
+    String: A string may have one or more characters, there’s no separate single-character type.
+    A string in JavaScript must be surrounded by quotes.
+    in JavaScript, there are 3 types of quotes.
+    Double quotes: "Hello".
+    Single quotes: 'Hello'.
+    Backticks: `Hello`.
+    Double and single quotes are “simple” quotes. There’s no difference between them in JavaScript.
+    Backticks are “extended functionality” quotes. They allow us to embed variables and expressions into a string by wrapping them in ${…}
+
+    Boolean: The boolean type has only two values: true and false.
+
+    Null: It’s just a special value which represents “nothing”, “empty” or “value unknown”.
+    Because of a bug the type of null is Object.
+
+    Undefined: The meaning of undefined is “value is not assigned”. If a variable is declared, but not assigned, then its value is undefined.
+
+    Symbol: For unique identifiers.
+
+    Object: For more complex data structures. Constructors Array, Error, RegExp, Math, Set Boolean, Symbol, Number and String. Object types have properties and also have methods that can act on those properties.
+    
+    typeof: The typeof operator returns a string indicating the type of the unevaluated operand.
+    All constructor functions, with the exception of the Function constructor, will always be typeof 'object'
+
+    .\JavaScript\Types.js
+
+Number Operations?
+    +	Addition	Adds two numbers together.
+    -	Subtraction	Subtracts the right number from the left.
+    *	Multiplication	Multiplies two numbers together.
+    /	Division	Divides the left number by the right.
+    %	Remainder (sometimes called modulo)	Returns the remainder left  over after you've divided the left number into a number of integer portions equal to the right number.
+    **	Exponent	Raises a base number to the exponent power, that is, the base number multiplied by itself, exponent times.
+    toFixed() The toFixed() method formats a number using fixed-point notation.
+
+    increment adn decremenet:
+        ++ inrement operator increase by 1 the variable.
+        -- decreament operator decreases by 1 the variable.
+        if the operator is before the variable the vlaue is update and then assign to the variable else the value is asign to the variable and then update it.
+
+    Assignment operators:
+        +=	Addition assignment	Adds the value on the right to the variable value on the left, then returns the new variable value
+        -=	Subtraction assignment Subtracts the value on the right from the variable value on the left, and returns the new variable value
+
+        *=	Multiplication assignment	Multiplies the variable value on the left by the value on the right, and returns the new variable value
+        /=	Division assignment	Divides the variable value on the left by the value on the right, and returns the new variable value
+    
+    Comparison operators:
+        ===	Strict equality	Tests whether the left and right values are identical to one another	
+        !==	Strict-non-equality	Tests whether the left and right values are not identical to one another	
+        <	Less than	Tests whether the left value is smaller than the right one.	
+        >	Greater than	Tests whether the left value is greater than the right one.	
+        <=	Less than or equal to	Tests whether the left value is smaller than or equal to the right one.
+        >=	Greater than or equal to	Tests whether the left value is greater than or equal to the right one.
+
+    .\JavaScript\Number1.js
+    .\JavaScript\Number2.js
+    .\JavaScript\Number3.js
+    .\JavaScript\Number4.js
+    
+Math object?
+    Math is a built-in object that has properties and methods for mathematical constants and functions. It’s not a function object.
+
+    Math.PI: Ratio of the a circle's circumference to its diameter; approximately 3.14159.
+
+    Math.E: Euler's constant and the base of natural logarithms; approximately 2.718.
+
+    Math.abs(x): Returns the absolute value of x.
+
+    Math.ceil(x): Returns the smallest integer greater than or equal to x.
+
+    Math.floor(x): Returns the largest integer less than or equal to x.
+
+    Math.round(x): Returns the value of the number x rounded to the nearest integer.
+
+    Math.max([x[, y[, …]]]): Returns the largest of zero or more numbers.
+
+    Math.min([x[, y[, …]]]): Returns the smallest of zero or more numbers.
+
+    Math.pow(x, y): Returns base x to the exponent power y (that is, xy).
+
+    Math.sqrt(x): Returns the positive square root of x.
+
+    Math.random(): Returns a pseudo-random number between 0 and 1.
+
+    Math.sign(x): Returns the sign of the x, indicating whether x is positive, negative, or zero.
+
+    Math.sin(x): Returns the sine of x. radians.
+
+    Math.cos(x): Returns the cosine of x. radians.
+
+    Math.tan(x): Returns the tangent of x. radians.
+
+    Math.exp(x): Returns Ex, where x is the argument, and E is Euler's constant (2.718…, the base of the natural logarithm).
+
+    Math.log(x): Returns the natural logarithm (loge; also, ln) of x.
+
+    .\JavaScript\Math.js
+
+if else statement?
+    The if statement executes a statement if a specified condition is truthy. If the condition is falsy, another statement can be executed.
+
+    Use if to specify a block of code to be executed, if a specified condition is true
+    Use else to specify a block of code to be executed, if the same condition is false
+    Use else if to specify a new condition to test, if the first condition is false
+
+    The logical NOT (!) operator (logical complement, negation) takes truth to falsity and vice versa. It is typically used with Boolean (logical) values. When used with non-Boolean values, it returns false if its single operand can be converted to true; otherwise, returns true.
+
+    The logical AND (&&) operator (logical conjunction) for a set of operands is true if and only if all of its operands are true. It is typically used with Boolean (logical) values. When it is, it returns a Boolean value.
+
+    The logical OR (||) operator (logical disjunction) for a set of operands is true if and only if one or more of its operands is true. It is typically used with Boolean (logical) values. When it is, it returns a Boolean value. 
+
+    The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy. This operator is frequently used as a shortcut for the if statement.
+
+    .\JavaScript\IfElse.js
+    .\JavaScript\Operators.js
+
+Switch statement?
+    The switch statement evaluates an expression, matching the expression's value to a case clause, and executes statements associated with that case, as well as statements in cases that follow the matching case.
+
+    .\JavaScript\Switch.js
+
+for statement?
+    The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement (usually a block statement) to be executed in the loop.
+
+    for is able to use the continue and break keywords to skip or break an iteration. Also uses a condition to break the iteration.
+
+    foreach is able to use arguments forEach(item, index). Iterates over al elements in the array.
+
+    .\JavaScript\For.js
+
+while statement?
+    The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement.
+
+    The do...while statement creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing at least once.
+
+    .\JavaScript\While.js
+
+Object?
+    The Object class represents one of JavaScript's data types. It is used to store various keyed collections and more complex entities. Objects can be created using the Object() constructor or the object initializer / literal syntax.
+    JavaScript object is a standalone entity that holds multiple values in terms of properties and methods. Data structure that holds key value pairs.
+    Object property stores a literal value and method represents function.
+    An object can be created using object literal or object constructor syntax.
+    Object literal: using the curly brackets {} to create an object.
+    Object constructor: using the new Object() to create an object.
+    Object properties and methods can be accessed using dot notation or [ ] bracket.
+    An object is passed by reference from one function to another.
+    An object can include another object as a property.
+
+    .\JavaScript\Object.js
+
+this keyword?
+
+    this keyword refers to an object, that object which is executing the current piece of javascript code.
+
+    The value of this is determined by how a function is called (runtime binding). It can't be set by assignment during execution, and it may be different each time the function is called. ES5 introduced the bind() method to set the value of a function's this regardless of how it's called, and ES2015 introduced arrow functions which don't provide their own this binding (it retains the this value of the enclosing lexical context).
+    this is the same as the global when you have nested functions inside a class or constructor.
+
+    It has different values depending on where it is used:
+        In a method, this refers to the owner object.
+        Alone, this refers to the global object.
+        In a function, this refers to the global object.
+        In a function, in strict mode, this is undefined.
+        In an event, this refers to the element that received the event.
+        Methods like call(), and apply() can refer this to any object.
+
+    .\JavaScript\This.js
+
+Call, Apply and Bind? 
+    Function.prototype.call()
+    The method Call invokes the function has its this keyword set to the provided value and allows you to pass in arguments one by one using commas.
+
+    Function.prototype.apply()
+    The method Apply invokes the function has its this keyword set to the provided value and allows you to pass in arguments as an array.
+
+    The Bind method returns a new function has its this keyword set to the provided value, any number of arguments. Use it when you want that function to later be called with a certain context like events.
+
+    .\JavaScript\CallApplyBind.js
+
+Prototype?
+    Objects in JavaScript have an internal property known as prototype. It is simply a reference to another object and contains common attributes/properties across all instances of the object. An object’s prototype attribute specifies the object from which it inherits properties.
+
+    Prototype chain
+    When an object gets a request for a property that it does not have, its prototype will be searched for the property, then the prototype’s prototype, and so on. So who is the prototype of an object? It is the great ancestral prototype, the entity behind almost all objects, Object.prototype. Many objects don’t directly have Object.prototype as their prototype, but instead have another object that provides a different set of default properties. Functions derive from Function.prototype, and arrays derive from Array.prototype and so on.
+
+    Prototypal Inheritance: A prototype is a working object instance. Objects inherit directly from other objects.
+
+    The instanceof operator tests to see if the prototype property of a constructor appears anywhere in the prototype chain of an object. The return value is a boolean value. 
+ 
+    .\JavaScript\Prototype1.js
+
+enumerable, configurable and writable?
+    writable: I can modify their values, I can update a property just assigning a new value to it.Defaults to false.
+
+    enumerable: I can access to all of them using a for..in loop. Also, enumerable property keys of an object are returned using Object.keys method. Defaults to false.
+
+    configurable: I can modify the behavior of the property, so I can make them non-enumerable, non-writable or even non-cofigurable if I feel like doing so. Configurable properties are the only ones that can be removed using the delete operator. Defaults to false.
+
+Object Methods?
+    Object.create() method creates a new object, using an existing object as the prototype of the newly created object. 
+
+    Object.defineProperty() defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
+
+    Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object. It will return the target object.
+
+    Object.hasOwnProperty() method returns a boolean indicating whether the object has the specified property as its own property (as opposed to inheriting it).
+
+    Object.keys() method returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would.
+
+    Object.values() method returns an array of a given object's own enumerable property values, in the same order as that provided by a for...in loop. (The only difference is that a for...in loop enumerates properties in the prototype chain as well.)
+
+    Object.entries() The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a for...in loop. (The only important difference is that a for...in loop enumerates properties in the prototype chain as well). 
+    The order of the array returned by Object.entries() does not depend on how an object is defined. If there is a need for certain ordering, then the array should be sorted first, like Object.entries(obj).sort((a, b) => b[0].localeCompare(a[0]));.
+
+    .\JavaScript\ObjectMethods0.js
+    .\JavaScript\ObjectMethods1.js
+    .\JavaScript\ObjectMethods2.js
+
+Object.freeze vs Object.seal?
+        The Object.seal() method seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable. Values of present properties can still be changed as long as they are writable.
+
+        The Object.freeze() method freezes an object. A frozen object can no longer be changed; freezing an object prevents new properties from being added to it, existing properties from being removed, prevents changing the enumerability, configurability, or writability of existing properties, and prevents the values of existing properties from being changed. In addition, freezing an object also prevents its prototype from being changed. freeze() returns the same object that was passed in.
+        Exactly what Object.seal does, plus.
+
+    .\JavaScript\ObjectMethods3.js
+
+set and get ?
+    The set syntax binds an object property to a function to be called when there is an attempt to set that property.
+
+    The get syntax binds an object property to a function that will be called when that property is looked up.
+
+    .\JavaScript\SetGet.js
+
+Array?
+    The JavaScript Array class is a global object that is used in the construction of arrays; which are high-level, list-like objects.
+    The Array is an ordered list of values. Each value is called an element specified by an index. 
+    An array can hold values of different types. 
+    The length of an array is dynamically sized and auto-growing.
+    To access an element in an array, you specify an index in the square brackets [] from 0 to length - 1.
+    Array.push(): Adding an element to the end of an array
+    Array.unshift(): Adding an element to the beginning of an array
+    Array.pop(): Removing an element from the end of an array
+    Array.shift(): Removing an element from the beginning of an array
+    Array.isArray(): Check if an value is an array
+
+    In JavaScript, an array is an order list of values. Each value is called an element specified by an index.
+    An array can hold values of mixed types.
+    JavaScript arrays are dynamic. They grow or shrink as needed.
+
+    JavaScript arrays are most likely more memory efficient that objects, so the data uses less memory, this due Arrays values are allocated sequencially in memory.
+
+    .\JavaScript\Array.js
+
+array methods: Array.from() isArray() flat()?
+
+    The Array.from() static method creates a new, shallow-copied Array instance from an array-like or iterable object.
+
+    The Array.isArray() method determines whether the passed value is an Array.
+
+    The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+
+    .\JavaScript\ArrayMethods0.js
+
+array methods: indexOf() includes() split() join() reverse() concat() fill()?
+    The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+    The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+
+    The split() method splits a String object into an array of strings by separating the string into substrings, using a specified separator string to determine where to make each split.
+
+    The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
+
+    The reverse() method reverses an array in place. The first array element becomes the last, and the last array element becomes the first.
+
+    The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+
+    The fill() method changes all elements in an array to a static value, from a start index (default 0) to an end index (default array.length). It returns the modified array.
+
+    .\JavaScript\ArrayMethods1.js
+
+Reduce, Filter, Map (ES6)?
+    Reduce:  Method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+        Four arguments: Accumulator (acc), Current Value (cur), Current Index (idx) and Source Array (src).
+        Your reducer function's returned value is assigned to the accumulator, whose value is remembered across each iteration throughout the array and ultimately becomes the final, single resulting value.
+
+    Filter: Method creates a new array with all elements that pass the test implemented by the provided function.
+        Three arguments: Current Value (cur), Current Index (idx) and Source Array (src).
+
+    Map: Method creates a new array with the results of calling a provided function on every element in the calling array. Creates a new array with the results of calling a provided function on every element in the calling array.
+        Three arguments: Current Value (cur), Current Index (idx) and Source Array (src).
+
+    forEach:  executes a provided function once for each array element. (does not return a new array)
+
+    .\JavaScript\ArrayMethods2.js
+
+Array.findIndex(), Array.find(), Array.some(), Array.every()?
+    findIndex() The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
+
+    The find() method returns the value of the first element in the provided array that satisfies the provided testing function. If no values satisfies the testing function, undefined is returned.
+
+    The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
+    const array = [1, 2, 3, 4, 5];
+    const even = (element) => element % 2 === 0;
+    array.some(even)
+
+    The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value. 
+    const isBelowThreshold = (currentValue) => currentValue < 40;
+    const array1 = [1, 30, 39, 29, 10, 13];
+    const temp = array1.every(isBelowThreshold);
+    console.log(temp);
+
+    .\JavaScript\ArrayMethods3.js
+
+Array.sort()?
+    The sort() method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
+    The sorted array. Note that the array is sorted in place, and no copy is made.
+
+    .\JavaScript\ArrayMethods4.js
+
+substr vs substring || slice vs splice?
+    The substring() method returns the part of the string between the start and end indexes, or to the end of the string.
+    substring(). IndexStart to IndexEnd. extracts characters from indexStart up to but not including indexEnd. In particular:
+    If indexEnd is omitted, substring() extracts characters to the end of the string.
+    If indexStart is equal to indexEnd, substring() returns an empty string.
+    If indexStart is greater than indexEnd, then the effect of substring() is as if the two arguments were swapped; See example below.
+
+    The substr(). IndexStart and Length. method returns a portion of the string,starting at the specified index and extending for a given number of characters afterward.
+    Argument 1: start, Required. The position where to start the extraction. First character is at index 0. To extract characters from the end of the string, use a negative start number.
+    Argument 2: length,Optional. The number of characters to extract. If omitted, it extracts the rest of the string.
+    substr() extracts length characters from a string, counting from the start index.
+    If start is a positive number, the index starts counting at the start of the string. Its value is capped at str.length.
+    If start is a negative number, the index starts counting from the end of the string. Its value is capped at -str.length.
+    Note: In Microsoft JScript, negative values of the start argument are not considered to refer to the end of the string.
+    If length is omitted, substr() extracts characters to the end of the string.
+    If length is undefined, substr() extracts characters to the end of the string.
+    If length is a negative number, it is treated as 0.
+
+    The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included) where begin and end represent the index of items in that array. The original array will not be modified.
+    Zero-based index before which to end extraction. slice extracts up to but not including end.
+    For example, slice(1,4) extracts the second element through the fourth element (elements indexed 1, 2, and 3).
+    A negative index can be used, indicating an offset from the end of the sequence. slice(2,-1) extracts the third element through the second-to-last element in the sequence.
+    If end is omitted, slice extracts through the end of the sequence (arr.length).
+    If end is greater than the length of the sequence, slice extracts through to the end of the sequence (arr.length).
+
+    The splice(starIndex, DeleteCount, item1, ...) method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
+    DeleteCount: An integer indicating the number of elements in the array to remove from start / if 0 insert value else replace value.
+
+    substring() If start > stop, then substring will swap those 2 arguments.
+
+    slice() If start > stop, slice() will return the empty string. ("")
+
+    .\JavaScript\ArrayMethods5.js
+
+for of / for in ?
+    The for...of statement creates a loop iterating over iterable objects, including: built-in String, Array, array-like objects (e.g., arguments or NodeList), TypedArray, Map, Set, and user-defined iterables. It invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.
+
+    The for...in statement iterates over all enumerable properties of an object that are keyed by strings (ignoring ones keyed by Symbols), including inherited enumerable properties.
+
+    .\JavaScript\ForOfIn.js
+
+String methods?
+    The String object is used to represent and manipulate a sequence of characters.
+    Strings are useful for holding data that can be represented in text form. Some of the most-used operations on strings are to check their length, to build and concatenate them using the + and += string operators.
+
+    The length property of a String object contains the length of the string, in UTF-16 code units. length is a read-only data property of string instances.
+
+    The concat() method concatenates the string arguments to the calling string and returns a new string.
+
+    The repeat() method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+
+    The toUpperCase() method returns the calling string value converted to uppercase (the value will be converted to a string if it isn't one).
+
+    The toLowerCase() method returns the calling string value converted to lower case.
+   
+    The trim() method removes whitespace from both ends of a string. Whitespace in this context is all the whitespace characters (space, tab, no-break space, etc.) and all the line terminator characters (LF, CR, etc.).
+
+    .\JavaScript\String.js
+
+Function?
+   A function is block of code defined one time and called any number of times later. It takes parameters and returns a value when it is invoked.
+
+    A parameter is a variable in a function definition. 
+    When a function is called, the arguments are the data you pass into the method's parameters.
+
+    The function declaration (function statement) defines a function with the specified parameters.
+    The function keyword can be used to define a function inside an expression.
+
+    //Declaration
+    function calcRectArea(width, height) {return width * height;}
+
+    //Expression
+    var getRectArea = function(width, height) {return width * height;}
+
+    By using the new keyword a function can act as a Function Constructor that creates a new Object.
+
+    The super keyword is used to access and call functions on an object's parent.
+
+    arguments is an Array-like object accessible inside functions that contains the values of the arguments passed to that function.
+
+    .\JavaScript\Function1.js
+    .\JavaScript\Function2.js
+
+Arrow Function(ES6)?
+    The Arrow function is a syntactically compact alternative to a regular function expression, although without its own bindings to the this, arguments or super keywords. Arrow function expressions are ill suited as methods, and they cannot be used as constructors.
+    Shorter syntax.
+    No binding of this, Unlike a regular function, an arrow function does not bind this. Instead, this is bound lexically. Unlike other functions, the value of this inside arrow functions is not dependent on how they are invoked or how they are defined. It depends only on its enclosing context.
+
+    .\JavaScript\ArrowFunction.js
+
+Lexical Scope?
+    Scope: it's the language agnostic concept, to refer to the visibility of variables or functions to the executing code. To put it simply, a scope is the lifespan of a variable. You see, every variable is born, lives and dies. The beginning of a scope marks the time the variable is born and the end of the scope marks the time it dies. 
+
+    Global Scope: There is only one Global Scope in a Javascript Document i.e. area outside all the functions and how you can identify a global scope is that the variable defined in the global scope can be accessed anywhere in the code.
+
+    Local Scope: Variables declared inside functions are local to the function and is bound to the corresponding local scope. Those variables cannot be accessed outside the functions.
+
+    Function scope: Whenever you declare a variable inside a function, the variable is bound within the function and you can’t access it outside the function. var is the keyword to define a variable for function-scope accessibility.  Defining a function doesn't create a scope. Calling a function creates a scope.
+
+    Block scope: A block scope is the area within if, switch conditions or for and while loops. Simply put , whenever you see {curly brackets}, it is a block.
+
+    Lexical Scope: it means the children scope has access to the variables defined in the parent scope.
+    Lexical scoping is better because we can easily figure out the value of a variable from the code, whereas in dynamic scoping, the meaning of a variable can change at runtime, which makes it complex to understand.
+    Lexical Scope: available variables where the function was defined.
+    Dynamic Scope: where the funciton is called.
+
+    Lexical Environment: it's the internal js engine construct that holds identifier-variable mapping. A lexical environment also holds a reference to a parent lexical environment.
+    A Lexical Environment is a specification type used to define the association of Identifiers to specific variables and functions based upon the lexical nesting structure of ECMAScript code.A lexical environment consists of two main components: the environment record and a reference to the outer (parent) lexical environment.
+
+Hoisting?
+    Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
+    inevitably, this means that no matter where functions and variables are declared,they are moved to the top of their scope regardless of whether their scope is global or local.
+
+    Hoisting because it seems like the variable (var) and functions are hoisted (moved to the top) of their lexical enviroment.
+
+    What’s actually happening is that the function and variable declarations are added to memory during the compile phase.
+
+    Function declarations are hoisted over variable declarations but not over variable assignments.
+    Variable assignment over function declaration
+
+    .\JavaScript\Hoisting.js
+
+var, const, let?
+    The var statement declares a variable, optionally initializing it to a value. They vars variables are function scoped and hoisted.
+
+    The let statement declares a block scope local variable, optionally initializing it to a value. They are not hoisted.
+
+    The const keyword delcares constants they are block-scoped, they must be initialized. The value of a constant can't be changed through reassignment, and it can't be redeclared. They are not hoisted.
+
+IIFE?
+    Immediately Invoked Function Expression is a pattern use to isolate variables declarations within the function scope and avoid to pollute the global scope. The way to use is to invoke the funcion as soon as it's created.
+    An Immediately Invoked Function Expression is a good way at protecting the scope of your function and the variables within it.
+
+    .\JavaScript\IIFE.js
+
+Pass Reference vs Value?
+    In Pass by Value, Function is called by directly passing the value of the variable as the argument. Changing the argument inside the function doesn’t affect the variable passed from outside the function.
+    Javascript always pass by value so changing the value of the variable never changes the underlying primitive (String or number).
+    If a primitive type is assigned to a variable, we can think of that variable as containing the primitive value.
+
+    when a variable refers to an object which includes array, the value is the reference to the object.
+    In Pass by Reference, Function is called by directly passing the reference/address of the variable as the argument. Changing the argument inside the function affect the variable passed from outside the function. In Javascript objects and arrays follows pass by reference.
+    Variables that are assigned a non-primitive value are given a reference to that value. That reference points to the object’s location in memory. The variables don’t actually contain the value.
+
+    .\JavaScript\Reference_vs_Value.js
+
+Type Coercion?
+    Type coercion is the process of converting value from one type to another (such as string to number, object to boolean, and so on). Any type, be it primitive or an object, is a valid subject for type coercion.
+    Type coercion is a topic that is closely associated with loose typing. Since data types are managed internally, types are often converted internally as well. 
+    When a developer expresses the intention to convert between types by writing the appropriate code, like Number(value), it’s called explicit type coercion (or type casting).
+    Since JavaScript is a weakly-typed language, values can also be converted between different types automatically, and it is called implicit type coercion.
+
+    Type coercion also occurs when doing comparisons. You can, however, forbid type coercion by using the === operator.
+
+    .\JavaScript\TypeCoercion.js
+
+Weak, Dynamic, Coercion, === vs == ?
+    Statically typed languages check the types and look for type errors during compile time.
+    int x; x = 0; //Declare variable type explicitly.
+
+    Dynamically typed languages check the types and look for type errors during runtime.
+    var x = 9; //You dont have to specify the type of the variable when its declared, implicit type.
+    JavaScript is dynamically typed, that simple means that types can change at run time.
+
+    Weak: Allows implicit type coercion, when doing operation with different types the types get coerce or transform to another type.
+    var x = 'something'
+    x + '6' === 'something6'
+
+    Strong: Does not allows implicit type coercion.
+
+    Dynamic Weak -> JavaScript
+    Dynamic Strong -> Python
+    Static Strong -> Java 
+    Static Weak -> C
+
+parseInt() and toString()?
+    The parseInt() function parses a string argument and returns an integer of the specified radix (the base in mathematical numeral systems).
+    parseInt('0xF', 16); //15
+
+    The toString() method returns a string representing the object. 
+    Number.toString() as an optional argument. An integer in the range 2 through 36 specifying the base to use for representing numeric values.
+
+    The parseFloat() function parses an argument (converting it to a string first if needed) and returns a floating point number.
+
+    .\JavaScript\ParseIntString.js
+
+JSONstringify and parse?
+    The JSON.stringify() method converts a JavaScript object or value to a JSON string.(value, replacer, space)
+    value: The value to convert to a JSON string.
+    replacer: A function that alters the behavior of the stringification process, or an array of String and Number objects that serve as a whitelist for selecting/filtering the properties of the value object to be included in the JSON string. 
+    space: A String or Number object that's used to insert white space into the output JSON string for readability purposes.
+
+    The JSON.parse() method parses a JSON string, constructing the JavaScript value or object described by the string. An optional reviver function can be provided to perform a transformation on the resulting object before it is returned.
+
+    . \JavaScript\JSON.js
+
+Memory Leaks?
+    Memory leaks happen when your code needs to consume memory in your application, which should be released after a given task is completed… but isn’t. For some reason, the application neglects to release the memory, which keeps on being consumed without true need for it to happen.
+
+    The main cause for leaks in garbage collected languages are unwanted references. 
+    Global variables.
+    Forgotten timers or callbacks.
+    Multiple DOM references
+    Closures.
+
+Garbage collecter (GC)?
+    Memory management in JavaScript is performed automatically and invisibly to us. We create primitives, objects, functions… All that takes memory.
+    Garbage collection is performed automatically. We cannot force or prevent it.
+
+    Allocate the memory you need.
+    Use the allocated memory (read, write).
+    Release the allocated memory when it is not needed anymore.
+
+    The JavaScript Engine’s Garbage collector basically looks out for unreachable objects which are removed from the memory. There are two garbage collection algorithms that I would like to explain which are as follows:
+    Reference-counting garbage collection
+    Mark-and-sweep algorithm
+
+    Reference-counting garbage collection.
+    This is a naïve garbage collection algorithm. This algorithm looks out for those objects which have no references left. An object becomes eligible for garbage collection if it has no references attached to it.
+
+    Mark-and-Sweep Algorithm
+    This algorithm looks out for objects which are unreachable from the root which is the JavaScript’s global object. This algorithm overcomes the limitations of Reference-counting algorithm. As an object with no references would be unreachable but not vice-versa.
+
+Closure?
+    A closure is an inner function that has access to the outer (enclosing) function’s variables and parameters. This is like wrapping scope that store references to the outer function’s variables and prevents them to be garbage collected.
+
+    A closure is the combination of a function and the lexical environment within which that function was declared. The closure prevents that all the variables that are in scope at the time of creation of the outer function to be garbage collected while exists a reference to the inner function. 
+
+    .\JavaScript\Closure.js
+
+try and catch?
+    The try...catch statement marks a block of statements to try and specifies a response should an exception be thrown.
+    
+    The try statement consists of a try-block, which contains one or more statements. {} must always be used, even for single statements. At least one catch-block, or a finally-block, must be present. 
+
+    A catch-block contains statements that specify what to do if an exception is thrown in the try-block. If any statement within the try-block (or in a function called from within the try-block) throws an exception, control is immediately shifted to the catch-block. If no exception is thrown in the try-block, the catch-block is skipped.
+
+    The finally-block will always execute after the try-block and catch-block(s) have finished executing. It always executes, regardless of whether an exception was thrown or caught.
+
+    The throw statement throws a user-defined exception. Execution of the current function will stop (the statements after throw won't be executed), and control will be passed to the first catch block in the call stack. If no catch block exists among caller functions, the program will terminate.
+
+    .\JavaScript\TryCatch.js
+    .\JavaScript\Throw.js
+
+Timers?
+    setTimeout allows to run a function once after the interval of time. setTimeout expects a reference to a function. 
+
+    setInterval allows to run a function regularly with the interval between the runs.
+
+    clearTimeout is a function to clear the timer.
+
+    These methods are not a part of JavaScript specification. But most environments have the internal scheduler and provide these methods. In particular, they are supported in all browsers and Node.js.
+    
+    .\JavaScript\Timers1.js
+
+Asynchronous vs Syncronous?
+    In a synchronous programming model, things happen one at a time. When you call a function that performs a long-running action, it returns only when the action has finished and it can return the result. This stops your program for the time the action takes.
+    Normally, a given program's code runs straight along, with only one thing happening at once. If a function relies on the result of another function, it has to wait for the other function to finish and return, and until that happens,the entire program is essentially stopped from the perspective of the user.
+    In synchronous programs, if you have two lines of code (L1 followed by L2), then L2 cannot begin running until L1 has finished executing.
+
+    An asynchronous model allows multiple things to happen at the same time. When you start an action, your program continues to run. When the action finishes, the program is informed and gets access to the result.
+    In asynchronous programs, you can have two lines of code (L1 followed by L2), where L1 schedules some task to be run in the future, but L2 runs before that task completes. Note that asynchronous does not mean the same thing as concurrent or multi-threaded. JavaScript can have asynchronous code, but it is generally single-threaded.
+
+Stack, Queue, Event Loop and Heap?
+    Heap Memory: This is where all the memory allocation happens for your variables,that you have defined in your program.
+
+    Call Stack:  It stores data about procedures that are currently running in a given 	program. This is where all your javascript code gets pushed and executed one by one as the interpreter reads your program, and gets popped out once the execution is done. 
+
+    Node API: runs JavaScript that requires an asynchronous task to be performed.
+
+    Job Queue === Microtask Queue -> Higher priority than Callback Queue
+    Apart from Callback Queue, Browsers have introduced one more queue which is “Job Queue”, reserved only for new Promise() functionality. So when you use promises in your code, you adds thenable method, which are the callback methods. These thenable methods are added to Job Queue, and gets executed once the promise has returned/resolved.
+    Promise.resolve schedule a microtask and the setTimeout schedule a macrotask. And the microtasks are executed before running the next macrotask.
+
+    Callback Queue: This is where your asynchronous code gets pushed to, and waits for the execution. Stores the finished asynchronous task.
+
+    Event Loop: Then comes the Event Loop, which keeps running continuously and checks the Main stack if it has any frames to execute, if not then it checks Callback queue, if Callback queue has codes to execute then it pops the message from it to the Main Stack for the execution
+
+Callbacks?
+    A callback is a function passed as an argument to another function
+    This technique allows a function to call another function
+    A callback function can run after another function has finished
+    JavaScript functions are executed in the sequence they are called. Not in the sequence they are defined.
+    Where callbacks really shine are in asynchronous functions, where one function has to wait for another function (like waiting for a file to load).
+
+    .\JavaScript\Callbacks.js
+
+Promises(ES6)?
+    The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.
+
+    Promises are used to handle asynchronous operations in JavaScript. They are easy to manage when dealing with multiple asynchronous operations where callbacks can create callback hell leading to unmanageable code.
+
+    Benefits of Promises:
+        Improves Code Readability
+        Better handling of asynchronous operations
+        Better flow of control definition in asynchronous logic
+        Better Error Handling
+
+    A Promise is in one of these states:
+        pending: initial state, neither fulfilled nor rejected.
+        fulfilled: meaning that the operation completed successfully.
+        rejected: meaning that the operation failed.
+
+    A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.
+
+    Promise.resolve: Returns a new Promise object that is resolved with the given value. 
+    Promise.reject: Returns a new Promise object that is rejected with the given reason.
+
+    Promise.all: Wait for all promises to be resolved, or for any to be rejected.  method takes an iterable of promises as an input, and returns a single Promise that resolves to an array of the results of the input promises. This returned promise will resolve when all of the input's promises have resolved, or if the input iterable contains no promises. It rejects immediately upon any of the input promises rejecting or non-promises throwing an error, and will reject with this first rejection message / error.
+
+    Promise.race: Wait until any of the promises is resolved or rejected. Return the value of the first promise resolved.
+
+    Promise.catch: Appends a rejection handler callback to the promise.
+    Promise.then: Appends fulfillment and rejection handlers to the promise, and returns a new promise resolving to the return value of the called handler.
+
+    .\JavaScript\Promises1.js
+    .\JavaScript\Promises2.js
+    .\JavaScript\Promises3.js
+    .\JavaScript\Promises4.js
+    .\JavaScript\Promises5.js
+
+Spread/Rest(ES6)?
+    Spread: Allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected.
+    or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected.
+
+    Rest: collects all remaining elements into an array. It has to be the last parameter.  
+
+    .\JavaScript\SpreadRest.js
+
+ES6: Destructuring, Default Parameters, Template Literals, Classes, Modules, (Promises, Arrow Functions, Spread/Rest, [Reduce, Filter, Map])?
+
+    Destructuring: 
+        The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects,into distinct variables.
+
+    Default Parameters: 
+        Default function parameters allow named parameters to be initialized with default values if no value or undefined is passed.
+
+    Template Literals: 
+        Template literals are string literals allowing embedded expressions. You can use multi-line strings and string interpolation features with them.
+        `string text ${expression} string text`
+
+    Classes:
+        JavaScript classes, introduced in ECMAScript 2015, are primarily syntactical sugar over JavaScript's existing prototype-based inheritance. The class syntax does not introduce a new object-oriented inheritance model to JavaScript.
+    
+    Modules:
+        The export statement is used when creating JavaScript modules to export functions, objects, or primitive values from the module so they can be used by other programs with the import statement.
+        The static import statement is used to import bindings which are exported by another module. 
+
+    .\JavaScript\Destructuring.js
+    .\JavaScript\DefaultParameters.js
+    .\JavaScript\TemplateLiterals.js
+    .\JavaScript\Classes.js
+    .\JavaScript\ModulesExport1.js
+    .\JavaScript\ModulesImport1.js
+    .\JavaScript\ModulesExport2.js
+    .\JavaScript\ModulesImport2.js
+    .\JavaScript\ModulesExport3.js
+    .\JavaScript\ModulesImport3.js
+
+Map?
+    The Map object holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value. Object is similar to Map—both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. For this reason (and because there were no built-in alternatives), Object has been used as Map historically. 
+    There are important differences that make Map preferable in certain cases:
+        A Map does not contain any keys by default. It only contains what is explicitly put into it.
+        A Map's keys can be any value (including functions, objects, or any primitive).
+        The keys in Map are ordered in a simple, straightforward way: A Map object iterates entries, keys, and values in the order of entry insertion.
+        The number of items in a Map is easily retrieved from its size property.
+        A Map is an iterable, so it can be directly iterated.
+        Performs better in scenarios involving frequent additions and removals of key-value pairs.
+
+    The Map() constructor creates Map objects.
+    The set() method adds or updates an element with a specified key and a value to a Map object.
+    The get() method returns a specified element from a Map object. If the value that is associated to the provided key is an object, then you will get a reference to that object and any change made to that object will effectively modify it inside the Map object.
+    The has() method returns a boolean indicating whether an element with the specified key exists or not.
+    The delete() method removes the specified element from a Map object by key.
+    The clear() method removes all elements from a Map object.
+
+    The Set object lets you store unique values of any type, whether primitive values or object references. Set objects are collections of values. You can iterate through the elements of a set in inser-tion order. A value in the Set may only occur once; it is unique in the Set's collection. The Set constructor lets you create Set objects that store unique values of any type, whether primitive values or object references.
+    The add() method appends a new element with a specified value to the end of a Set object.
+    The has() method returns a boolean indicating whether an element with the specified value exists in a Set object or not.
+    The delete() method removes a specified value from a Set object, if it is in the set.
+    The clear() method removes all elements from a Set object.
+
+    .\JavaScript\Maps.js
+    .\JavaScript\Sets.js
+
+ES7, ES8, ES9?
+    ES7: The ES7 standard, which, in accordance with the official terminology, is called ES2016, was released in the summer of 2016. In comparison with ES6, it brought not so much new to the language. 
+    The Array.prototype.includes() method is designed to check for the presence of an element in an array. Finding the required in the array, it returns true , not finding - false.
+    The exponentiation operator performs the same function as the Math.pow() method,but it is more convenient to use it than the library function, since it is part of the language. 
+
+    ES8: Standard ES8 (ES2017) was released in 2017. He, like ES7, introduced not so much new to the language.
+    Object.values(): This method returns an array containing the values ​​of the object's own properties, that is, properties that the object itself contains, and not those that are accessible to it through a chain of prototypes. 
+    Object.entries: This method returns an array, each element of which is also an array containing,in the format of [key, value] , the keys and values ​​of the object's own properties. 
+    When applying this method to arrays, indexes of elements are displayed as keys, and what is stored in the array at the corresponding indices is displayed as values. 
+
+    ES9:  (ES2018) is the latest version of the standard at the time of publication of this material. Here are its main features: 
+    Promise.prototype.finally(): If the promise is successfully resolved, the next then() method is called. If something goes wrong, the catch() method is called. The finally() method allows you to execute some code, regardless of what happened before. 
+
+    .\JavaScript\ES7.js
+    .\JavaScript\ES8.js
+    .\JavaScript\ES9.js
+
+iterable vs enumerable?
+    Iterable Object that knows how to access items from a collection one at a time, while keeping track of its current position within that sequence.
+    
+    Enumerable properties are those properties whose internal enumerable flag is set to true, which is the default for properties created via simple assignment or via a property initializer.
+
+    The main difference is that for...in is used for iterating over enumerable properties of objects. That simply refers to objects that have properties with values that can be looked over. This can be like looking through an array (with indexes), a string (with indexes), or an Object (with keys) but not something like a boolean. The for...of iterator on the other hand serves iterable collections. This refers to objects whose enumerable properties can be followed in order. Arrays and strings still work because they use indexes, but an Object will not because there is no order to its keys.
+
+    for in: enumerable -> object, array, string
+    for of: iterable -> array, string
+
+Generators?
+    In JavaScript an iterator is an object which defines a sequence and potentially a return value upon its termination. More specifically an iterator is any object which implements the Iterator protocol by having a next() method which returns an object with two properties: value, the next value in the sequence; and done, which is true if the last value in the sequence has already been consumed. If value is present alongside done, it is the iterator's return value.
+    Once created, an iterator object can be iterated explicitly by repeatedly calling next(). Iterating over an iterator is said to consume the iterator, because it is generally only possible to do once. After a terminating value has been yielded additional calls to next() should simply continue to return {done: true}.
+
+    A generator is a function that can stop midway and then continue from where it stopped. In short, a generator appears to be a function but it behaves like an iterator. A normal function such as this one cannot be stopped before it finishes its task. Generators are a special class of functions that simplify the task of writing iterators.
+    A generator is a function that produces a sequence of results instead of a single value.
+
+    yield: Pause and resume a generator function.
+
+    .\JavaScript\Iterator.js
+    .\JavaScript\Generator.js
+
+Async / Await ?
+    An async function is a function declared with the async keyword. Async functions are instances of the AsyncFunction constructor, and the await keyword is permitted within them. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
+
+    Async: It simply allows us to write promises based code as if it was synchronous and it checks that we are not breaking the execution thread. It operates asynchronously via the event-loop. Async functions will always return a value. It makes sure that a promise is returned and if it is not returned then javascript automatically wraps it in a promise which is resolved with its value.
+
+    Await: Await function is used to wait for the promise. It could be used within the async block only. It makes the code wait until the promise returns a result. It only makes the async block wait.
+
+    async functions get decomposed into generators and promises can come in handy when reading/debugging your transformed code.
+
+    .\JavaScript\AsyncAwait.js
+
+RegExp?
+    The RegExp object is used for matching text with a pattern.
+    The literal notation's parameters are enclosed between slashes and do not use quotation marks.
+    The constructor function's parameters are not enclosed between slashes but do use quotation marks.
+
+    The RegExp constructor creates a regular expression object for matching text with a pattern.
+    There are two ways to create a RegExp object: a literal notation and a constructor. The parameters to the literal notation are enclosed between slashes and do not use quotation marks while the parameters to the constructor function are not enclosed between slashes but do use quotation marks.
+
+    g global match; find all matches rather than stopping after the first match.
+    i ignore case; if u flag is also enabled, use Unicode case folding. m Multi-line search.
+
+    If you need to use any of the special characters literally (actually searching for a "*", for instance), you must escape it by putting a backslash in front of it
+
+    The test() method executes a search for a match between a regular expression and a specified string. Returns true or false.
+
+    The match() method retrieves the result of matching a string against a regular expression.
+
+    replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match. If pattern is a string, only the first occurrence will be replaced.
+
+    The exec() method executes a search for a match in a specified string. Returns a result array, or null.
+
+    ^ Matches beginning of input. 
+    $ Matches end of input. 
+    * Matches the preceding expression 0 or more times. 
+    + Matches the preceding expression 1 or more times.
+    ? Matches the preceding expression 0 or 1 time. 
+    . matches any single character except the newline character, by default.
+    () The parentheses are called capturing parentheses or groups.
+    \w Matches any alphanumeric character including the underscore. Equivalent to [A-Za-z0-9_].
+    \d Matches a digit character. Equivalent to [0-9].
+
+    greedy .+ Matches the last match of a pattern
+    lazy .+? Matches the first match of a pattern 
+
+    .\JavaScript\RegExp1.js
+    .\JavaScript\RegExp2.js
+    .\JavaScript\RegExp3.js
+
+Date?
+    JavaScript Date instance that represents a single moment in time in a platform-independent format. Date objects contain a Number that represents milliseconds since 1 January 1970 UTC.
+
+    getFullYear()	Get the year as a four digit number (yyyy)
+    getMonth()	Get the month as a number (0-11)
+    getDate()	Get the day as a number (1-31)
+    getHours()	Get the hour (0-23)
+    getMinutes()	Get the minute (0-59)
+    getSeconds()	Get the second (0-59)
+    getMilliseconds()	Get the millisecond (0-999)
+    getTime()	Get the time (milliseconds since January 1, 1970)
+    getDay()	Get the weekday as a number (0-6)
+    Date.now()	Get the time. ECMAScript 5.
+
+    .\JavaScript\Date.js
+
+Metaprogramming?
+    Metaprogramming is a programming technique in which computer programs have the ability to treat other programs as their data. It means that a program can be designed to read, generate, analyze or transform other programs, and even modify itself while running.
+
+    The Proxy object enables you to create a proxy for another object, which can intercept and redefine fundamental operations for that object.
+    Use the Proxy() constructor to create a new Proxy object. This constructor takes two mandatory arguments:
+        target is the object for which you want to create the proxy
+        handler is the object that defines the custom behavior of the proxy.
+
+        The handler.get() method is a trap for getting a property value.
+        The handler.set() method is a trap for setting a property value.
+        The handler.has() method is a trap for the in operator.
+        The handler.apply() method is a trap for a function call.
+
+    Reflect is a built-in object that provides methods for interceptable JavaScript operations. The methods are the same as those of proxy handlers. Reflect is not a function object, so it's not constructible. Unlike most global objects, Reflect is not a constructor. You cannot use it with a new operator or invoke the Reflect object as a function. All properties and methods of Reflect are static (just like the Math object). The Reflect object provides the following static functions which have the same names as the proxy handler methods. In computer programming, reflection is the ability of a program to manipulate variables, properties, and methods of objects at runtime.
+    Prior to ES6, JavaScript already has reflection features even though they were not officially called that by the community or the specification. For example, methods like Object.keys(), Object.getOwnPropertyDescriptor(), and Array.isArray() are the classic reflection features.
+    ES6 introduces a new global object called Reflect that allows you to call methods, construct objects, get and set properties, manipulate and extend properties.
+    The Reflect API is important because it allows you to develop programs and frameworks that are able to handle dynamic code.
+
+        The static Reflect.get() method works like getting a property from an object (target[propertyKey]) as a function.
+        The static Reflect.set() method works like setting a property on an object.
+        The static Reflect.has() method works like the in operator as a function.
+        The static Reflect.apply() method calls a target function with arguments as specified.
+
+    JavaScript\Proxy1.js
+    JavaScript\Proxy2.js
+    JavaScript\Proxy3.js
+    JavaScript\Proxy4.js
+    JavaScript\Reflect1.js
+    JavaScript\Reflect2.js
+    JavaScript\Reflect3.js
+    JavaScript\Reflect4.js
+
+DOM?
+    The Document Object Model (DOM) connects web pages to scripts or programming languages by representing the structure of a document—such as the HTML representing a web page—in memory. Usually, that means JavaScript, although modeling HTML, SVG, or XML documents as objects are not part of the core JavaScript language, as such.
+    The DOM represents a document with a logical tree. Each branch of the tree ends in a node, and each node contains objects. DOM methods allow programmatic access to the tree. With them, you can change the document's structure, style, or content.
+    Nodes can also have event handlers attached to them. Once an event is triggered, the event handlers get executed.
+
+    The querySelector() method of the Element interface returns the first element that is a descendant of the element on which it is invoked that matches the specified group of selectors.
+    The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned. 
+
+    The Element method querySelectorAll() returns a static (not live) NodeList representing a list of elements matching the specified group of selectors which are descendants of the element on which the method was called.     The Document method querySelectorAll() returns a static (not live) NodeList representing a list of the document's elements that match the specified group of selectors.
+
+Document?
+    The Document interface represents any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree. The DOM tree includes elements such as <body> and <table>, among many others. It provides functionality globally to the document, like how to obtain the page's URL and create new elements in the document.
+
+    Document.body: Returns the <body> or <frameset> node of the current document.
+
+    Document.documentElement: Returns the Element that is a direct child of the document. For HTML documents, this is normally the HTMLHtmlElement object representing the document's <html> element.
+
+    Document.forms:Returns a list of the <form> elements within the current document.
+
+    Document.headRead: Returns the <head> element of the current document.
+
+    Document.title: Sets or gets the title of the current document.
+
+    Document.cookie: Returns a semicolon-separated list of the cookies for that document or sets a single cookie.
+
+    Document.URL: Returns the document location as a string.
+
+    Document.location: Returns the URI of the current document.
+
+    document.createElement(): method creates the HTML element specified by tagName, or an HTMLUnknownElement if tagName isn't recognized. 
+
+    document.createTextNode(): Creates a new Text node. This method can be used to escape HTML characters.
+
+
+Element?
+    Element is the most general base class from which all element objects (i.e. objects that represent elements) in a Document inherit. It only has methods and properties common to all kinds of elements. More specific classes inherit from Element. For example, the HTMLElement interface is the base interface for HTML elements, while the SVGElement interface is the basis for all SVG elements. 
+
+    The Text interface represents the textual content of Element or Attr.
+    If an element has no markup within its content, it has a single child implementing Text that contains the element's text. However, if the element contains markup, it is parsed into information items and Text nodes that form its children.
+
+    Element.attributes: Returns a NamedNodeMap object containing the assigned attributes of the corresponding HTML element.
+
+    Element.classList: Returns a DOMTokenList containing the list of class attributes.
+
+        .add(class1, class2, ...): Adds one or more class names to an element. If the specified class already exist, the class will not be added.
+
+        .contains(class): Returns a Boolean value, indicating whether an element has the specified class name.
+        Possible values:
+        true - the element contains the specified class name.
+        false - the element does not contain the specified class name.
+
+        .item(index): Returns the class name with a specified index number from an element. Index starts at 0. Returns null if the index is out of range.
+
+        .remove(class1, class2, ...): Removes one or more class names from an element. Note: Removing a class that does not exist, does NOT throw an error.
+
+        .toggle(class, true|false): Toggles between a class name for an element. The first parameter removes the specified class from an element, and returns false. If the class does not exist, it is added to the element, and the return value is true. The optional second parameter is a Boolean value that forces the class to be added or removed, regardless of whether or not it already existed.
+
+    Element.className: Is a DOMString representing the class of the element.
+
+    Element.id: Is a DOMString representing the id of the element.
+
+    element.style: The style property returns the inline style of an element in the form of a CSSStyleDeclaration object that contains a list of all styles properties for that element with values assigned for the attributes that are defined in the element's inline style attribute. It is not possible to set styles by assigning a string to the style property, e.g. element.style = "color: red;". To set the style of an element, append a "CSS" property to style and specify a value.
+
+    Element.innerHTML: Is a DOMString representing the markup of the element's content.
+
+    Element.clientHeight: Returns a Number representing the inner height of the element.
+
+    Element.clientWidth: Returns a Number representing the inner width of the element.
+
+    Element.offsetWidth read-only property returns the layout width of an element as an integer. Typically, offsetWidth is a measurement in pixels of the element's CSS width, including any borders, padding, and vertical scrollbars (if rendered). It does not include the width of pseudo-elements such as ::before or ::after.
+
+    Element.offsetHeight read-only property returns the height of an element, including vertical padding and borders, as an integer. Typically, offsetHeight is a measurement in pixels of the element's CSS height, including any borders, padding, and horizontal scrollbars (if rendered). It does not include the height of pseudo-elements such as ::before or ::after. For the document body object, the measurement includes total linear content height instead of the element's CSS height. Floated elements extending below other linear content are ignored.
+
+    Element.clientTop: Returns a Number representing the width of the top border of the element.
+
+    Element.offsetTop: read-only property returns the distance of the outer border of the current element relative to the inner border of the top of the offsetParent node.
+
+    Element.offsetLeft: read-only property returns the number of pixels that the upper left corner of the current element is offset to the left within the HTMLElement.offsetParent node.
+
+    Element.getBoundingClientRect(): method returns a DOMRect object providing information about the size of an element and its position relative to the viewport. The returned value is a DOMRect object which is the smallest rectangle which contains the entire element, including its padding and border-width. The left, top, right, bottom, x, y, width, and height properties describe the position and size of the overall rectangle in pixels. Properties other than width and height are relative to the top-left of the viewport.
+
+    scroll(): method of the Element interface scrolls the element to a particular set of coordinates inside a given element.
+    scroll-behavior: auto;
+    scroll-behavior: smooth;
+
+    scrollTo(): method of the Element interface scrolls to a particular set of coordinates inside a given element. Same as scroll(); Scrolls exact amount from the chord (0, 0).
+
+    scrollBy(): method of the Element interface scrolls an element by the given amount. Scrolls from the screen current position.
+
+    scrollTop(): The Element.scrollTop property gets or sets the number of pixels that an element's content is scrolled vertically.
+    An element's scrollTop value is a measurement of the distance from the element's top to its topmost visible content. When an element's content does not generate a vertical scrollbar, then its scrollTop value is 0.
+
+    Element.hasAttribute(): method returns a Boolean value indicating whether the specified element has the specified attribute or not.
+
+    getAttribute(): method of the Element interface returns the value of a specified attribute on the element. If the given attribute does not exist, the value returned will either be null or "" (the empty string); see Non-existing attributes for details.
+
+    setAttribute(): Sets the value of an attribute on the specified element. If the attribute already exists, the value is updated; otherwise a new attribute is added with the specified name and value.
+
+    removeAttribute(): removes the attribute with the specified name from the element.
+
+    toggleAttribute(): method of the Element interface toggles a Boolean attribute (removing it if it is present and adding it if it is not present) on the given element.
+
+    .\JavaScript\Document.html
+    .\JavaScript\Scroll.html
+
+Nodes?
+    The DOM Node interface is an abstract base class upon which many other DOM API objects are based, thus letting those object types to be used similarly and often interchangeably. As an abstract class, there is no such thing as a plain Node object. All objects that implement Node functionality are based on one of its subclasses. Most notable are Document, Element, and DocumentFragment.
+
+    According to the W3C HTML DOM standard, everything in an HTML document is a node:
+    The entire document is a document node
+    Every HTML element is an element node
+    The text inside HTML elements are text nodes
+    Every HTML attribute is an attribute node (deprecated)
+    All comments are comment nodes
+    With the HTML DOM, all nodes in the node tree can be accessed by JavaScript.
+    New nodes can be created, and all nodes can be modified or deleted.
+
+    The nodes in the node tree have a hierarchical relationship to each other.
+    The terms parent, child, and sibling are used to describe the relationships.
+    In a node tree, the top node is called the root (or root node)
+    Every node has exactly one parent, except the root (which has no parent)
+    A node can have a number of children
+    Siblings (brothers or sisters) are nodes with the same parent
+
+    Node.NodeList: objects are collections of nodes, usually returned by properties such as Node.childNodes and methods such as document.querySelectorAll().
+
+    Node.childNodes: property returns a live NodeList of child nodes of the given element where the first child node is assigned index 0. Child nodes include elements, text and comments.
+    Node.firstChild: property returns the node's first child in the tree, or null if the node has no children. If the node is a Document, it returns the first node in the list of its direct children.
+
+    Node.lastChild: property returns the last child of the node. If its parent is an element, then the child is generally an element node, a text node, or a comment node. It returns null if there are no child elements.
+
+    Node.nextSibling: property returns the node immediately following the specified one in their parent's childNodes, or returns null if the specified node is the last child in the parent element.
+
+    Node.parentNode property returns the parent of the specified node in the DOM tree.
+
+    ParentNode.children: Returns a live HTMLCollection containing all of the Element objects that are children of this ParentNode, omitting all of its non-element nodes.
+
+    ParentNode.firstElementChild: Returns the first node which is both a child of this ParentNode and is also an Element, or null if there is none.
+
+    ParentNode.lastElementChild: Returns the last node which is both a child of this ParentNode and is an Element, or null if there is none.
+
+    Node.nextElementSibling read-only property returns the element immediately following the specified one in its parent's children list, or null if the specified element is the last one in the list.
+
+    Node.parentElement property returns the DOM node's parent Element, or null if the node either has no parent, or its parent isn't a DOM Element.
+
+    textContent: property of the Node interface represents the text content of the node and its descendants.
+
+    Node.cloneNode(): method returns a duplicate of the node on which this method was called. The deep argument true if the children of the node should also be cloned, or false to clone only the specified node.
+
+    ParentNode.append(): Inserts a set of Node objects or DOMString objects after the last child of the ParentNode. DOMString objects are inserted as equivalent Text nodes.Differences from Node.appendChild():
+        ParentNode.append() allows you to also append DOMString objects, whereas Node.appendChild() only accepts Node objects.
+        ParentNode.append() has no return value, whereas Node.appendChild() returns the appended Node object.
+        ParentNode.append() can append several nodes and strings, whereas Node.appendChild() can only append one node.
+
+    ParentNode.prepend(): Inserts a set of Node objects or DOMString objects before the first child of the ParentNode. DOMString objects are inserted as equivalent Text nodes.
+
+    insertBefore(newNode, referenceNode) method inserts a node before a reference node as a child of a specified parent node. There is no insertAfter() method. It can be emulated by combining the insertBefore method with Node.nextSibling.
+
+    .\JavaScript\Nodes.html
+
+Document Fragments?
+    The DocumentFragment interface represents a minimal document object that has no parent. It is used as a lightweight version of Document that stores a segment of a document structure comprised of nodes just like a standard document. The key difference is due to the fact that the document fragment isn't part of the active document tree structure. Changes made to the fragment don't affect the document (even on reflow) or incur any performance impact when changes are made.
+    The createDocumentFragment() method creates an imaginary Node object, with all the properties and methods of the Node object.
+    The createDocumentFragment() method is usefull when you want to extract parts of your document, change, add, or delete, some of the content, and insert it back to your document.
+    You can also use the document's Document object to perform these changes.
+
+    createDocumentFragment(): Creates a new empty DocumentFragment into which DOM nodes can be added to build an offscreen DOM tree. Also you can use the new DocumentFragment().
+
+    .\JavaScript\Fragments.html
+
+Templates?
+    The HTML Content Template (<template>) element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
+    Think of a template as a content fragment that is being stored for subsequent use in the document. While the parser does process the contents of the <template> element while loading the page, it does so only to ensure that those contents are valid; the element's contents are not rendered, however.
+
+    .\JavaScript\Template.html
+
+Shadow DOM?
+    An important aspect of web components is encapsulation — being able to keep the markup structure, style, and behavior hidden and separate from other code on the page so that different parts do not clash, and the code can be kept nice and clean. The Shadow DOM API is a key part of this, providing a way to attach a hidden separated DOM to an element.
+
+    Shadow DOM allows hidden DOM trees to be attached to elements in the regular DOM tree — this shadow DOM tree starts with a shadow root, underneath which can be attached to any elements you want, in the same way as the normal DOM.
+
+    Shadow host: The regular DOM node that the shadow DOM is attached to.
+    Shadow tree: The DOM tree inside the shadow DOM.
+    Shadow boundary: the place where the shadow DOM ends, and the regular DOM begins.
+    Shadow root: The root node of the shadow tree.
+
+    Shadow DOM elements are not visible to querySelector from the light DOM. In particular, Shadow DOM elements may have ids that conflict with those in the light DOM. They must be unique only within the shadow tree.
+    Shadow DOM has own stylesheets. Style rules from the outer DOM don’t get applied.
+
+    The Element.shadowRoot read-only property represents the shadow root hosted by the element. Use Element.attachShadow() to add a shadow root to an existing element.
+
+    The Element.attachShadow() method attaches a shadow DOM tree to the specified element and returns a reference to its ShadowRoot.
+    The mode option sets the encapsulation level. It must have any of two values:
+    "open" – the shadow root is available as elem.shadowRoot.Any code is able to access the shadow tree of elem.
+    "closed" – elem.shadowRoot is always null.We can only access the shadow DOM by the reference returned by attachShadow (and probably hidden inside a class). Browser-native shadow trees, such as <input type="range">, are closed. There’s no way to access them.
+
+    Shadow DOM is a way to create a component-local DOM.
+    shadowRoot = elem.attachShadow({mode: open|closed}) – creates shadow DOM for elem. If mode="open", then it’s accessible as elem.shadowRoot property.
+    We can populate shadowRoot using innerHTML or other DOM methods.
+    Shadow DOM elements:
+        Have their own ids space,
+        Invisible to JavaScript selectors from the main document, such as querySelector,
+        Use styles only from the shadow tree, not from the main document.
+
+    .\JavaScript\ShadowDom.html
+
+HTMLImageElement ?
+    The HTMLImageElement interface represents an HTML <img> element, providing the properties and methods used to manipulate image elements.
+
+    Once you set the src attribute on this image downloading will start, so before that we want to create a handler for the onload event. Once the image has been downloaded this will trigger.
+
+    The Image() constructor creates a new HTMLImageElement instance. It is functionally equivalent to document.createElement('img').  new Image(width, height);
+
+    alt: provides fallback (alternate) text to display when the image specified by the <img> element is not loaded.
+
+    complete: attribute is a Boolean value which indicates whether or not the image has completely loaded.
+
+    height: property of the HTMLImageElement interface indicates the height at which the image is drawn.
+
+    The width property of the HTMLImageElement interface indicates the width at which an image is drawn.
+
+    loading: is a string whose value provides a hint to the user agent on how to handle the loading of the image which is currently outside the window's visual viewport. This helps to optimize the loading of the document's contents by postponing loading the image until it's expected to be needed, rather than immediately during the initial page load. A DOMString providing a hint to the user agent as to how to best schedule the loading of the image to optimize page performance. The possible values are:
+        eager: The default behavior, eager tells the browser to load the image as soon as the <img> element is processed.
+        lazy: Tells the user agent to hold off on loading the image until the browser estimates that it will be needed imminently. For instance, if the user is scrolling through the document, a value of lazy will cause the image to only be loaded shortly before it will appear in the window's visual viewport.
+
+    .\JavaScript\Image.html
+
+HTMLMediaElement ?
+    The HTMLMediaElement interface adds to HTMLElement the properties and methods needed to support basic media-related capabilities that are common to audio and video. The HTMLVideoElement and HTMLAudioElement elements both inherit this interface.
+
+    play(): The method attempts to begin playback of the media. It returns a Promise which is resolved when playback has been successfully started. Failure to begin playback for any reason, such as permission issues, result in the promise being rejected. Starts playing the current audio or video.
+
+    pause(): The method will pause playback of the media, if the media is already in a paused state this method will have no effect. Method halts (pauses) the currently playing audio or video.
+
+    load(): resets the media element to its initial state and begins the process of selecting a media source and loading the media in preparation for playback to begin at the beginning. The amount of media data that is prefetched is determined by the value of the element's preload attribute.
+    The load() method re-loads the audio/video element.
+    The load() method is used to update the audio/video element after changing the source or other settings.
+
+    autoplay: HTML attribute, indicating whether playback should automatically begin as soon as enough media is available to do so without interruption.
+
+    controls: HTML attribute, which controls whether user interface controls for playing the media item will be displayed.
+
+    currentTime: property specifies the current playback time in seconds. Changing the value of currentTime seeks the media to the new time.
+
+    duration: indicates the length of the element's media in seconds.
+
+    ended: indicates whether the media element has ended playback.
+
+    loop: property reflects the loop HTML attribute, which controls whether the media element should start over when it reaches the end.
+
+    muted: indicates whether the media element muted.
+
+    paused: property tells whether the media element is paused.
+
+    src: property reflects the value of the HTML media element's src attribute, which indicates the URL of a media resource to use in the element.
+
+    readyState: property indicates the readiness state of the media.
+        0 HAVE_NOTHING: No information is available about the media resource.
+        1 HAVE_METADATA: Enough of the media resource has been retrieved that the metadata attributes are initialized. Seeking will no longer raise an exception.
+        2 HAVE_CURRENT_DATA: Data is available for the current playback position, but not enough to actually play more than one frame.
+        3 HAVE_FUTURE_DATA: Data for the current playback position as well as for at least a little bit of time into the future is available (in other words, at least two frames of video, for example).
+        4 HAVE_ENOUGH_DATA: Enough data is available—and the download rate is high enough—that the media can be played through to the end without interruption.
+
+Events?
+    The Event interface represents an event which takes place in the DOM.
+
+    An event can be triggered by the user action e.g. clicking the mouse button or tapping keyboard, or generated by APIs to represent the progress of an asynchronous task. It can also be triggered programmatically, such as by calling the HTMLElement.click() method of an element.
+
+    EventTarget is a DOM interface implemented by objects that can receive events and may have listeners for them. Element, Document, and Window are the most common event targets,
+
+    The EventTarget method addEventListener() sets up a function that will be called whenever the specified event is delivered to the target. Common targets are Element, Document, and Window, but the target may be any object that supports events (such as XMLHttpRequest).
+
+    addEventListener() works by adding a function or an object that implements EventListener to the list of event listeners for the specified event type on the EventTarget on which it's called.
+
+    removeEventListener() method removes from the EventTarget an event listener previously registered with EventTarget.addEventListener(). The event listener to be removed is identified using a combination of the event type, the event listener function itself, and various optional options that may affect the matching process;
+    
+    element.addEventListener(event, function, useCapture);
+
+    Event LIstener Third Parameter:
+    The default value is false, which will use the bubbling propagation, when the value is set to true, the event uses the capturing propagation.
+
+    Mouse events
+        click: A pointing device button (ANY button; soon to be primary button only) has been pressed and released on an element.
+
+        dblclick: A pointing device button is clicked twice on an element.
+
+        mouseenter: A pointing device is moved onto the element that has the listener attached.
+
+        mouseleave: A pointing device is moved off the element that has the listener attached.
+
+        mousedown: The event is fired at an Element when a pointing device button is pressed while the pointer is inside the element.
+
+        The mouseup event is fired at an Element when a button on a pointing device (such as a mouse or trackpad) is released while the pointer is located inside it. mouseup events are the counterpoint to mousedown events.
+
+        The mousemove event is fired at an element when a pointing device (usually a mouse) is moved while the cursor's hotspot is inside it.
+
+    Focus Events
+        focus: An element has received focus (does not bubble).
+
+        blur: An element has lost focus (does not bubble).
+
+        focusin: An element is about to receive focus (does bubble).
+
+        focusout: An element is about to lose focus (does bubble).
+
+    Animation and Transition Events
+        animationstart: A CSS animation has started.
+
+        animationcancel: A CSS animation has aborted.
+
+        animationend: A CSS animation has completed.
+
+        animationiteration: A CSS animation is repeated.
+
+        transitionstart: A CSS transition has actually started (fired after any delay).
+
+        transitioncancel: A CSS transition has been cancelled.
+
+        transitionend: A CSS transition has completed.
+
+        transitionrun: A CSS transition has begun running (fired before any delay starts).
+
+    View Events
+        resize: The document view has been resized.
+
+        scroll: The document view or an element has been scrolled.
+
+    Keyboard Events
+        keypress: ANY key (except Shift, Fn, or CapsLock) is in a pressed position (fired continuously). The keypress event is fired when a key that produces a character value is pressed down. Examples of keys that produce a character value are alphabetic, numeric, and punctuation keys. Examples of keys that don't produce a character value are modifier keys such as Alt, Shift, Ctrl, or Meta.
+
+        keydown: ANY key is pressed. Unlike the keypress event, the keydown event is fired for all keys, regardless of whether they produce a character value. Unlike the keypress event, the keydown event is fired for all keys, regardless of whether they produce a character value. 
+
+        keyup: ANY key is released. The keyup event is fired when a key is released. The keydown and keyup events provide a code indicating which key is pressed, while keypress indicates which character was entered. 
+
+    Drag and Drop Events
+        Events fired on the draggable target (the source element):
+            dragstart - occurs when the user starts to drag an element
+            drag - occurs when an element is being dragged
+            dragend - occurs when the user has finished dragging the element
+
+        Events fired on the drop target:
+            dragenter - occurs when the dragged element enters the drop target
+            dragover - occurs when the dragged element is over the drop target
+            dragleave - occurs when the dragged element leaves the drop target
+            drop - occurs when the dragged element is dropped on the drop target
+
+        drag: An element or text selection is being dragged (fired continuously every 350ms).
+
+        dragend: A drag operation is being ended (by releasing a mouse button or hitting the escape key).
+
+        dragenter: A dragged element or text selection enters a valid drop target.
+
+        dragstart: The user starts dragging an element or text selection.
+
+        dragleave: A dragged element or text selection leaves a valid drop target.
+
+        dragover: An element or text selection is being dragged over a valid drop target (fired continuously every 350ms).
+
+        drop: An element is dropped on a valid drop target.
+
+
+    Media Events
+        canplaythrough: The event is fired when the user agent can play the media, and estimates that enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
+
+        canplay: The browser can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
+
+        ended: Playback has stopped because the end of the media was reached.
+
+        pause: Playback has been paused.
+
+        play: Playback has begun.
+
+        playing: Playback is ready to start after having been paused or delayed due to lack of data.
+
+        loadstart: Progress has begun.
+
+        progress: In progress.
+
+    Progress events
+
+        load: Progression has been successful.
+
+        loadend: Progress has stopped (after "error", "abort", or "load" have been dispatched).
+
+        timeout: Progression is terminated due to preset time expiring
+
+        abort: Progression has been terminated (not due to an error).
+
+        error: Progression has failed.
+
+    Touch Events
+        touchcancel: A touch point has been disrupted in an implementation-specific manner (too many touch points, for example).
+
+        touchend: A touch point is removed from the touch surface.
+
+        touchmove: A touch point is moved along the touch surface.
+
+        touchstart: A touch point is placed on the touch surface.
+
+    Input elements
+       change: The event is fired for <input>, <select>, and <textarea> elements when an alteration to the element's value is committed by the user. Unlike the input event, the change event is not necessarily fired for each alteration to an element's value.
+
+       input: The event fires when the value of an <input>, <select>, or <textarea> element has been changed. The input event is fired every time the value of the element changes. This is unlike the change event, which only fires when the value is committed, such as by pressing the enter key, selecting a value from a list of options, and the like.
+
+    .\JavaScript\Events1.html
+    .\JavaScript\Events2.html
+    .\JavaScript\Events3.html
+    .\JavaScript\Events4.html
+    .\JavaScript\Events5.html
+    .\JavaScript\Events6.html
+    .\JavaScript\Events7.html
+    .\JavaScript\Events8.html
+
+Event Bubbling, Delegation, Capturing?
+    Event propagation is a mechanism that defines how events propagate or travel through the DOM tree to arrives at its target and what happens to it afterward.
+    In modern browser event propagation proceeds in two phases: capturing, and bubbling phase. In the capturing phase, events propagate from the Window down through the DOM tree to the target node.
+    from -> div -> p
+
+    In the bubbling phase, the exact opposite occurs. In this phase event propagates or bubbles back up the DOM tree, from the target element up to the Window, visiting all of the ancestors of the target element one by one.
+    p -> div -> form
+
+    The event propagation can be stopped in any listener by invoking the stopPropagation method of the event object. This means that all the listeners registered on the nodes on the propagation path that follow the current target will not be called. Instead, all the other remaining listeners attached on the current target will still receive the event.
+    event.stopPropagation();
+
+    Event bubbling occurs when a user interacts with a nested element and the event propagates up (“bubbles”) through all of the ancestor elements.
+    Event bubbling is a term you might have come across on your JavaScript travels. It relates to the order in which event handlers are called when one element is nested inside a second element, and both elements have registered a listener for the same event.
+
+    .\JavaScript\EventCapturing.html
+    .\JavaScript\EventBubbling.html
+
+Events Props/Methods?
+    The currentTarget read-only property of the Event interface identifies the current target for the event, as the event traverses the DOM. It always refers to the element to which the event handler has been attached, as opposed to Event.target, which identifies the element on which the event occurred and which may be its direct descendent.
+
+    The target property of the Event interface is a reference to the object that dispatched the event. It is different from Event.currentTarget when the event handler is called during the bubbling or capturing phase of the event. 
+
+    preventDefault: Cancels the event if it is cancelable, without stopping further propagation of the event. The Event interface's preventDefault() method tells the user agent that if the event does not get explicitly handled, its default action should not be taken as it normally would be. The event continues to propagate as usual, unless one of its event listeners calls stopPropagation() or stopImmediatePropagation(), either of which terminates propagation at once.
+
+    stopImmediatePropagation: Prevents other listeners of the same event from being called. If several listeners are attached to the same element for the same event type, they are called in the order in which they were added. If stopImmediatePropagation() is invoked during one such call, no remaining listeners will be called.
+
+    stopPropagation: Prevents further propagation of the current event. The stopPropagation() method of the Event interface prevents further propagation of the current event in the capturing and bubbling phases. It does not, however, prevent any default behaviors from occurring; for instance, clicks on links are still processed. If you want to stop those behaviors, see the preventDefault() method.
+
+    stopPropagation will prevent any parent handlers from being executed stopImmediatePropagation will prevent any parent handlers and also any other handlers from executing.
+
+    The timeStamp read-only property of the Event interface returns the time (in milliseconds) at which the event was created.
+
+Event Delegation? 
+    Event delegation is a technique for listening to events where you delegate a parent element as the listener for all of the events that happen inside it.
+    The event delegation may be used to optimize event handling. We use a single handler for similar actions on many elements.
+    Because of event bubbling you can place an event listener on a single parent HTML element that lives above a HTML child, and that event listener will get executed whenever an event occurs on any of its child nodes — even if these node children are added to the page after the initial load!.
+
+Custom Events?
+    The custom events allow you to decouple the code that you want to execute after another piece of code completes. For example, you can separate the event listeners in a separate script. In addition, you can have multiple event listeners to the same custom event.
+
+    The CustomEvent interface represents events initialized by an application for any purpose. 
+    The CustomEvent(): constructor creates a new CustomEvent.
+    detail: readonly property of the CustomEvent interface returns any data passed when initializing the event.
+    dispatchEvent(): Dispatches an Event at the specified EventTarget, (synchronously) invoking the affected EventListeners in the appropriate order. The normal event processing rules (including the capturing and optional bubbling phase) also apply to events dispatched manually with dispatchEvent().
+
+    Use the CustomEvent() constructor to create a custom event and dispatchEvent() to trigger the event.
+
+    The older approach to creating events uses APIs inspired by Java. The following shows an example with document.createEvent():
+
+    .\JavaScript\CustomEvents.html
+
+Form elements?
+    form: The HTML <form> element represents a document section containing interactive controls for submitting information. It is possible to use the :valid and :invalid CSS pseudo-classes to style a <form> element based on whether or not the elements inside the form are valid.
+
+    fieldset: The HTML <fieldset> element is used to group several controls as well as labels (<label>) within a web form.
+
+    textarea: The HTML <textarea> element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.
+
+    select: The HTML <select> element represents a control that provides a menu of options.
+
+    option: The HTML <option> element is used to define an item contained in a <select>. As such, <option> can represent menu items in popups and other lists of items in an HTML document.
+
+    progress: The HTML <progress> element displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+
+    The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The <input> element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
+
+    The HTML <label> element represents a caption for an item in a user interface.
+
+Input Element types?
+    
+    button:	A push button with no default behavior displaying the value of the value attribute, empty by default.
+
+    checkbox: A check box allowing single values to be selected/deselected.
+
+    radio: A radio button, allowing a single value to be selected out of multiple choices with the same name value.
+
+    text: The default value. A single-line text field. Line-breaks are automatically removed from the input value.
+
+    number: A control for entering a number. Displays a spinner and adds default validation when supported. Displays a numeric keypad in some devices with dynamic keypads.
+
+    range: A control for entering a number whose exact value is not important. Displays as a range widget defaulting to the middle value. Used in conjunction min and max to define the range of acceptable values.
+
+    password: A single-line text field whose value is obscured. Will alert user if site is not secure.
+
+    email: A field for editing an email address. Looks like a text input, but has validation parameters and relevant keyboard in supporting browsers and devices with dynamic keyboards.
+
+    date: A control for entering a date (year, month, and day, with no time). Opens a date picker or numeric wheels for year, month, day when active in supporting browsers.
+
+    file: A control that lets the user select a file. Use the accept attribute to define the types of files that the control can select.
+
+    image: A graphical submit button. Displays an image defined by the src attribute. The alt attribute displays if the image src is missing.
+
+input attributes?
+
+    name: Name of the form control. Submitted with the form as part of a name/value pair. The name property sets or returns the value of the name attribute of a text field. The name attribute is used to identify form data after it has been submitted to the server, or to reference form data using JavaScript on the client side.
+
+    value: At first, the initial value if specified explicitly in HTML. More generally, the current value of the form control. Submitted with the form as part of a name/value pair.
+
+    autofocus: Automatically focus the form control when the page is loaded.
+
+    disabled: Whether the form control is disabled.
+
+    placeholder: Text that appears in the form control when it has no value set.
+
+    readonly: Boolean. The value is not editable.
+
+    required: Boolean. A value is required or must be check for the form to be submittable.
+
+    pattern: Pattern the value must match to be valid.
+
+    step: Incremental values that are valid.
+
+    max: Maximum value.
+
+    min: Minimum value.
+
+    maxlength: The attribute specifies the maximum number of characters allowed in the <input> element.
+
+    minlength: The minlength attribute specifies the minimum number of characters required in an input field.
+
+    submit: A button that submits the form.
+
+    autocomplete: Indicates whether input elements can by default have their values automatically completed by the browser. autocomplete attributes on form elements override it on <form>. Possible values: on and off.
+
+    checked: Valid for both radio and checkbox types, checked is a Boolean attribute. If present on a radio type, it indicates that the radio button is the currently selected one in the group of same-named radio buttons. If present on a checkbox type, it indicates that the checkbox is checked by default (when the page loads).
+
+    selected: this Boolean attribute indicates that the option is initially selected. If the <option> element is the descendant of a <select> element whose multiple attribute is not set, only one single <option> of this <select> element may have the selected attribute.
+
+    .\JavaScript\Forms1.html
+    .\JavaScript\Forms2.html
+    .\JavaScript\Forms3.html
+
+Custom Data Attributes / Dataset?
+    HTML5 is designed with extensibility in mind for data that should be associated with a particular element but need not have any defined meaning. data-* attributes allow us to store extra information on standard, semantic HTML elements without other hacks such as non-standard attributes.
+    The syntax is simple. Any attribute on any element whose attribute name starts with data- is a data attribute. Say you have an article and you want to store some extra information that doesn’t have any visual representation.
+
+    The dataset read-only property of the HTMLOrForeignElement mixin provides read/write access to custom data attributes (data-*) on elements. It exposes a map of strings (DOMStringMap) with an entry for each data-* attribute.
+
+    The dataset property itself can be read, but not directly written. Instead, all writes must be to the individual properties within the dataset, which in turn represent the data attributes.
+
+    Reading the values of these attributes out in JavaScript is also very simple. You could use getAttribute() with their full HTML name to read them, but the standard defines a simpler way: a DOMStringMap you can read out via a dataset property.
+
+    Note that, as data attributes are plain HTML attributes, you can even access them from CSS. For example to show the parent data on the article you can use generated content in CSS with the attr()
+
+    An HTML data-* attribute and its corresponding DOM dataset.property modify their shared name according to where they are read or written:
+
+    In HTML: The attribute name begins with data-. It can contain only letters, numbers, dashes (-), periods (.), colons (:), and underscores (_). Any ASCII capital letters (A to Z) are ignored and converted to lowercase.
+
+    In JavaScript: The property name of a custom data attribute is the same as the HTML attribute without the data- prefix, and removes single dashes (-) for when to capitalize the property’s “camelCased” name.
+
+    .\JavaScript\Dataset.html
+
+Store Data on the Browser?
+    With web storage, web applications can store data locally within the user's browser. Before HTML5, application data had to be stored in cookies, included in every server request. Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance. Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server. Web storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.
+
+    window.localStorage - stores data with no expiration date
+    window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
+
+    The localStorage object stores the data with no expiration date. The data will not be deleted when the browser is closed, and will be available the next day, week, or year.
+    localStorage.setItem("lastname", "Smith");
+    localStorage.getItem("lastname");
+
+    The sessionStorage object is equal to the localStorage object, except that it stores the data for only one session. 
+    sessionStorage.clickcount = 1;
+    sessionStorage.clickcount;
+
+    LocalStorage:
+    Stores data with no expiration date, and gets cleared only through JavaScript, or clearing the Browser cache / Locally Stored Data.
+    Storage limit is the maximum amongst the three.
+
+    SessionStorage:
+    The sessionStorage object stores data only for a session, meaning that the data is stored until the browser (or tab) is closed.
+    Data is never transferred to the server.
+    Storage limit is larger than a cookie (at least 5MB).
+
+    Cookie:
+    Stores data that has to be sent back to the server with subsequent requests. Its expiration varies based on the type and the expiration duration can be set from either server-side or client-side (normally from server-side).
+    Cookies are primarily for server-side reading (can also be read on client-side),localStorage and sessionStorage can only be read on client-side.
+    Size must be less than 4KB.
+
+    LocalStorage:
+        (Data in a localStorage object created in a "private browsing" or "incognito" session is cleared when the last "private" tab is closed.)
+
+    SessionStorage:
+        Whenever a document is loaded in a particular tab in the browser, a unique page session gets created and assigned to that particular tab. That page session is valid only for that particular tab.
+        A page session lasts as long as the tab or the browser is open, and survives over page reloads and restores.
+        Opening a page in a new tab or window creates a new session with the value of the top-level browsing context, which differs from how session cookies work.
+        Opening multiple tabs/windows with the same URL creates sessionStorage for each tab/window.
+        Closing a tab/window ends the session and clears objects in sessionStorage.
+
+    .\JavaScript\LocalStorage.html
+    .\JavaScript\SesionStorage.html
+
+Animate Programatically?
+    Animation(): The Animation() constructor of the Web Animations API returns a new Animation object instance.
+    new Animation([effect][, timeline]);
+    effect: element and keyframes
+
+        The KeyframeEffect() constructor of the Web Animations API returns a new KeyframeEffect object instance, and also allows you to clone an existing keyframe effect object instance.
+        element: The DOM element to be animated, or null.
+        keyframeSet: An keyframe object or null.
+        keyframeOptions: Either an integer representing the animation's duration (in milliseconds), or an Object containing one or more of the following:
+
+            delay: The number of milliseconds to delay the start of the animation. Defaults to 0.
+            direction: Whether the animation runs forwards (normal), backwards (reverse), switches direction after each iteration (alternate), or runs backwards and switches direction after each iteration (alternate-reverse). Defaults to "normal".
+            duration: The number of milliseconds each iteration of the animation takes to complete. Defaults to 0. Although this is technically optional, keep in mind that your animation will not run if this value is 0.
+            easing: The rate of the animation's change over time. Accepts the pre-defined values "linear", "ease", "ease-in", "ease-out", and "ease-in-out", or a custom "cubic-bezier" value like "cubic-bezier(0.42, 0, 0.58, 1)". Defaults to "linear".
+            endDelay: The number of milliseconds to delay after the end of an animation. This is primarily of use when sequencing animations based on the end time of another animation. Defaults to 0. 
+            fill: Dictates whether the animation's effects should be reflected by the element(s) prior to playing ("backwards"), retained after the animation has completed playing ("forwards"), or both. Defaults to "none".
+            iterationStart: Describes at what point in the iteration the animation should start. 0.5 would indicate starting halfway through the first iteration for example, and with this value set, an animation with 2 iterations would end halfway through a third iteration. Defaults to 0.0.
+            iterations: The number of times the animation should repeat. Defaults to 1, and can also take a value of Infinity to make it repeat for as long as the element exists.
+            composite: Determines how values are combined between this animation and the element's underlying values.
+            iterationComposite: Determines how values build from iteration to iteration in the current animation.
+
+            The setKeyframes() method of the KeyframeEffect interface replaces the keyframes that make up the affected KeyframeEffect with a new set of keyframes.
+
+            The getKeyframes() method of a KeyframeEffect returns an Array of the computed keyframes that make up this animation along with their computed offsets.
+
+        The AnimationTimeline interface of the Web Animations API represents the timeline of an animation. This interface exists to define timeline features (inherited by DocumentTimeline and future timeline types) and is not itself directly used by developers. Anywhere you see AnimationTimeline, you should use DocumentTimeline or any other timeline type instead.
+
+            The DocumentTimeline() constructor of the Web Animations API creates a new instance of the DocumentTimeline object associated with the active document of the current browsing context.
+
+            The timeline readonly property of the Document interface represents the default timeline of the current document. This timeline is a special instance of DocumentTimeline that is automatically created on page load. 
+            This timeline is unique to each document and persists for the lifetime of the document including calls to Document.open().
+            The time values for this timeline are calculated as a fixed offset from the global clock such that the zero time corresponds to the navigationStart moment plus a signed delta known as the origin time. Prior to establishing the navigationStart moment, the document timeline is inactive.
+
+    Animation.animate(): The Element interface's animate() method is a shortcut method which creates a new Animation, applies it to the element, then plays the animation. It returns the created Animation object instance.
+
+    Animation.cancel() method of the Animation interface clears all KeyframeEffects caused by this animation and aborts its playback.
+
+    Animation.pause(): method of the Web Animations API's Animation interface suspends playback of the animation.
+
+    Animation.play(): method of the Web Animations API's Animation Interface starts or resumes playing of an animation. If the animation is finished, calling play() restarts the animation, playing it from the beginning.
+
+    Animation.reverse() method of the Animation Interface reverses the playback direction, meaning the animation ends at its beginning. If called on an unplayed animation, the whole animation is played backwards. If called on a paused animation, the animation will continue in reverse. 
+
+    Animation.finish(): method of the Web Animations API's Animation Interface sets the current playback time to the end of the animation corresponding to the current playback direction. That is, if the animation is playing forward, it sets the playback time to the length of the animation sequence, and if the animation is playing in reverse (having had its reverse() method called), it sets the playback time to 0.
+
+    Animation.currentTime: property of the Web Animations API returns and sets the current time value of the animation in milliseconds, whether running or paused.
+
+    Animation.playState: property of the Web Animations API returns and sets an enumerated value describing the playback state of an animation. ()idle, running, pause, finished).
+
+    Animation.finished: read-only property of the Web Animations API returns a Promise which resolves once the animation has finished playing.
+
+    Animation.id: property of the Web Animations API returns or sets a string used to identify the animation.
+
+    Animation.pending: read-only property of the Web Animations API indicates whether the animation is currently waiting for an asynchronous operation such as initiating playback or pausing a running animation.
+
+    Animation.timeline: property of the Animation interface returns or sets the timeline associated with this animation. A timeline is a source of time values for synchronization purposes, and is an AnimationTimeline-based object. By default, the animation's timeline and the Document's timeline are the same.
+
+    Animation.startTime: property of the Animation interface is a double-precision floating-point value which indicates the scheduled time when an animation's playback should begin. 
+
+    oncancel: property of the Web Animations API's Animation interface is the event handler for the cancel event. The cancel event can be triggered manually with Animation.cancel() when the animation enters the "idle" play state from another state, such as when the animation is removed from an element before it finishes playing.
+
+    onfinish: property (from the Web Animations API) is the event handler for the finish event. This event is sent when the animation finishes playing. The finish event occurs when the animation completes naturally, as well as when the Animation.finish() method is called to immediately cause the animation to finish up.
+    
+    onremove: property (from the Web Animations API) is the event handler for the remove event. This event is sent when the animation is removed (i.e., put into an active replace state).
+
+    .\JavaScript\Animation.html
+
+Mouse Coordinates?
+    clientX/clientY: read-only property of the MouseEvent interface provides the horizontal coordinate within the application's viewport at which the event occurred (as opposed to the coordinate within the page). the client viewport of the browser. (clientX/Y) If you click in the left top corner the value will always be (0,0) independent on scroll position.
+
+    screenX/screenY: read-only property of the MouseEvent interface provides the horizontal coordinate (offset) of the mouse pointer in global (screen) coordinates.
+    The full screen of the monitor (screenX/Y) Position will always be relative to the physical screen's viewport.
+
+    pageX/pageY read-only property of the MouseEvent interface returns the X (horizontal) coordinate (in pixels) at which the mouse was clicked, relative to the left edge of the entire document. This includes any portion of the document not currently visible. Being based on the edge of the document as it is, this property takes into account any horizontal scrolling of the page. The complete document/page (pageX/Y) note that pageX/pageY on the UIEvent object are not standardized.
+
+    movementX/movementY: read-only property of the MouseEvent interface provides the difference in the X coordinate of the mouse pointer between the given event and the previous mousemove event. In other words, the value of the property is computed like this: currentEvent.movementX = currentEvent.screenX - previousEvent.screenX.
+
+    .\JavaScript\MouseClient.html
+
+Canvas?
+    <canvas> is an HTML element which can be used to draw graphics via scripting (usually JavaScript). This can, for instance, be used to draw graphs, combine photos, or create simple (and not so simple) animations.
+        Canvas can draw colorful text, with or without animation.
+        Canvas has great features for graphical data presentation with an imagery of graphs and charts.
+        Canvas objects can move. Everything is possible: from simple bouncing balls to complex animations.
+        Canvas can respond to JavaScript events.
+        Canvas can respond to any user action (key clicks, mouse clicks, button clicks, finger movement).
+        Canvas' methods for animations, offer a lot of possibilities for HTML gaming applications.
+    The <canvas> element must have an id attribute so it can be referred to by JavaScript.
+    The width and height attribute is necessary to define the size of the canvas.
+    You can have multiple <canvas> elements on one HTML page.
+    Providing fallback content is very straightforward: just insert the alternate content inside the <canvas> element.
+
+    HTMLCanvasElement.getContext(): method returns a drawing context on the canvas, or null if the context identifier is not supported, or the canvas has already been set to a different context mode.
+        contextType:Is a DOMString containing the context identifier defining the drawing context associated to the canvas. Possible values are:
+            "2d", leading to the creation of a CanvasRenderingContext2D object representing a two-dimensional rendering context.
+    
+    CanvasRenderingContext2D: interface, part of the Canvas API, provides the 2D rendering context for the drawing surface of a <canvas> element. It is used for drawing shapes, text, images, and other objects.
+    To get the canvas' 2D rendering context, call getContext() on the <canvas> element, supplying '2d' as the argument. 
+    (const ctx = CanvasRenderingContext2D) // just for the examples
+
+    Coordinate Space / Grid: The origin of this grid is positioned in the top left corner at coordinate (0,0). All elements are placed relative to this origin. So the position of the top left corner of the blue square becomes x pixels from the left and y pixels from the top, at coordinate (x,y). Later in this tutorial we'll see how we can translate the origin to a different position, rotate the grid and even scale it, but for now we'll stick to the default. Normally 1 unit in the grid corresponds to 1 pixel on the canvas.
+
+    path: is a list of points, connected by segments of lines that can be of different shapes, curved or not, of different width and of different color. A path, or even a subpath, can be closed. To make shapes using paths, we take some extra steps:
+        First, you create the path.
+        Then you use drawing commands to draw into the path.
+        Once the path has been created, you can stroke or fill the path to render it.
+
+    ctx.beginPath(): Creates a new path. Once created, future drawing commands are directed into the path and used to build the path up.
+
+    ctx.closePath() method of the Canvas 2D API attempts to add a straight line from the current point to the start of the current sub-path. If the shape has already been closed or has only one point, this function does nothing.
+
+    ctx.stroke() method of the Canvas 2D API strokes (outlines) the current or given path with the current stroke style.Strokes are aligned to the center of a path; in other words, half of the stroke is drawn on the inner side, and half on the outer side.
+
+    ctx.lineTo(x, y), part of the Canvas 2D API, adds a straight line to the current sub-path by connecting the sub-path's last point to the specified (x, y) coordinates.
+        x: The x-axis coordinate of the line's end point.
+        y: The y-axis coordinate of the line's end point.
+
+    ctx.moveTo(x, y) method of the Canvas 2D API begins a new sub-path at the point specified by the given (x, y) coordinates.
+        x: The x-axis (horizontal) coordinate of the point.
+        y: The y-axis (vertical) coordinate of the point.
+
+    ctx.lineCap property of the Canvas 2D API determines the shape used to draw the end points of lines.
+        "butt": The ends of lines are squared off at the endpoints. Default value.
+        "round": The ends of lines are rounded.
+        "square": The ends of lines are squared off by adding a box with an equal width and half the height of the line's thickness.
+
+    ctx.strokeStyle property of the Canvas 2D API specifies the color, gradient, or pattern to use for the strokes (outlines) around shapes. The default is #000 (black).
+    color: A DOMString parsed as CSS <color> value.
+    gradient: A CanvasGradient object (a linear or radial gradient).
+    pattern: A CanvasPattern object (a repeating image).
+
+    ctx.lineWidth property of the Canvas 2D API sets the thickness of lines.
+        value: A number specifying the line width, in coordinate space units. Zero, negative, Infinity, and NaN values are ignored. This value is 1.0 by default.
+
+    ctx.fill() method of the Canvas 2D API fills the current or given path with the current fillStyle.
+
+    ctx.fillStyle property of the Canvas 2D API specifies the color, gradient, or pattern to use inside shapes. The default style is #000 (black).
+        color: A DOMString parsed as CSS <color> value.
+        gradient: A CanvasGradient object (a linear or radial gradient).
+        pattern: A CanvasPattern object (a repeating image).
+
+    ctx.lineJoin property of the Canvas 2D API determines the shape used to join two line segments where they meet.
+    "round": Rounds off the corners of a shape by filling an additional sector of disc centered at the common endpoint of connected segments. The radius for these rounded corners is equal to the line width.
+    "bevel": Fills an additional triangular area between the common endpoint of connected segments, and the separate outside rectangular corners of each segment.
+    "miter": Connected segments are joined by extending their outside edges to connect at a single point, with the effect of filling an additional lozenge-shaped area. This setting is affected by the miterLimit property. Default value.
+    ctx.lineDashOffset property of the Canvas 2D API sets the line dash offset, or "phase."
+        value: A float specifying the amount of the line dash offset. The default value is 0.0.
+
+    ctx.setLineDash(segments) method of the Canvas 2D API's CanvasRenderingContext2D interface sets the line dash pattern used when stroking lines. It uses an array of values that specify alternating lengths of lines and gaps which describe the pattern.
+        segments: An Array of numbers that specify distances to alternately draw a line and a gap (in coordinate space units). If the number of elements in the array is odd, the elements of the array get copied and concatenated. For example, [5, 15, 25] will become [5, 15, 25, 5, 15, 25]. If the array is empty, the line dash list is cleared and line strokes return to being solid.
+
+    ctx.arc(x, y, radius, startAngle, endAngle [, anticlockwise]) method of the Canvas 2D API adds a circular arc to the current sub-path.The arc() method creates a circular arc centered at (x, y) with a radius of radius. The path starts at startAngle, ends at endAngle, and travels in the direction given by anticlockwise (defaulting to clockwise).
+        x: The horizontal coordinate of the arc's center.
+        y: The vertical coordinate of the arc's center.
+        radius; The arc's radius. Must be positive.
+        startAngle: The angle at which the arc starts in radians, measured from the positive x-axis.
+        endAngle: The angle at which the arc ends in radians, measured from the positive x-axis.
+        anticlockwise: An optional Boolean. If true, draws the arc counter-clockwise between the start and end angles. The default is false (clockwise).
+
+    ctx.arcTo(x1, y1, x2, y2, radius) method of the Canvas 2D API adds a circular arc to the current sub-path, using the given control points and radius. The arc is automatically connected to the path's latest point with a straight line, if necessary for the specified parameters.
+        x1: The x-axis coordinate of the first control point.
+        y1: The y-axis coordinate of the first control point.
+        x2: The x-axis coordinate of the second control point.
+        y2: The y-axis coordinate of the second control point.
+        radius: The arc's radius. Must be non-negative
+
+    ctx.rect(x, y, width, height) method of the Canvas 2D API adds a rectangle to the current path.
+        x: The x-axis coordinate of the rectangle's starting point.
+        y: The y-axis coordinate of the rectangle's starting point.
+        width: The rectangle's width. Positive values are to the right, and negative to the left.
+        height: The rectangle's height. Positive values are down, and negative are up.
+
+    ctx.fillRect(x, y, width, height) method of the Canvas 2D API draws a rectangle that is filled according to the current fillStyle.
+        x: The x-axis coordinate of the rectangle's starting point.
+        y: The y-axis coordinate of the rectangle's starting point.
+        width: The rectangle's width. Positive values are to the right, and negative to the left.
+        height: The rectangle's height. Positive values are down, and negative are up.
+
+    ctx.strokeRect(x, y, width, height) method of the Canvas 2D API draws a rectangle that is stroked (outlined) according to the current strokeStyle and other context settings.
+        x: The x-axis coordinate of the rectangle's starting point.
+        y: The y-axis coordinate of the rectangle's starting point.
+        width: The rectangle's width. Positive values are to the right, and negative to the left.
+        height: The rectangle's height. Positive values are down, and negative are up.
+
+    ctx.clearRect(x, y, width, height): method of the Canvas 2D API erases the pixels in a rectangular area by setting them to transparent black. The clearRect() method sets the pixels in a rectangular area to transparent black (rgba(0,0,0,0)). The rectangle's corner is at (x, y), and its size is specified by width and height.
+    x: The x-axis coordinate of the rectangle's starting point.
+    y: The y-axis coordinate of the rectangle's starting point.
+    width: The rectangle's width. Positive values are to the right, and negative to the left.
+    height: The rectangle's height. Positive values are down, and negative are up.
+
+    ctx.fillText(text, x, y [, maxWidth]), part of the Canvas 2D API, draws a text string at the specified coordinates, filling the string's characters with the current fillStyle. An optional parameter allows specifying a maximum width for the rendered text, which the user agent will achieve by condensing the text or by using a lower font size.
+        text: A DOMString specifying the text string to render into the context. The text is rendered using the settings specified by font, textAlign, textBaseline, and direction.
+        x: The x-axis coordinate of the point at which to begin drawing the text, in pixels.
+        y: The y-axis coordinate of the baseline on which to begin drawing the text, in pixels.
+        maxWidth: Optional The maximum number of pixels wide the text may be once rendered. If not specified, there is no limit to the width of the text. However, if this value is provided, the user agent will adjust the kerning, select a more horizontally condensed font (if one is available or can be generated without loss of quality), or scale down to a smaller font size in order to fit the text in the specified width.
+    font: Sets or returns the current font properties for text content.
+    textAlign: Sets or returns the current alignment for text content. "left" || "right" || "center" || "start" || "end";
+    textBaseline: Sets or returns the current text baseline used when drawing text. "top" || "hanging" || "middle" || "alphabetic" || "ideographic" || "bottom";
+
+    ctx.strokeText(text, x, y [, maxWidth]), part of the Canvas 2D API, strokes — that is, draws the outlines of — the characters of a text string at the specified coordinates. An optional parameter allows specifying a maximum width for the rendered text, which the user agent will achieve by condensing the text or by using a lower font size.
+        text: A DOMString specifying the text string to render into the context. The text is rendered using the settings specified by font, textAlign, textBaseline, and direction.
+        x: The x-axis coordinate of the point at which to begin drawing the text.
+        y: The y-axis coordinate of the point at which to begin drawing the text.
+        maxWidth: Optional The maximum width the text may be once rendered. If not specified, there is no limit to the width of the text. However, if this value is provided, the user agent will adjust the kerning, select a more horizontally condensed font (if one is available or can be generated without loss of quality), or scale down to a smaller font size in order to fit the text in the specified width.
+
+    ctx.clip(path [, fillRule]): method of the Canvas 2D API turns the current or given path into the current clipping region. The previous clipping region, if any, is intersected with the current or given path to create the new clipping region.
+        fillRule: The algorithm by which to determine if a point is inside or outside the clipping region. Possible values:
+            "nonzero": The non-zero winding rule. Default rule. default (with the "nonzero" rule), there would be no hole.
+            "evenodd": The even-odd winding rule. The "evenodd" rule creates a hole where the clipping rectangles intersect;
+        path: A Path2D path to use as the clipping region.
+
+    ctx.save() method of the Canvas 2D API saves the entire state of the canvas by pushing the current state onto a stack.
+
+    ctx.restore() method of the Canvas 2D API restores the most recently saved canvas state by popping the top entry in the drawing state stack. If there is no saved state, this method does nothing.
+
+    ctx.quadraticCurveTo(cpx, cpy, x, y) method of the Canvas 2D API adds a quadratic Bézier curve to the current sub-path. It requires two points: the first one is a control point and the second one is the end point. The starting point is the latest point in the current path, which can be changed using moveTo() before creating the quadratic Bézier curve.
+        cpx: The x-axis coordinate of the control point.
+        cpy: The y-axis coordinate of the control point.
+        x: The x-axis coordinate of the end point.
+        y: The y-axis coordinate of the end point.
+        
+    ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) method of the Canvas 2D API adds a cubic Bézier curve to the current sub-path. It requires three points: the first two are control points and the third one is the end point. The starting point is the latest point in the current path, which can be changed using moveTo() before creating the Bézier curve.
+        cp1x: The x-axis coordinate of the first control point.
+        cp1y: The y-axis coordinate of the first control point.
+        cp2x: The x-axis coordinate of the second control point.
+        cp2y: The y-axis coordinate of the second control point.
+        x: The x-axis coordinate of the end point.
+        y: The y-axis coordinate of the end point.
+
+    ctx.createLinearGradient(x0, y0, x1, y1) method of the Canvas 2D API creates a gradient along the line connecting two given coordinates.
+        x0: The x-axis coordinate of the start point.
+        y0: The y-axis coordinate of the start point.
+        x1: The x-axis coordinate of the end point.
+        y1: The y-axis coordinate of the end point.
+
+    ctx.createRadialGradient(x0, y0, r0, x1, y1, r1) method of the Canvas 2D API creates a radial gradient using the size and coordinates of two circles.
+        x0: The x-axis coordinate of the start circle.
+        y0: The y-axis coordinate of the start circle.
+        r0: The radius of the start circle. Must be non-negative and finite.
+        x1: The x-axis coordinate of the end circle.
+        y1: The y-axis coordinate of the end circle.
+        r1: The radius of the end circle. Must be non-negative and finite.
+
+    ctx.addColorStop() method adds a new color stop, defined by an offset and a color, to a given canvas gradient.
+        offset: A number between 0 and 1, inclusive, representing the position of the color stop. 0 represents the start of the gradient and 1 represents the end; an INDEX_SIZE_ERR is raised if the number is outside that range.
+        color: A CSS <color> value representing the color of the stop. A SYNTAX_ERR is raised if the value cannot be parsed as a CSS <color> value.
+
+    ctx.createPattern(image, repetition) method of the Canvas 2D API creates a pattern using the specified image and repetition. This method returns a CanvasPattern.
+        image:
+            A CanvasImageSource to be used as the pattern's image. It can be any of the following:
+            HTMLImageElement (<img>)
+            SVGImageElement (<image>)
+            HTMLVideoElement (<video>, by using the capture of the video)
+            HTMLCanvasElement (<canvas>)
+            ImageBitmap
+            OffscreenCanvas
+        repetition:
+            A DOMString indicating how to repeat the pattern's image. Possible values are:
+            "repeat" (both directions)
+            "repeat-x" (horizontal only)
+            "repeat-y" (vertical only)
+            "no-repeat" (neither direction)
+            If repetition is specified as an empty string ("") or null (but not undefined), a value of "repeat" will be used.
+
+    ctx.translate(x, y) method of the Canvas 2D API adds a translation transformation to the current matrix.
+        x: Distance to move in the horizontal direction. Positive values are to the right, and negative to the left.
+        y: Distance to move in the vertical direction. Positive values are down, and negative are up.
+
+    ctx.rotate(angle) method of the Canvas 2D API adds a rotation to the transformation matrix.
+        angle: The rotation angle, clockwise in radians. You can use degree * Math.PI / 180 to calculate a radian from a degree.
+
+    ctx.scale(x, y) method of the Canvas 2D API adds a scaling transformation to the canvas units horizontally and/or vertically.
+        x: Scaling factor in the horizontal direction. A negative value flips pixels across the vertical axis. A value of 1 results in no horizontal scaling.
+        y: Scaling factor in the vertical direction. A negative value flips pixels across the horizontal axis. A value of 1 results in no vertical scaling.
+
+    ctx.transform(a, b, c, d, e, f) method of the Canvas 2D API multiplies the current transformation with the matrix described by the arguments of this method. This lets you scale, rotate, translate (move), and skew the context.
+        a (m11): Horizontal scaling. A value of 1 results in no scaling.
+        b (m12): Vertical skewing.
+        c (m21): Horizontal skewing.
+        d (m22): Vertical scaling. A value of 1 results in no scaling.
+        e (dx): Horizontal translation (moving).
+        f (dy): Vertical translation (moving).
+
+    ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) method of the Canvas 2D API provides different ways to draw an image onto the canvas.
+        image: An element to draw into the context. The specification permits any canvas image source (CanvasImageSource), specifically, a CSSImageValue, an HTMLImageElement, an SVGImageElement, an HTMLVideoElement, an HTMLCanvasElement, an ImageBitmap, or an OffscreenCanvas.
+        sx: Optional The x-axis coordinate of the top left corner of the sub-rectangle of the source image to draw into the destination context. Note that this argument is not included in the 3- or 5-argument syntax.
+        sy: Optional The y-axis coordinate of the top left corner of the sub-rectangle of the source image to draw into the destination context. Note that this argument is not included in the 3- or 5-argument syntax.
+        sWidth: Optional The width of the sub-rectangle of the source image to draw into the destination context. If not specified, the entire rectangle from the coordinates specified by sx and sy to the bottom-right corner of the image is used. Note that this argument is not included in the 3- or 5-argument syntax.
+        sHeight: Optional The height of the sub-rectangle of the source image to draw into the destination context. Note that this argument is not included in the 3- or 5-argument syntax.
+        dx: The x-axis coordinate in the destination canvas at which to place the top-left corner of the source image.
+        dy: The y-axis coordinate in the destination canvas at which to place the top-left corner of the source image.
+        dWidth: The width to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in width when drawn. Note that this argument is not included in the 3-argument syntax.
+        dHeight: The height to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in height when drawn. Note that this argument is not included in the 3-argument syntax.
+    
+    ctx.getImageData(sx, sy, sw, sh): Returns an ImageData object that copies the pixel data for the specified rectangle on a canvas.
+        sx: The x-axis coordinate of the top-left corner of the rectangle from which the ImageData will be extracted.
+        sy: The y-axis coordinate of the top-left corner of the rectangle from which the ImageData will be extracted.
+        sw: The width of the rectangle from which the ImageData will be extracted. Positive values are to the right, and negative to the left.
+        sh: The height of the rectangle from which the ImageData will be extracted. Positive values are down, and negative are up.
+
+    CanvasElement.toBlob(callback, mimeType, qualityArgument) method creates a Blob object representing the image contained in the canvas; this file may be cached on the disk or stored in memory at the discretion of the user agent. If type is not specified, the image type is image/png. The created image is in a resolution of 96dpi.
+        callback: A callback function with the resulting Blob object as a single argument.
+        mimeType: (Optional)A DOMString indicating the image format. The default type is image/png.
+        qualityArgument: (Optional) A Number between 0 and 1 indicating image quality if the requested type is image/jpeg or image/webp. If this argument is anything else, the default values 0.92 and 0.80 are used for image/jpeg and image/webp respectively. Other arguments are ignored.
+
+    The window.requestAnimationFrame(callback) method tells the browser that you wish to perform an animation and requests that the browser calls a specified function to update an animation before the next repaint. The method takes a callback as an argument to be invoked before the repaint.
+    You should call this method whenever you're ready to update your animation onscreen. This will request that your animation function be called before the browser performs the next repaint. The number of callbacks is usually 60 times per second, but will generally match the display refresh rate in most web browsers as per W3C recommendation.
+
+    .\JavaScript\Canvas1.html
+    .\JavaScript\Canvas2.html
+    .\JavaScript\Canvas3.html
+    .\JavaScript\Canvas4.html
+    .\JavaScript\Canvas5.html
+    .\JavaScript\Canvas6.html
+    .\JavaScript\Canvas7.html
+    .\JavaScript\Canvas8.html
+    .\JavaScript\Canvas9.html
+    .\JavaScript\CanvasImageSeq\index.html (node server.js)
+
+HTTP Request?
+
+    HyperText Transfer Protocol (HTTP) is the underlying protocol used by the World Wide Web to define how messages are formatted and transmitted and what actions Web servers and browsers should take in response to various commands. It is a request-response protocol in the client-server computing model. Clients and servers communicate by exchanging individual messages. The message sent by the client, typically a Web browser, is the request while the message sent by the server as an answer is the response. The server will provide resources such as HTML files, which is which contain the information for formatting and displaying Web pages.
+
+    A similar abbreviation, HTTPS stands for HyperText Transfer Protocol Secure. Simply put, it is the secure version of HTTP. Communications between the browser and website (client and server) are encrypted by Transport Layer Security. Before entering sensitive information such as credit card details or a password, check that the website is using HTTPS. If it is not, any data entered into the website will be sent in plaintext, making it susceptible to interception.
+
+    HTTP defines a set of request methods to indicate the desired action to be performed for a given resource. Although they can also be nouns, these request methods are sometimes referred to as HTTP verbs.
+        GET: The HTTP GET method requests a representation of the specified resource. Requests using GET should only retrieve data.
+        Request has body	No
+        Successful response has body	Yes
+        Safe	Yes
+        Idempotent	Yes
+        Cacheable	Yes
+        Allowed in HTML forms	Yes
+
+        POST: The HTTP POST method sends data to the server. The type of the body of the request is indicated by the Content-Type header. Non-idempotent.
+        Request has body	Yes
+        Successful response has body	Yes
+        Idempotent	No
+        Cacheable	Only if freshness information is included
+        Allowed in HTML forms	Yes
+
+        DELETE: The HTTP DELETE request method deletes the specified resource.
+        Request has body	May
+        Successful response has body	May
+        Idempotent	Yes
+        Cacheable	No
+        Allowed in HTML forms	No
+
+        PATCH: The HTTP PATCH request method applies partial modifications to a resource.
+        Request has body	Yes
+        Successful response has body	Yes
+        Idempotent	No
+        Cacheable	No
+        Allowed in HTML forms	No
+
+        The HTTP PUT request method creates a new resource or replaces a representation of the target resource with the request payload.
+        Request has body	Yes
+        Successful response has body	No
+        Idempotent	Yes
+        Cacheable	No
+        Allowed in HTML forms	No
+
+        The HTTP OPTIONS method is used to describe the communication options for the target resource. The client can specify a URL for the OPTIONS method, or an asterisk (*) to refer to the entire server. The HTTP OPTIONS method is used to request information about the communication options available for the target resource. The response may include an Allow header indicating allowed HTTP methods on the resource, or various Cross Origin Resource Sharing headers. The HTTP OPTIONS method is both safe and idempotent, as it is intended only for use in querying information about ways to interact with a resource.
+
+        The HTTP TRACE method performs a message loop-back test along the path to the target resource, providing a useful debugging mechanism. 'TRACE' is a HTTP request method used for debugging which echo's back input back to the user.
+
+    An HTTP method is safe if it doesn't alter the state of the server. In other words, a method is safe if it leads to a read-only operation. 
+    An HTTP method is idempotent if an identical request can be made once or several times in a row with the same effect while leaving the server in the same state. In other words, an idempotent method should not have any side-effects (except for keeping statistics).
+    A cacheable response is an HTTP response that can be cached, that is stored to be retrieved and used later, saving a new request to the server. Not all HTTP responses can be cached.
+        
+    The status read-only property of the Response interface contains the status code of the response:        
+        Informational responses (100–199)
+        Successful responses (200–299)
+        Redirects (300–399)
+        Client errors (400–499)
+        Server errors (500–599)
+    Most common status:
+        200 - OK - The request has succeeded.
+        204 - No Content - There is no content to send for this request, but the headers may be useful. 
+        301 - Moved Permanently -nThe URL of the requested resource has been changed permanently. The new URL is given in the response.
+        400 - Bad Request - The server could not understand the request due to invalid syntax.
+        401 - Unauthorized - Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated".
+        403 - Forbidden - The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource.
+        404 - Not Found - The server can not find the requested resource. In the browser, this means the URL is not recognized.
+        500 - Internal Server Error - The server has encountered a situation it doesn't know how to handle.
+
+    HTTP headers let the client and the server pass additional information with an HTTP request or response. An HTTP header consists of its case-insensitive name followed by a colon (:), then by its value. Whitespace before the value is ignored.
+        Authorization: Contains the credentials to authenticate a user-agent with a server.
+        Expires: The date/time after which the response is considered stale.
+        Accept: Informs the server about the types of data that can be sent back.
+        Content-Type: Indicates the media type of the resource. (application/json).
+        Cookie: Contains stored HTTP cookies previously sent by the server with the Set-Cookie header.
+        Location: Indicates the URL to redirect a page to.
+        Allow: Lists the set of HTTP request methods supported by a resource.
+        Origin: Indicates where a fetch originates from.
+        Date: Contains the date and time at which the message was originated.
+
+    An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to the user's web browser. The browser may store it and send it back with later requests to the same server. Typically, it's used to tell if two requests came from the same browser — keeping a user logged-in, for example. It remembers stateful information for the stateless HTTP protocol.
+    Cookies are mainly used for three purposes:
+        Session management: Logins, shopping carts, game scores, or anything else the server should remember
+        Personalization: User preferences, themes, and other settings
+        Tracking: Recording and analyzing user behavior
+
+    CORS (Cross-Origin Resource Sharing) is a system, consisting of transmitting HTTP headers, that determines whether browsers block frontend JavaScript code from accessing responses for cross-origin requests.
+    The same-origin security policy forbids cross-origin access to resources. But CORS gives web servers the ability to say they want to opt into allowing cross-origin access to their resources.
+    The same-origin policy is a critical security mechanism that restricts how a document or script loaded from one origin can interact with a resource from another origin. It helps isolate potentially malicious documents, reducing possible attack vectors.
+        Access-Control-Allow-Origin: The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given origin. 
+            * (wildcard): For requests without credentials, the literal value "*" can be specified, as a wildcard; the value tells browsers to allow requesting code from any origin to access the resource.
+            <origin>: Specifies an origin. Only a single origin can be specified. If the server supports clients from multiple origins, it must return the origin for the specific client making the request. Web content's origin is defined by the scheme (protocol), host (domain), and port of the URL used to access it. Two objects have the same origin only when the scheme, host, and port all match.
+
+        Access-Control-Allow-Methods: esponse header specifies the method or methods allowed when accessing the resource in response to a preflight request.
+            <method>: Comma-delimited list of the allowed HTTP request methods.
+            * (wildcard): The value "*" only counts as a special wildcard value for requests without credentials (requests without HTTP cookies or HTTP authentication information). In requests with credentials, it is treated as the literal method name "*" without special semantics.
+
+        Access-Control-Allow-Credentials: response header tells browsers whether to expose the response to frontend JavaScript code when the request's credentials mode (Request.credentials) is include. When a request's credentials mode (Request.credentials) is include, browsers will only expose the response to frontend JavaScript code if the Access-Control-Allow-Credentials value is true.Credentials are cookies, authorization headers or TLS client certificates.
+
+        Access-Control-Allow-Headers: esponse header is used in response to a preflight request which includes the Access-Control-Request-Headers to indicate which HTTP headers can be used during the actual request.
+        <header-name>: The name of a supported request header. The header may list any number of headers, separated by commas. (eg. 'Origin, X-Requested-With, Content-Type, Accept, authorization').
+        * (wildcard): The value "*" only counts as a special wildcard value for requests without credentials (requests without HTTP cookies or HTTP authentication information). In requests with credentials, it is treated as the literal header name "*" without special semantics. Note that the Authorization header can't be wildcarded and always needs to be listed explicitly.
+
+Fetch API?
+    The Fetch API provides an interface for fetching resources (including across the network).
+    Fetch provides a generic definition of Request and Response objects (and other things involved with network requests).
+    It also defines related concepts such as CORS and the HTTP Origin header semantics, supplanting their separate definitions elsewhere.
+    It's based on the term “AJAX” (abbreviated Asynchronous JavaScript And XML) for network requests from JavaScript. 
+
+    fetch(resource [, init]): method takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise that resolves to the Response to that request, whether it is successful or not. The promise, returned by fetch, resolves with an object of the built-in Response class as soon as the server responds with headers.
+        resource: This defines the resource that you wish to fetch. This can either be:
+        A string or any other object with a stringifier — including a URL object — that provides the URL of the resource you want to fetch. A Request object. Retruns A Promise that resolves to a Response object.
+
+        init: (Optional) An object containing any custom settings that you want to apply to the request. The possible options are:
+            "method": The request method, GET, POST, PUT, DELETE. Note that the Origin header is not set on Fetch requests with a method of HEAD or GET.
+            "mode": The mode you want to use for the request: cors, no-cors, or same-origin.
+            "cache": 'no-cache' // *default, no-cache, reload, force-cache, only-if-cached.
+            "credentials": Controls what browsers do with credentials (cookies, HTTP authentication entries, and TLS client certificates). Must be one of the following strings:
+                omit: Tells browsers to exclude credentials from the request, and ignore any credentials sent back in the response (e.g., any Set-Cookie header).
+                same-origin: Tells browsers to include credentials with requests to same-origin URLs, and use any credentials sent back in responses from same-origin URLs.
+                include: Tells browsers to always include credentials in requests, and always use any credentials sent back in responses.
+            "headers": Any headers you want to add to your request, contained within a Headers object or an object literal with ByteString values. Note that some names are forbidden.
+            "body":Any body that you want to add to your request: this can be a Blob, BufferSource, FormData, URLSearchParams, USVString, or ReadableStream object. Note that a request using the GET or HEAD method cannot have a body. 
+            JSON.stringify(data) // body data type must match "Content-Type" header.
+
+    The Response interface of the Fetch API represents the response to a request. You can create a new Response object using the Response.Response() constructor, but you are more likely to encounter a Response object being returned as the result of another API operation.
+        Response.headers: The Headers object associated with the response.
+        Response.ok: A boolean indicating whether the response was successful (status in the range 200–299) or not.
+        Response.status: The status code of the response. (This will be 200 for a success).
+        Response.url: The URL of the response.
+        Response.body:
+                Body.json(): Takes a Response stream and reads it to completion. It returns a promise that resolves with the result of parsing the body text as JSON, which is a JavaScript value of datatype object, string, etc.
+                Body.text(): Takes a Response stream and reads it to completion. It returns a promise that resolves with a USVString (text).
+                Body.blob(): Takes a Response stream and reads it to completion. It returns a promise that resolves with a Blob. (binary data with type).
+
+    The Request interface of the Fetch API represents a resource request.
+    You can create a new Request object using the Request() constructor, but you are more likely to encounter a Request object being returned as the result of another API operation
+        Request.credentials: Contains the credentials of the request (e.g., omit, same-origin, include). The default is same-origin.
+        Request.headers: Contains the associated Headers object of the request.
+        Request.method Read only: Contains the request's method (GET, POST, etc.).
+        Request.mode: Contains the mode of the request (e.g., cors, no-cors, same-origin, navigate.).
+        Request.url: Contains the URL of the request.
+
+        .\JavaScript\FetchServer\index.html (node server.js)
+
+Cross-Site Scripting Attacks (XSS)?
+    The idea behind an XSS attack with innerHTML is that malicious code would get injected into your site and then execute. This is possible because innerHTML renders complete markup and not just text.
+
+    If you’re adding content to a page that you didn’t write, you should sanitize it to protect yourself from XSS attacks.
+
+    Sanitizing content before adding it to the DOM
+    The textContent property is great if you’re only adding text, but if you’re adding some third-party content as part of some additional markup, you’ll still want to use innerHTML.
+
+    Use a helper function usually regExp to clean the content.
+
+Patterns?
+    A design pattern is a term used in software engineering for a general, reusable solution to a commonly occurring problem in software design. Design patterns are usually categorized into three major groups.
+
+    Creational Design Patterns: As the name suggests, these patterns are for handling object creational mechanisms. A creational design pattern basically solves a problem by controlling the creation process of an object. Constructor Pattern, Factory Pattern, Prototype Pattern, and Singleton Pattern.
+
+        Constructor Pattern: This is a class-based creational design pattern. Constructors are special functions that can be used to instantiate new objects with methods and properties defined by that function.
+
+        Factory Pattern: Factory pattern is another class-based creational pattern. In this, we provide a generic interface that delegates the responsibility of object instantiation to its subclasses.
+
+        Prototype Pattern: This pattern is an object-based creational design pattern. In this, we use a sort of a “skeleton” of an existing object to create or instantiate new objects.
+
+        Singleton Pattern: Singleton is a special creational design pattern in which only one instance of a class can exist. It works like this — if no instance of the singleton class exists then a new instance is created and returned, but if an instance already exists, then the reference to the existing instance is returned.
+        
+    Structural Design Patterns: These patterns are concerned with class and object composition. They help structure or restructure one or more parts without affecting the entire system. In other words, they help obtain new functionalities without tampering with the existing ones. Adapter Pattern, Decorator Pattern, Façade Pattern, Flyweight Pattern, and Proxy Pattern.
+
+        Adapter Pattern: This is a structural pattern where the interface of one class is translated into another. This pattern lets classes work together that could not otherwise because of incompatible interfaces.
+
+        Decorator Pattern: This is also a structural design pattern that focuses on the ability to add behaviour or functionalities to existing classes dynamically. It is another viable alternative to sub-classing.
+
+        Façade Pattern: This is a structural design pattern that is widely used in the JavaScript libraries. It is used to provide a unified and simpler, public-facing interface for ease of use that shields away from the complexities of its consisting subsystems or subclasses.
+
+        Flyweight Pattern: This is a structural design pattern focused on efficient data sharing through fine-grained objects. It is used for efficiency and memory conservation purposes.
+
+        Proxy Pattern: This is a structural design pattern that behaves exactly as its name suggests. It acts as a surrogate or placeholder for another object to control access to it.
+
+    Behavioral Design Patterns: These patterns are concerned with improving communication between dissimilar objects. Chain of Responsibility Pattern, Command Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern, and Template Pattern.
+
+        Chain of Responsibility Pattern: This is a behavioural design pattern that provides a chain of loosely coupled objects. Each of these objects can choose to act on or handle the request of the client.
+
+        Command Pattern: This is a behavioural design pattern that aims to encapsulate actions or operations as objects. This pattern allows loose coupling of systems and classes by separating the objects that request an operation or invoke a method from the ones that execute or process the actual implementation. The Command class also keeps track of all the commands executed, which can be used to extend its functionality to include undo and redo type operations.
+
+        Mediator Pattern: It is a behavioural design pattern that encapsulates how a set of objects interact with each other. It provides the central authority over a group of objects by promoting loose coupling, keeping objects from referring to each other explicitly.
+
+        Observer Pattern: It is a crucial behavioural design pattern that defines one-to-many dependencies between objects so that when one object (publisher) changes its state, all the other dependent objects (subscribers) are notified and updated automatically. This is also called PubSub (publisher/subscribers) or event dispatcher/listeners pattern. The publisher is sometimes called the subject, and the subscribers are sometimes called observers.
+
+        State Pattern: It is a behavioural design pattern that allows an object to alter its behaviour based on changes to its internal state. The object returned by a state pattern class seems to change its class. It provides state-specific logic to a limited set of objects in which each object type represents a particular state.
+
+        Strategy Pattern: It is a behavioural design pattern that allows encapsulation of alternative algorithms for a particular task. It defines a family of algorithms and encapsulates them in such a way that they are interchangeable at runtime without client interference or knowledge.
+
+        Template Pattern: This is a behavioural design pattern based on defining the skeleton of the algorithm or implementation of an operation, but deferring some steps to subclasses. It lets subclasses redefine certain steps of an algorithm without changing the algorithm’s outward structure.
+
+    .\JavaScript\ParseIntString.js
+    .\JavaScript\Pattern_ChainResponsability.js
+    .\JavaScript\Pattern_Command.js
+    .\JavaScript\Pattern_Constructor.js
+    .\JavaScript\Pattern_Decorator.js
+    .\JavaScript\Pattern_Facade.js
+    .\JavaScript\Pattern_Factory.js
+    .\JavaScript\Pattern_Flyweight.js
+    .\JavaScript\Pattern_Mediator.js
+    .\JavaScript\Pattern_Observer.js
+    .\JavaScript\Pattern_Prototype.js
+    .\JavaScript\Pattern_Proxy.js
+    .\JavaScript\Pattern_Singleton.js
+    .\JavaScript\Pattern_State.js
+    .\JavaScript\Pattern_Strategy.js
+    .\JavaScript\Pattern_Template.js

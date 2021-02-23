@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #mycanvas {
+            border: 4px solid black;
+            width: 1000px;
+            height: 600px;
+            box-sizing: border-box;
+        }
+        .colorContainer {
+            position: fixed;
+            top: 100px;
+            left: 150px;
+            padding: 15px;
+            border: 4px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mycanvas" width="1000px" height="600px"></canvas>
+    <div class="colorContainer">
+        <input type="color" id="canvasColor" name="canvasColor" value="#1d65ed">
+        <label for="canvasColor">Canvas Color</label>
+    </div>
+    <script>
+        const canvas = document.querySelector('#mycanvas');
+        const ctx = canvas.getContext('2d');
+        let flag = false;
+        const canvasColor = document.querySelector('#canvasColor');
+        ctx.strokeStyle = `${canvasColor.value}`;
+
+        canvasColor.addEventListener('input', ()=>{
+            console.log(canvasColor.value)
+            ctx.strokeStyle = `${canvasColor.value}`;
+        });
+
+        canvas.addEventListener('mousedown', (e)=>{
+            flag = true;
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        });
+
+        canvas.addEventListener('mouseup', (e)=>{
+            flag = false;
+            ctx.closePath();
+        });
+
+        canvas.addEventListener('mousemove', (e)=>{
+            if(flag){
+                ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+                ctx.stroke();
+            }
+        });
+
+    </script>
+</body>
+</html>

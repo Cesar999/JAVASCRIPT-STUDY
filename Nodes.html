@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="child1">
+            I am the first child
+        </div>
+        <div class="child2">
+            I am the second child
+        </div>
+        <div class="child3">
+            I am the third child
+        </div>
+        <div class="child4">
+            I am the fourth child
+        </div>
+    </div>
+    <Script>
+        const container = document.querySelector('.container');
+        const child2 = document.querySelector('.container .child2');
+        const child3 = document.querySelector('.container .child3');
+        
+        console.log(container);
+
+        console.log(container.childNodes, '- childnodes'); // nodeList of nodeElements and nodeTexts. The texts are the space between the divs in the html.
+        console.log(container.firstChild, '- firstChild'); // first Node
+        console.log(container.lastChild, '- lastChild'); // last node
+        console.log(container.firstChild.parentNode, '- parentNode'); // parent node
+        console.log(child2.nextSibling, '- nextSibling'); // node sibiling
+
+        console.log(container.children, '- children'); // list of html elements
+        console.log(container.firstElementChild, '- firstElementChild'); // firs element
+        console.log(container.lastElementChild, '- lastElementChild'); // last element
+        console.log(container.firstChild.parentElement, '- parentElement'); // parent element
+        console.log(child3.nextElementSibling, '- nextElementSibling'); // element sibiling
+
+        console.log(container.firstChild.textContent, '- textContent'); // text
+
+        const cln2 = child2.cloneNode(true); // copy element with text content
+        const cln3 = child3.cloneNode(false); // copy element without the text content
+        container.append(cln2) // add element after last child
+        container.prepend(cln3) // add element before first child
+        console.log(container.children, ' - append-prepend'); 
+    
+    </Script>
+</body>
+</html>

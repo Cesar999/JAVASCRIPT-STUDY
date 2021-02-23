@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .event-log {
+            height: 250px;
+            width: 150px;
+        }
+        button {
+            height: 50px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <button type="button">Load video</button>
+        <video controls width="700"></video>
+        <textarea readonly class="event-log"></textarea>
+    
+    </div>
+
+    <script>
+
+        const loadVideoButton = document.querySelector('button');
+        const video = document.querySelector('video');
+        const eventLog = document.querySelector('.event-log');
+        let source = null;
+
+        function handleEvent(event) {
+            eventLog.textContent = eventLog.textContent + `${event.type}\n`;
+        }
+
+        video.addEventListener('loadstart', handleEvent);
+        video.addEventListener('progress', handleEvent);
+        video.addEventListener('canplay', handleEvent);
+        video.addEventListener('canplaythrough', handleEvent);
+        video.addEventListener('play', handleEvent);
+        video.addEventListener('playing', handleEvent);
+        video.addEventListener('pause', handleEvent);
+        video.addEventListener('ended', handleEvent);
+
+
+        loadVideoButton.addEventListener('click', () => {
+            if (source) {
+                document.location.reload();
+            } else {
+                loadVideoButton.textContent = "Reset example";
+
+                source = document.createElement('source');
+                source.setAttribute('src', 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4');
+                source.setAttribute('type', 'video/mp4');
+
+                video.autoplay = true;
+                video.loop = true;
+                video.appendChild(source);
+            }
+        });
+
+    </script>
+</body>
+</html>
+

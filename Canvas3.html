@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: space-around;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+        .container div{
+            flex-grow: 1;
+            border: 4px solid black;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            width: 800px;
+            margin: 0 auto;
+        }
+        #canvas {
+            flex-grow: 0;
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <canvas id="canvas" width="800px" height="500px"></canvas>
+        <div id="hovered-color"></div>
+        <div id="selected-color"></div>
+    </div>
+    <script>
+        const img = new Image();
+        img.crossOrigin = "Anonymous";
+        img.src = 'https://images.unsplash.com/photo-1520633946251-dcf52b0276b9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
+
+        const canvas = document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            img.style.display = 'none';
+        };
+        const hoveredColor = document.querySelector('#hovered-color');
+        const selectedColor = document.querySelector('#selected-color');
+
+        function pick(event, destination) {
+            const x = event.clientX - canvas.offsetLeft;
+            const y = event.clientY - canvas.offsetTop;
+            const pixel = ctx.getImageData(x, y, 1, 1);
+            if(event.type === 'click'){
+                console.log(pixel);
+            }
+            const data = pixel.data;
+                const rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`;
+                destination.style.background = rgba;
+                destination.textContent = rgba;
+                return rgba;
+        }
+
+        canvas.addEventListener('mousemove', function(event) {
+            pick(event, hoveredColor);
+        });
+        canvas.addEventListener('click', function(event) {
+            pick(event, selectedColor);
+        });
+    </script>
+</body>
+</html>

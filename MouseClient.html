@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            height: 150vh;
+            width: 150vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .content {
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 4px solid black;
+            white-space: pre-line;
+            /* position: absolute;
+            top: 0;
+            left: 0; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content"></div>
+    </div>
+    <script>
+        const content = document.querySelector('.container .content');
+        document.addEventListener('mousemove', logMouse);
+
+        function logMouse(e){
+            const text = `Client X/Y: ${e.clientX}, ${e.clientY}\n
+                Screen X/Y: ${e.screenX}, ${e.screenY}\n
+                Movement X/Y: ${e.movementX}, ${e.movementY}\n
+                Page X/Y: ${e.pageX}, ${e.pageY}`;
+            content.textContent = text;
+            // content.style.top = `${e.pageY - content.clientHeight}px`;
+            // content.style.left = `${e.pageX - content.clientWidth}px`;
+        }
+
+    </script>
+</body>
+</html>

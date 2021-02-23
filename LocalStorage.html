@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100vw;
+            height: 80vh;
+        }
+        #myform {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 2px solid black;
+            background-color: teal;
+            padding: 60px;
+        }
+        #myform input, select {
+            margin-bottom: 15px;
+        }
+        button {
+            cursor: pointer;
+            padding: 5px;
+        }
+
+
+        .result {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 45px;
+            border: 2px solid black;
+            background-color: tomato;
+            padding: 60px;
+        }
+        .result p {
+            margin-bottom: 15px;
+        }
+
+        #clear {
+            margin-top: 45px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="" id="myform">
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name"/>
+
+            <label for="level">Level: </label>
+            <input type="number" name="level" id="level" min="1" max="10" step="1"/>
+
+            <label for="type">Type: </label>
+            <select name="type" id="type">
+                <option value="Fire">Fire</option>
+                <option value="Water">Water</option>
+                <option value="Grass">Grass</option>
+                <option value="Electric">Electric</option>
+                <option value="Earth">Earth</option>
+            </select>
+
+            <button id="save">Save on Local Storage</button>
+
+        </form>
+
+        <hr>
+
+        <div class="result">
+            <p class="name">Name: <span class="content"></span>
+                <button class="remove" data-prop="name">Remove</button>
+            </p>
+            <p class="level">Level: <span class="content"></span>
+                <button class="remove" data-prop="level">Remove</button>
+            </p>
+            <p class="type">Type: <span class="content"></span>
+                <button class="remove" data-prop="type">Remove</button>
+            </p>
+
+            <button id="read">Read from Local Storage</button>
+        </div>
+
+        <hr>
+
+        <button id="clear">Clear on Local Storage</button>
+
+    </div>
+    <script>
+
+        const btnSave = document.querySelector('button#save');
+        const btnRead = document.querySelector('button#read');
+        const btnClear = document.querySelector('button#clear');
+        const btnRemove = document.querySelector('.result');
+
+        const nameContent = document.querySelector('.result .name .content');
+        const levelContent = document.querySelector('.result .level .content');
+        const typeContent = document.querySelector('.result .type .content');
+
+        btnSave.addEventListener('click', saveData);
+        btnRead.addEventListener('click', readData);
+        btnClear.addEventListener('click', clearData);
+        btnRemove.addEventListener('click', removeData);
+
+        function saveData(e){
+            e.preventDefault();
+            const data = document.forms['myform'];
+            console.log(data['name'])
+            localStorage.setItem('name', data['name'].value);
+            localStorage.setItem('level', data['level'].value);
+            localStorage.setItem('type', data['type'].value);
+
+            // playing with and array and an object
+            localStorage.setItem('array', [1, 2, 3, 4]);
+            localStorage.setItem('object', JSON.stringify({x: 'abc', y: 9, z: true}));
+        }
+
+        function readData(){
+            nameContent.textContent = localStorage.getItem('name');
+            levelContent.textContent = localStorage.getItem('level');
+            typeContent.textContent = localStorage.getItem('type');
+
+            // playing with and array and an object
+            console.log(localStorage.getItem('array'));
+            console.log(JSON.parse(localStorage.getItem('object')));
+        }
+        
+        function clearData(){
+            localStorage.clear();
+        }
+
+        function removeData(e){
+            if(e.target.classList.contains('remove')){
+                const prop = e.target.dataset.prop;
+                switch (prop) {
+                    case 'name':
+                        localStorage.removeItem('name');
+                        break;
+                    case 'level':
+                        localStorage.removeItem('level');
+                        break;                   
+                    case 'type':
+                        localStorage.removeItem('type');
+                        break;
+                    default:
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

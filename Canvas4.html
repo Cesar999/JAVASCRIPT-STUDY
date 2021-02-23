@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #canvas {
+            width: 800px;
+            height: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800px" height="800px"></canvas>
+    <script>
+        const canvas = document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+        let rotate = 1;
+        animate();
+
+        function drawSquare(){
+            ctx.beginPath();
+            ctx.lineWidth = 16;
+            ctx.strokeStyle = 'black';
+            ctx.lineCap = 'round';
+            ctx.rect(-100, -100, 200, 200);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        function animate(){
+            // reset transforms before clearing
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // tramslate and rotate an absolute rotation value
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            ctx.rotate(rotate++ * Math.PI / 180);
+
+            drawSquare();
+            window.requestAnimationFrame(animate);
+        }
+    </script>
+</body>
+</html>

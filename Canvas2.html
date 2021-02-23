@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myCanvas {
+            border: 4px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script>
+        const canvas = document.querySelector('#myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // const gradient = ctx.createRadialGradient(canvas.width / 2, canvas.height / 2, canvas.width / 4, canvas.width / 2, canvas.height / 2, canvas.width / 2);
+        // // Add three color stops
+        // gradient.addColorStop(0, 'green');
+        // gradient.addColorStop(1, 'cyan');
+
+        const gradient = ctx.createLinearGradient(0,0, canvas.width,canvas.height);
+        // Add three color stops
+        gradient.addColorStop(0, 'green');
+        gradient.addColorStop(0.5, 'white');
+        gradient.addColorStop(1, 'red');
+
+        // Set the fill style and draw a rectangle
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = '30px serif';
+        ctx.fillStyle = 'tomato';
+        ctx.fillText('Fill Text', 50, 100);
+
+        ctx.font = '60px serif';
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'teal';
+        ctx.strokeText('Stroke Text', 200, 400);
+
+
+    </script>
+</body>
+</html>

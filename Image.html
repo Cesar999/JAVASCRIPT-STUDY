@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            border: 4px solid black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+    <script>
+        // const image = document.images[0];
+        // cosnt downloadingImage = new Image();
+        // downloadingImage.onload = function(){
+        //     image.src = this.src;   
+        // };
+        // downloadingImage.src = "https://images.freeimages.com/images/large-previews/468/winter-wonderland-1383617.jpg";
+
+        const imagesArray = [
+            'https://images.freeimages.com/images/large-previews/468/winter-wonderland-1383617.jpg',
+            'https://images.freeimages.com/images/large-previews/5b7/on-the-road-7-1384791.jpg',
+            'https://images.freeimages.com/images/large-previews/05e/on-the-road-6-1384796.jpg',
+            'https://images.freeimages.com/images/large-previews/6e4/cemetary-1387449.jpg',
+            'https://images.freeimages.com/images/large-previews/1ad/tractor-2-1386664.jpg',
+            'https://images.freeimages.com/images/large-previews/647/snowy-mountain-1378865.jpg'
+        ];
+
+        const imagePromise = path => 
+            new Promise(resolve => {
+                const img = new Image();
+                // img.width = '600';
+                // img.height = '300';
+                img.onload = () => resolve({img, status: 'ok'});
+                img.onerror = () => resolve({img, status: 'error'});
+                img.src = path;
+            });
+
+        const promiseArray = [];
+        imagesArray.forEach((url)=>{
+            promiseArray.push(imagePromise(url));
+        });
+
+        const container = document.querySelector('.container');
+
+        Promise.all(promiseArray)
+        .then(result => {
+            result.forEach((item)=>{
+                container.appendChild(item.img);
+            });
+            console.log('All Images are loaded');
+        });
+
+    </script>
+</body>
+</html>

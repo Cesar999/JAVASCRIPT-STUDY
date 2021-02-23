@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100%;
+            border: 4px solid tomato;
+            background-color: gray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Empty</h1>
+        <hr>
+    </div>
+    <template id="temp1">
+        <h1 class="title">Custom Title</h1>
+        <p class="paragraph">Some random custom text</p>
+        <ul>
+            <li class="item">item1</li>
+            <li class="item">item2</li>
+            <li class="item">item3</li>
+        </ul>
+        <hr>
+    </template>
+    <script>
+        const cont = document.querySelector('.container');
+
+        const temp = document.querySelector('#temp1');
+
+        const cln1 = temp.content.cloneNode(true);
+        const h1 = cln1.querySelector('.title');
+        const p1 = cln1.querySelector('.paragraph');
+        const li_array1 = cln1.querySelectorAll('ul .item');
+        h1.textContent = 'My Title';
+        p1.textContent = 'My Favorite Movies of all Time';
+        li_array1.forEach((el,i) => {
+            el.textContent = `Movie ${i}`;
+        });
+
+        const cln2 = temp.content.cloneNode(true);
+        const h2 = cln2.querySelector('.title');
+        const p2 = cln2.querySelector('.paragraph');
+        const li_array2 = cln2.querySelectorAll('ul .item');
+        h2.textContent = 'My New Title';
+        p2.textContent = 'My Favorite Animes of All Time';
+        li_array2.forEach((el,i) => {
+            el.textContent = `Anime ${i}`;
+        });
+
+        const cln3 = cln1.cloneNode(true);
+
+        cont.appendChild(cln1);
+        cont.appendChild(cln2);
+        cont.appendChild(cln3);
+
+    </script>
+</body>
+</html>l

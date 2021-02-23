@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #myform {
+            margin-top: 30px;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            border: 4px solid black;
+            width: 200px;
+        }
+
+        #myform label, input[type="submit"] {
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="" id="myform">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
+
+        <label for="level">Level</label>
+        <input type="number" id="level" name="level" min="1" max="100" value="1">
+
+        <label for="type">Type</label>
+        <select id="type" name="type">
+            <option value="Warrior">Warrior</option>
+            <option value="Mage">Mage</option>
+            <option value="Druid">Druid</option>
+            <option value="Hunter">Hunter</option>
+            <option value="Rogue">Rogue</option>
+            <option value="Necromancer">Necromancer</option>
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+    <hr>
+    <ul id="items"></ul>
+    <template id="myTemplate">
+        <li class="item">
+            Username: <span class="username"></span> | 
+            Level: <span class="level"></span> | 
+            Type: <span class="type"></span> 
+            <button class="delete">Delete</button>
+        </li>
+    </template>
+    <script>
+        let ul = document.querySelector('#items');
+        let myForm = document.querySelector('#myform');
+        let temp = document.querySelector('#myTemplate');
+        myForm.addEventListener('submit', postData);
+
+        window.onload = function() {
+            getData()
+            .then(data => {
+                console.log('Success:', data);
+                const myItems = data.items;
+                myItems.forEach((item)=>{
+                    if(!searchId(item.id)){
+                        populateTemplate(item);
+                    }
+                });
+            });
+        };
+
+
+        function postData(e) {
+            e.preventDefault();
+            const username = document.forms.myform.username.value;
+            const level = parseInt(document.forms.myform.level.value);
+            const type = document.forms.myform.type.value;
+            const data = {username, level, type};
+            fetch('http://localhost:3001/api', {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                return getData();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                const myItems = data.items;
+                myItems.forEach((item)=>{
+                    if(!searchId(item.id)){
+                        populateTemplate(item);
+                    }
+                });
+            });
+        }
+
+        async function getData() {
+            const response = await fetch('http://localhost:3001/api', {
+                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            })
+            return response.json();
+        }
+
+        function deleteData(id){
+            const data = {id};
+            fetch('http://localhost:3001/api', {
+                method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            })            
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                return getData();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                ul.querySelector(`li[data-id='${id}']`).remove();
+            });
+        }
+
+        function populateTemplate(item){
+            const cln = temp.content.cloneNode(true);
+            const li = cln.querySelector('.item');
+            const usernameSpan = cln.querySelector('.username');
+            const levelSpan = cln.querySelector('.level');
+            const typeSpan = cln.querySelector('.type');
+            const {username, level, type, id} = item;
+            usernameSpan.textContent = username;
+            levelSpan.textContent = level;
+            typeSpan.textContent = type;
+            li.setAttribute('data-id', id);
+            ul.appendChild(cln);
+        }
+
+        function searchId(id){
+            const list = ul.querySelectorAll('.item');
+            const array = Array.from(list);
+            return array.some(li=>parseInt(li.getAttribute('data-id'))===id);
+        }
+
+        ul.addEventListener('click', (e)=>{
+            if(!e.target.classList.contains('delete')){
+                return;
+            }
+            const id = e.target.parentNode.getAttribute('data-id');
+            deleteData(id);
+        });
+
+    </script>
+</body>
+</html>

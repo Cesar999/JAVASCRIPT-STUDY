@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scrollbar-width: none;
+        }
+        .container {
+            width: 100vw;
+            height: 200vh;
+            max-width:100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: black;
+            position: relative;
+            box-sizing: border-box;
+        }
+        #canvas {
+            border: 4px solid white;
+            position: sticky;
+            top: 150px;
+            box-sizing: border-box;
+        }
+        .index {
+            border: 4px solid white;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            box-sizing: border-box;
+            position: fixed;
+            top: 150px;
+            left: 50px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <canvas id="canvas" width="960px" height="540px"></canvas>
+        <div class="index"></div>
+    </div>
+    <script>
+        const url = 'http://localhost:3000/images/';
+        //-------------
+        const imagesArray = [];
+
+        for(i=0; i<=120; i++){
+            if(i<10){
+                imagesArray.push(url+`Fireball_Debris_04_0000${i}.png`);
+            } else if(i<100){
+                imagesArray.push(url+`Fireball_Debris_04_000${i}.png`);
+            } else {
+                imagesArray.push(url+`Fireball_Debris_04_00${i}.png`);
+            }
+        }
+
+        const indexText = document.querySelector('.index');
+        const canvas = document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+
+        const imagePromise = path => 
+            new Promise(resolve => {
+                const img = new Image();
+                // img.crossOrigin = "Anonymous";
+                img.onload = () => resolve({img, status: 'ok'});
+                img.onerror = () => resolve({img, status: 'error'});
+                img.src = path;
+            });
+
+        const promiseArray = [];
+        imagesArray.forEach((url)=>{
+            promiseArray.push(imagePromise(url));
+        });
+
+        const container = document.querySelector('.container');
+        let flag = false;
+        let images = [];
+
+        Promise.all(promiseArray)
+        .then(result => {
+            const valid = result.every((item)=>item.status==='ok');
+            if(valid){
+                flag = true;
+                result.forEach((item)=>{
+                    images.push(item.img);
+                });
+                console.log('All Images are loaded');
+                drawImage();
+            } else {
+
+            }
+        });
+
+        window.addEventListener('scroll', drawImage);
+
+        function drawImage(e){
+            if(!flag){
+                return;
+            } 
+            //const current = Math.abs(container.getBoundingClientRect().top);
+            const numberImages = 120;
+            const current = canvas.offsetTop;
+            const canvasTopSpace = 150;
+            // calculate empty space below the canvas relative to the window height
+            const bottomSpace = window.innerHeight - canvas.clientHeight; 
+            // calculate the full container height subtracting the canvas size
+            const scrollSpace = container.clientHeight - canvas.clientHeight; 
+            // normalize function to get a value from 0 to 60
+            const index = Math.round((current - canvasTopSpace) / (scrollSpace - bottomSpace) * numberImages); 
+            if(index <= numberImages && index >= 0){            
+                ctx.drawImage(images[index], 0, 0, canvas.width, canvas.height);
+                // images[index].style.display = 'none';
+                indexText.textContent = index;
+            }
+        }
+    </script>
+</body>
+</html>

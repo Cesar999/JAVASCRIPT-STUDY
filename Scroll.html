@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            width: 100%;
+            height: 2000px;
+            background-color: black;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            border: 4px solid gray;
+            position: relative;
+        }
+        .line {
+            width: 100%;
+            height: 5vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: gray;
+            font-weight: 600;
+            font-size: 24px;
+            position: absolute;
+        }
+        .l25 {
+            top: 250px;
+        }
+        .l50 {
+            top: 500px;
+        }
+        .l75 {
+            top: 750px;
+        }
+        .l100 {
+            top: 1000px;
+        }
+        .l125 {
+            top: 1250px;
+        }
+        .l150 {
+            top: 1500px;
+        }
+        .l175 {
+            top: 1750px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="line l25">25</div>
+        <div class="line l50">50</div>
+        <div class="line l75">75</div>
+        <div class="line l100">100</div>
+        <div class="line l125">125</div>
+        <div class="line l150">150</div>
+        <div class="line l175">175</div>
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+        setTimeout(()=>{
+            window.scrollTo({
+                top: 500,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }, 1000);
+        setTimeout(()=>{
+            window.scrollBy({
+                top: 500,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }, 2000);
+        setTimeout(()=>{
+            window.scrollBy({
+                top: -750,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }, 3000);
+        setTimeout(()=>{
+            window.scrollTo({
+                top: 500,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }, 4000);
+    </script>
+</body>
+</html>

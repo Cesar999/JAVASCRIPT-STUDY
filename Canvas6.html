@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Particles Collision</title>
+	<style type="text/css">
+		canvas {
+			border: 1px solid black;
+		}
+		body {
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+	<canvas></canvas>
+	<script>
+        var canvas = document.querySelector('canvas');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        var c = canvas.getContext('2d');
+
+        var mouse = {
+            x: innerWidth/2,
+            y: innerHeight/2
+        }
+
+        var maxRadius = 50;
+
+        var colorArray = [
+            '#0C0ECC',
+            '#565699',
+            '#299BFF',
+            '#FFB169',
+            '#CC4D0C'
+        ];
+
+        var gravity = 1;
+        var friction = 0.8;
+
+        window.addEventListener('mousemove', function(event){
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        window.addEventListener('resize', function(){
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+
+        window.addEventListener('click', function(){
+            init();
+        });
+
+        function randomIntFromRange(min, max){
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function randomColor(colors){
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function getDistance(x1, y1, x2, y2){
+            let xDistance = x2 - x1;
+            let yDistance = y2 - y1;
+            return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+        }
+
+        function Circle(x, y, radius, color){
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.color = color;
+
+            this.update = function(){
+                this.draw();
+            }
+
+            this.draw = function(){
+                c.beginPath();
+                c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                c.fillStyle = this.color;
+                c.fill();
+                c.closePath();
+            }
+
+        }
+
+        let circle1;
+        let circle2;
+        function init(){
+            circle1 = new Circle(300, 300, 100, 'black');
+            circle2 = new Circle(0, 0, 30, 'red');
+        }
+
+        function animate(){
+            requestAnimationFrame(animate);
+            c.clearRect(0, 0, canvas.width, canvas.height);
+            c.fillText("CANVAS TEXT", mouse.x + 25, mouse.y - 25);
+            circle1.update();
+            circle2.x = mouse.x;
+            circle2.y = mouse.y;
+            circle2.update();
+
+            let dist = getDistance(circle1.x, circle1.y, circle2.x, circle2.y);
+            console.log(dist);
+            if(dist<=circle1.radius + circle2.radius){
+                circle1.color = 'yellow';
+                console.log('BOOM!');
+            } else {
+                circle1.color = 'black';
+            }
+        }
+
+        init();
+        animate();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+
+        //-------------
+        const imagesArray = [
+            'https://images.freeimages.com/images/large-previews/468/winter-wonderland-1383617.jpg',
+            'https://images.freeimages.com/images/large-previews/5b7/on-the-road-7-1384791.jpg',
+            'https://images.freeimages.com/images/large-previews/05e/on-the-road-6-1384796.jpg',
+            'https://images.freeimages.com/images/large-previews/6e4/cemetary-1387449.jpg',
+            'https://images.freeimages.com/images/large-previews/1ad/tractor-2-1386664.jpg',
+            'https://images.freeimages.com/images/large-previews/647/snowy-mountain-1378865.jpg'
+        ];
+
+        const canvas = document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+
+        const imagePromise = path => 
+            new Promise(resolve => {
+                const img = new Image();
+                // img.width = '600';
+                // img.height = '300';
+                img.crossOrigin = "Anonymous";
+                img.onload = () => resolve({img, status: 'ok'});
+                img.onerror = () => resolve({img, status: 'error'});
+                img.src = path;
+            });
+
+        const promiseArray = [];
+        imagesArray.forEach((url)=>{
+            promiseArray.push(imagePromise(url));
+        });
+
+        const container = document.querySelector('.container');
+
+        Promise.all(promiseArray)
+        .then(result => {
+            result.forEach((item)=>{
+                setTimeout(()=>{
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    img.style.display = 'none';
+                }, 1000);
+            });
+            console.log('All Images are loaded');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container form {
+            width: 50%;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 2px solid black;
+            margin-top: 50px;
+        }
+        .container form input {
+            margin-bottom: 30px;
+        }
+        .container form input[type="submit"] {
+            cursor: pointer;
+        }
+        form.invalid {
+            border: 2px solid red;
+        }
+        form .warning {
+            display: none;
+            color: red;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        form.invalid .warning {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="" id="myform">
+            <label for="password1">Password</label>
+            <input type="text" id="password1" required/>
+
+            <label for="password2">Confirm</label>
+            <input type="text" id="password2" required/>
+
+            <input type="submit" id="submit" disabled>
+
+            <div class="warning"></div>
+        </form>
+    </div>
+    <script>
+        const myform = document.querySelector('#myform');
+        const pass1 = document.querySelector('#password1');
+        const pass2 = document.querySelector('#password2');
+        const btn = document.querySelector('input[type="submit"]');
+        const warning = document.querySelector('#myform .warning');
+        const pass = {'first': '', 'second': ''};
+
+        const validate = (e) => {
+
+            if(e.target.id === 'password1') {
+                pass.first = e.target.value;
+            } else if (e.target.id === 'password2'){
+                pass.second = e.target.value;
+            }
+
+            const touched = pass.first.length >= 1 && pass.second.length >= 1;
+            
+            if(pass.first.length < 8 && pass.second.length < 8 && touched) {
+                btn.disabled = true;
+                myform.classList.add('invalid');
+                warning.textContent = 'Password should be at least of 8 characters';
+            } else {
+                if(pass.first !== pass.second && touched) {
+                    btn.disabled = true;
+                    myform.classList.add('invalid');
+                    warning.textContent = 'Passwords should match';
+                } else {                    
+                    if(touched){
+                        btn.disabled = false;
+                        myform.classList.remove('invalid');
+                        warning.textContent = '';
+                    }
+                }
+            }
+        };
+
+        const submit = (e) => {
+            e.preventDefault();
+            console.log(pass, 'Submitted');
+            alert(pass);
+        };
+
+        const checkValidation = (e)=>{
+            setTimeout(()=>{
+                validate(e);
+            }, 300);
+        }
+
+        pass1.addEventListener('keyup', checkValidation);
+        pass2.addEventListener('keyup', checkValidation);
+        myform.addEventListener('submit', submit);
+
+    </script>
+</body>
+</html>

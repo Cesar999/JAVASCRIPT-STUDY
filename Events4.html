@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .center {
+            background-color: teal;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center">Text</h1>
+    </div>
+    <script>
+        function getColor(){
+            return Math.ceil(Math.random()*255);
+        }
+        const cont = document.querySelector('.container');
+        const cent = document.querySelector('.center');
+        window.addEventListener('resize', (e)=>{
+            cent.style.backgroundColor = `rgba(${getColor()},${getColor()},${getColor()}, 0.7)`;
+            cent.textContent = 'Resize';
+        });
+        window.addEventListener('scroll', (e)=>{
+            cent.style.backgroundColor = `rgba(${getColor()},${getColor()},${getColor()}, 0.7)`;
+            cent.textContent = 'Scroll';
+        });
+    </script>
+</body>
+</html>
+
+resize
+scroll

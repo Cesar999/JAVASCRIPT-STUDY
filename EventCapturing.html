@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        .bubble {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            height: 50%;
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .bubble .form {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 50%;
+            height: 50%;
+            background-color: teal;
+        }
+        .bubble .mydiv {
+            width: 50%;
+            height: 50%;
+            background-color: tomato;
+        }
+        .bubble .myp {
+            width: 50%;
+            height: 50%;
+            background-color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="capturing">
+            <form class="form">form
+                <div class="mydiv">div
+                  <p class="myp">p</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const capturingForm = document.querySelector('.capturing .form');
+        const capturingDiv = document.querySelector('.capturing .mydiv');
+        const capturingP = document.querySelector('.capturing .myp');
+
+        const handler = (e)=>{
+            console.log(`target: ${e.target.tagName }, currentTarget: ${event.currentTarget.tagName}`);
+            // e.stopPropagation();
+        };
+
+        capturingForm.addEventListener('click', handler, true);
+        capturingDiv.addEventListener('click', handler, true);
+        capturingP.addEventListener('click', handler, true);
+
+    </script>
+</body>
+</html>

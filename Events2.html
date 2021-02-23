@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: gray;
+        }
+        .center {
+            width: 50%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 4px solid black;
+            background-color: tomato;
+        }
+        .button {
+            margin: 32px 0px;
+            padding: 16px;
+            font-size: 24px;
+        }
+        .button:hover {
+            cursor: pointer;
+        }
+        .button:focus {
+            border: 4px solid blue;
+        }
+        .message {
+            font-size: 32px;
+            flex-grow: 1;
+            font-weight: 600;
+            color: white
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="center">
+            <button class="button">Focus Events</button>
+            <div class="message">Event</div>
+        </div>
+    </div>
+    <script>
+        const btn = document.querySelector('.button');
+        const msg = document.querySelector('.message');
+        btn.addEventListener('focus', (event)=>{
+            msg.textContent = 'focus';
+        });
+        btn.addEventListener('blur', (event)=>{
+            msg.textContent = 'blur';
+        });
+
+        // btn.addEventListener('focusin', (event)=>{
+        //     msg.textContent = 'focusin';
+        // });
+        // btn.addEventListener('focusout', (event)=>{
+        //     msg.textContent = 'focusout';
+        // });
+    </script>
+</body>
+</html>

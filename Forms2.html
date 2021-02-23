@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100vw;
+        }
+        .container label {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container progress, .container input[type="range"] {
+            width: 40%;
+            margin-top: 15px;
+        }
+
+        /* Custom Range Bar */
+        .container input[type="range"] {
+            appearance: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: teal;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            background: var(--scrollbar-background);
+            border: 2px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            height: 16px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            appearance: none;
+            border: none;
+            height: 32px;
+            width: 32px;
+            margin-top: -8px;
+            border-radius: 50%;
+            background: tomato;
+            border: 2px solid black;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+
+
+        /* Custom Progress Bar */
+        #levelprogress {
+            appearance: none;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+        #levelprogress::-webkit-progress-bar {
+            background: teal;
+            border-radius: 10px;
+        }
+        #levelprogress::-webkit-progress-value {
+            background: tomato;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <label for="level">Level</label>
+        <input type="range" id="level" name="level" min="0" max="100" value="0" step='0.1'>
+    
+        <label for="levelprogress">Level progress: <span> 0% </span></label>
+        <progress id="levelprogress" max="100" value="0"></progress>
+    </div>
+
+    <script>
+        const level = document.querySelector('#level');
+        const levelprogress = document.querySelector('#levelprogress');
+        const span = document.querySelector('label[for="levelprogress"] span');
+
+        level.addEventListener('change', (e) => {
+            levelprogress.value = level.value;
+            span.textContent = `${level.value}%`;
+            level.style.setProperty('--scrollbar-background', `linear-gradient(90deg, tomato ${(level.value / 100) * 100}%, teal ${(level.value / 100) * 100}%)`);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        .animate {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: red;
+            will-change: transform;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            height: 200px;
+            position: fixed;
+            left: 100px;
+            top: 100px;
+            padding: 15px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="animate"></div>
+        <div class="menu">
+            <button class="play">Play</button>
+            <button class="pause">Pause</button>
+            <button class="finish">Finish</button>
+            <button class="reverse">Reverse</button>
+            <hr>
+            <button class="state">State</button>
+            <button class="time">Time</button>
+        </div>
+    </div>
+    <script>
+        const animate = document.querySelector('.animate');
+        const animation = animate.animate([
+            // keyframes
+                { transform: 'translateY(0px)' },
+                { transform: 'translateY(-400px)'},
+                { transform: 'scale(2)'},
+                { transform: 'scale(2) translateX(200px)'},
+                { transform: 'scale(1) translateY(0px)'},
+            ], {
+            // timing options
+                delay: 500,
+                duration: 4000,
+                easing: "linear"
+                // iterations: Infinity,
+                // direction: "alternate-reverse"
+            });
+        console.log(animate.getAnimations());
+        animation.pause();
+
+        const btnPlay = document.querySelector('.menu .play');
+        const btnPause = document.querySelector('.menu .pause');
+        const btnFinish = document.querySelector('.menu .finish');
+        const btnReverse = document.querySelector('.menu .reverse');
+
+        const btnState = document.querySelector('.menu .state');
+        const btnTime = document.querySelector('.menu .time');
+
+        btnPlay.addEventListener('click', (e)=>{
+            animation.play();
+        });
+        btnPause.addEventListener('click', (e)=>{
+            animation.pause();
+        });
+        btnFinish.addEventListener('click', (e)=>{
+            animation.finish();
+        });
+        btnReverse.addEventListener('click', (e)=>{
+            animation.reverse();
+        });
+
+        btnState.addEventListener('click', (e)=>{
+            console.log(animation.playState);
+        });
+        btnTime.addEventListener('click', (e)=>{
+            console.log(animation.currentTime);
+            console.log(animation.startTime, 'Time since the page load and the animation started');
+        });
+        
+        animation.onfinish = () => {
+            console.log('animation finished');
+        }
+
+    </script>
+</body>
+</html>

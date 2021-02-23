@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        .center {
+            width: 80%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .animation {
+            background-color: tomato;
+            height: 100%;
+            width: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .transition {
+            background-color: teal;
+            height: 100%;
+            width: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .animation .message, .transition .message {
+            color: white;
+            font-weight: 600;
+            font-size: 24px;
+            position: absolute;
+            bottom: 0;
+            padding: 50px;
+            border: 4px solid black;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .circle {
+            position: absolute;
+            top: 100px;
+            background-color: white;
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            animation: animateCircle 4s 2 alternate;
+            will-change: transform;
+        }
+        .message:hover + .circle {
+            animation-name: null;
+            transition-property: none;
+        }
+        .message:hover + .square {
+            transition-property: none;
+        }
+        .square {
+            position: absolute;
+            top: 100px;
+            height: 100px;
+            width: 100px;
+            animation: animateSquare 4s 2 alternate;
+            will-change: transform;
+            border-radius: 0%;
+            border: 0px solid black;
+            background-color: white;
+            transform: scale(1) translateY(0px);
+            transition-property: all;
+            transition-duration: 4s;
+            transition-delay: 2s;
+        }
+        .square.animate {
+            border-radius: 50%;
+            border: 8px solid black;
+            background-color:darkorchid;
+            transform: scale(1.5) translateY(200px);
+        }
+
+        @keyframes animateCircle {
+            0% {
+                border-radius: 50%;
+                background-color: white;
+                transform: scale(1) translateY(0px);
+                border: 0px solid black;
+            }
+            25% {
+                border: 8px solid black;
+            }
+            50% {
+                background-color:darkorchid
+            }
+            75% {
+                border-radius: 0%;
+            }
+            100% {
+                border-radius: 0%;
+                border: 8px solid black;
+                background-color:darkorchid;
+                transform: scale(1.5) translateY(200px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="center">
+            <div class="animation">
+                <div class="message">Event</div>
+                <div class="circle"></div>
+            </div>
+            <div class="transition">
+                <div class="message">Event</div>
+                <div class="square"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const anim = document.querySelector('.animation .circle');
+        const msg1 = document.querySelector('.animation .message');
+
+        anim.addEventListener('animationstart',(event)=>{
+            msg1.textContent = 'animationstart';
+            tran.classList.add('animate');
+        });
+        anim.addEventListener('animationend',(event)=>{
+            msg1.textContent = 'animationend';
+        });
+        anim.addEventListener('animationiteration',(event)=>{
+            msg1.textContent = 'animationiteration';
+        });
+        
+        anim.addEventListener('animationcancel',(event)=>{
+            msg1.textContent = 'animationcancel';
+        });
+
+        //-----------------------------------------------------------------
+
+        const tran = document.querySelector('.transition .square');
+        const msg2 = document.querySelector('.transition .message');
+        
+        tran.addEventListener('transitionstart',(event)=>{
+            msg2.textContent = 'transitionstart';
+        });
+        tran.addEventListener('transitionend',(event)=>{
+            msg2.textContent = 'transitionend';
+        });
+        tran.addEventListener('transitionrun',(event)=>{
+            msg2.textContent = 'transitionrun';
+        });
+
+        tran.addEventListener('transitioncancel',(event)=>{
+            msg2.textContent = 'transitioncancel';
+            tran.classList.remove('animate');
+        });
+    </script>
+</body>
+</html>
+

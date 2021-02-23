@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myCanvas {
+            border: 4px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script>
+        const canvas = document.querySelector('#myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        ctx.lineWidth = 4;
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'red';
+        ctx.lineCap = 'round';
+        ctx.moveTo(canvas.width / 2, canvas.height / 2);
+        ctx.lineTo(canvas.width, canvas.height);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'blue';
+        ctx.lineCap = 'round';
+        ctx.moveTo(canvas.width / 2, canvas.height / 2);
+        ctx.lineTo(0, 0);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'green';
+        ctx.lineCap = 'round';
+        ctx.moveTo(canvas.width / 2, canvas.height / 2);
+        ctx.lineTo(0, canvas.height);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'yellow';
+        ctx.lineCap = 'round';
+        ctx.moveTo(canvas.width / 2, canvas.height / 2);
+        ctx.lineTo(canvas.width, 0);
+        ctx.stroke();
+
+        // ------------------------------------------
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'orange';
+        ctx.lineCap = 'round';
+        ctx.arc(canvas.width * 0.8, canvas.height / 2, 50, 0 * Math.PI, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'magenta';
+        ctx.lineCap = 'round';
+        ctx.arc(canvas.width * 0.2, canvas.height / 2, 50, 0 * Math.PI, 2 * Math.PI);
+        ctx.fillStyle = 'gray';
+        ctx.fill();
+        ctx.stroke();
+
+        // -----------------------------------------------
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'cyan';
+        ctx.lineCap = 'round';
+        ctx.rect(canvas.width / 2 - 50, canvas.height * 0.2 - 50, 100, 100)
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'purple';
+        ctx.lineCap = 'round';
+        ctx.rect(canvas.width / 2 - 50, canvas.height * 0.8 - 50, 100, 100);
+        ctx.fillStyle = 'teal';
+        ctx.fill();
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

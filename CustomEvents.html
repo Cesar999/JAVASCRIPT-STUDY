@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        .center {
+            padding: 24px;
+            font-size: 24px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="center">Click</button>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const button = document.querySelector('.center');
+        let clickCounter = 0;
+
+        const customEvent = new CustomEvent("threeClicks", {
+            detail: {
+                flag: true,
+                time: new Date(),
+                color: 'tomato'
+            }
+        });
+
+        container.addEventListener("threeClicks", function(e) {
+             console.log(e.detail); 
+             container.style.backgroundColor = e.detail.color;
+             setTimeout(()=>{
+                container.style.backgroundColor = "";
+             }, 2000);
+        });
+
+        button.addEventListener("click", function(e) {
+            clickCounter++;
+            if(clickCounter===3){
+                customEvent.detail.color = "teal";
+                container.dispatchEvent(customEvent);
+                clickCounter = 0;
+            }
+        });
+
+    </script>
+</body>
+</html>
