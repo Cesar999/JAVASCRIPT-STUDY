@@ -1273,6 +1273,11 @@ Events?
 
        input: The event fires when the value of an <input>, <select>, or <textarea> element has been changed. The input event is fired every time the value of the element changes. This is unlike the change event, which only fires when the value is committed, such as by pressing the enter key, selecting a value from a list of options, and the like.
 
+    Clipboard: 
+        copy: event fires when the user initiates a copy action through the browser's user interface.
+        paste: event is fired when the user has initiated a "paste" action through the browser's user interface.
+        cut event is fired when the user has initiated a "cut" action through the browser's user interface.
+
     .\JavaScript\Events1.html
     .\JavaScript\Events2.html
     .\JavaScript\Events3.html
@@ -1281,6 +1286,18 @@ Events?
     .\JavaScript\Events6.html
     .\JavaScript\Events7.html
     .\JavaScript\Events8.html
+
+Clippboard?
+    The Clipboard interface implements the Clipboard API, providing—if the user grants permission—both read and write access to the contents of the system clipboard. The Clipboard API can be used to implement cut, copy, and paste features within a web application.
+    The system clipboard is exposed through the global Navigator.clipboard property.
+
+    read(): Requests arbitrary data (such as images) from the clipboard, returning a Promise. When the data has been retrieved, the promise is resolved with a DataTransfer object that provides the data.
+
+    readText(): Requests text from the system clipboard; returns a Promise which is resolved with a DOMString containing the clipboard's text once it's available.
+
+    write(): Writes arbitrary data to the system clipboard. This asynchronous operation signals that it's finished by resolving the returned Promise.
+
+    writeText(): Writes text to the system clipboard, returning a Promise which is resolved once the text is fully copied into the clipboard.
 
 Event Bubbling, Delegation, Capturing?
     Event propagation is a mechanism that defines how events propagate or travel through the DOM tree to arrives at its target and what happens to it afterward.
