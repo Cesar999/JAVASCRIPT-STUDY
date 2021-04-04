@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container h1 {
+            --custom-value: '100vh - 150px';
+            padding: 10px;
+            color: white;
+            background-color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="msg">Window</h1>
+    </div>
+    <script>
+        console.log('pixelRatio: ', window.devicePixelRatio);
+
+        const msg = document.querySelector('.msg');
+        const mql = window.matchMedia('(max-width: 600px)');
+        mql.onchange = () => {
+            let text = `matches: ${mql.matches} Width: ${window.innerWidth} Height: ${window.innerHeight}`;
+            msg.textContent = text;
+            if(mql.matches){
+                const compStyles = window.getComputedStyle(msg);
+                const padding = compStyles.getPropertyValue('padding');
+                const backgroundColor = compStyles.getPropertyValue('background-color');
+                console.log(`padding: ${padding} - backgroundColor: ${backgroundColor}`);
+                console.log(`--custom-value: ${compStyles.getPropertyValue('--custom-value')}`); // getting variables from CSS
+            }
+        }
+    </script>
+</body>
+</html>
