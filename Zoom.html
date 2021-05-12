@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas {
+            border: 4px solid black;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <canvas width="1052" height="700" id="canvas"></canvas>
+    </div>
+    <script>
+        const canvas = document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+
+        const imagePromise = path => 
+            new Promise(resolve => {
+                const img = new Image();
+                img.crossOrigin = "Anonymous";
+                img.onload = () => resolve({img, status: 'ok'});
+                img.onerror = () => resolve({img, status: 'error'});
+                img.src = path;
+            });
+
+        imagePromise('https://images.unsplash.com/photo-1620591310117-2a7946e5dc29?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80')
+        .then(({img})=>{
+            ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+            img.style.display = 'none';
+            let scale = 1;
+            let oldX = 0;
+            let oldY = 0;
+            document.addEventListener('wheel', (e) => {
+
+                const zoom = e.deltaY < 0 ? 1.04 : 0.96;
+                scale *= zoom;
+                if(scale < 1){
+                    scale = 1;
+                    return;
+                }
+                const rect = canvas.getBoundingClientRect();
+                const mouseX = (e.clientX - rect.left);
+                const mouseY = (e.clientY - rect.top);
+                
+                ctx.clearRect(img, 0, 0, img.width, img.height);
+
+                const visibleWidth = img.width / scale;
+                const visibleHeight = img.height / scale;
+
+                const posX = mouseX - mouseX / scale;
+                const posY = mouseY - mouseY / scale;
+
+                ctx.drawImage(img, posX, posY, visibleWidth, visibleHeight, 0, 0, canvas.width, canvas.height);
+            });
+
+        });
+
+    </script>
+</body>
+</html>
