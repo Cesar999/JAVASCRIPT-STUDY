@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            position: relative;
+        }
+        .container {
+            position: relative;
+            top: 30px;
+        }
+        .item1 {
+            height: 100px;
+            width: 100px;
+            margin: auto;
+            border: 10px solid black;
+            background-color: teal;
+            position: relative;
+            top: 150px;
+            margin-top: 13px;
+            overflow-y: hidden;
+            padding-top: 5px;
+        }
+        .item1 > .child1 {
+            height: 1800px;
+            width: 100px;
+        }
+        .noise {
+            height: 20px;
+            width: 100%;
+            background-color: rgb(189, 189, 189);
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="container">
+        <div class="item1">
+            <div class="child1"></div>
+        </div>
+    </div>
+
+    <script>
+        const item1 = document.querySelector('.item1');
+        console.log('clientHeight ', item1.clientHeight, 'element height: content + padding');
+        console.log('offsetHeight ', item1.offsetHeight, 'element height: content + padding + border');
+        console.log('clientTop ', item1.clientTop, 'element border width');
+        console.log('offsetTop ', item1.offsetTop, 'element top property');
+        console.log('scrollHeight ', item1.scrollHeight, 'element scrollheight + padding');
+        console.log('Rect().y ', item1.getBoundingClientRect().y, 'element: distance from top inner window');
+        console.log('Rect().top ', item1.getBoundingClientRect().top, 'element: distance from top inner window');
+        console.log('Rect().height = offsetHeight element height: content + padding + border', item1.getBoundingClientRect().height, '');
+    </script>
+</body>
+</html>

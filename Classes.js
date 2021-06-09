@@ -20,7 +20,7 @@ class Employe extends Person {
     }
 }
 
-const person = new Person('Cesar',26);
+const person = new Person('Cesar', 26);
 person.getBio();
-const employe = new Employe('Ricardo',1,'Programer');
+const employe = new Employe('Ricardo', 1, 'Programer');
 employe.getBio();

@@ -6,7 +6,7 @@ const handler = {
       return key in target;
     }
 };
-  
+
 const me = {
     _secret: 'I like lady Gaga',
     age: 28

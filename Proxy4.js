@@ -1,6 +1,6 @@
 function sum(a, b) {
-    return a + b;
-  }
+  return a + b;
+}
   
 const handler = {
     apply: function(target, thisArg, argumentsList) {

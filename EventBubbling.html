@@ -65,12 +65,14 @@
 
         const handler = (e)=>{
             console.log(`target: ${e.target.tagName }, currentTarget: ${event.currentTarget.tagName}`);
-            // e.stopPropagation();
+            //e.stopPropagation(); // stop the event propagation
+            //e.stopImmediatePropagation(); // same as stopPropagation plus the other same events
         };
 
         bubbleForm.addEventListener('click', handler);
         bubbleDiv.addEventListener('click', handler);
         bubbleP.addEventListener('click', handler);
+        bubbleP.addEventListener('click', (e)=>console.log(`other event - target: ${e.target.tagName }, currentTarget: ${event.currentTarget.tagName}`));
 
     </script>
 </body>

@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
+    <canvas id="canvas" width="600" height="300"></canvas>
     <script>
 
         //-------------
@@ -28,7 +28,7 @@
                 const img = new Image();
                 // img.width = '600';
                 // img.height = '300';
-                img.crossOrigin = "Anonymous";
+                //img.crossOrigin = "Anonymous";
                 img.onload = () => resolve({img, status: 'ok'});
                 img.onerror = () => resolve({img, status: 'error'});
                 img.src = path;
@@ -43,11 +43,11 @@
 
         Promise.all(promiseArray)
         .then(result => {
-            result.forEach((item)=>{
+            result.forEach(({img}, i)=>{
                 setTimeout(()=>{
                     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
                     img.style.display = 'none';
-                }, 1000);
+                }, 1000 * i);
             });
             console.log('All Images are loaded');
         });

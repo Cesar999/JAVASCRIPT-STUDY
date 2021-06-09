@@ -19,12 +19,12 @@ console.log('I - ', myArray.slice(5, 6)); // [ '_' ]
 console.log('J - ', myArray.slice(5, 0)); // []
 
 myArray.splice(5, 1, '@');
-console.log('K - ', myArray); // Insert 1 element and removes 1
+console.log('K - ', myArray); // Insert 1 element and removes 1 - replace
 
-myArray.splice(5, 0, '@');
-console.log('L - ', myArray); // Insert the value in position
+myArray.splice(5, 0, '*');
+console.log('L - ', myArray); // Insert the value in position - moves other values
 
-myArray.splice(5, 9, '#', '&', '$');
-console.log('M - ', myArray); // Replaces 9 elements from the 5th index
+myArray.splice(5, 3, '#', '&', '$');
+console.log('M - ', myArray); // Replaces 3 elements from the 5th index
 
 

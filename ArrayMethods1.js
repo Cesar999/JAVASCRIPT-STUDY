@@ -13,4 +13,5 @@ console.log(myArray.reverse(), myArray); // alters original array
 
 console.log(['a', 'b', 'c'].concat(['x', 'y', 'z']));
 
-console.log(['a', 'b', 'c', 'd', 'e', 'f'].fill('w',3, 6));
+const arr2 = ['a', 'b', 'c', 'd', 'e', 'f'];
+console.log(arr2.fill('w', 3, 6), arr2);  // alters original array

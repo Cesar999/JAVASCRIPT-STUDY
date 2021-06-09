@@ -53,8 +53,8 @@
         const animation = animate.animate([
             // keyframes
                 { transform: 'translateY(0px)' },
-                { transform: 'translateY(-400px)'},
-                { transform: 'scale(2)'},
+                { transform: 'translateY(-400px)', easing: 'ease-out'},
+                { transform: 'scale(2)', offset: 0.5, easing: 'ease-in'},
                 { transform: 'scale(2) translateX(200px)'},
                 { transform: 'scale(1) translateY(0px)'},
             ], {

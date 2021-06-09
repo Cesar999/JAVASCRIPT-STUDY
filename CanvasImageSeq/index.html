@@ -112,8 +112,10 @@
             const bottomSpace = window.innerHeight - canvas.clientHeight; 
             // calculate the full container height subtracting the canvas size
             const scrollSpace = container.clientHeight - canvas.clientHeight; 
-            // normalize function to get a value from 0 to 60
+            // normalize function to get a value from 0 to numberImages
             const index = Math.round((current - canvasTopSpace) / (scrollSpace - bottomSpace) * numberImages); 
+            console.log(container.clientHeight, canvas.clientHeight);
+            console.log(current, canvasTopSpace, scrollSpace, bottomSpace);
             if(index <= numberImages && index >= 0){            
                 ctx.drawImage(images[index], 0, 0, canvas.width, canvas.height);
                 // images[index].style.display = 'none';

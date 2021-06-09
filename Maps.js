@@ -10,3 +10,7 @@ console.log(character.has('level'));
 console.log(character);
 character.clear();
 console.log(character);
+
+character.set('level', 90);
+character.set(2, 'Ventyr');
+character.set('class', 'warrior');

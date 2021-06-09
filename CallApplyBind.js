@@ -22,7 +22,7 @@ const obj3 = {
     name: 'Leslie',
     lastname: 'Gaxiola',
     sayHi: function(){
-        sayName(this.lastname); // Without Call or Apply
+        sayName.bind(this, this.lastname)(); // Using bind
     }
 }
 
@@ -30,7 +30,7 @@ const obj4 = {
     name: 'Rafael',
     lastname: 'Encinas',
     sayHi: function(){
-        sayName.bind(this, this.lastname)(); // Using bind
+        sayName(this.lastname); // Without Call or Apply 
     }
 }
 

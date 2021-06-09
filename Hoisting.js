@@ -1,4 +1,4 @@
-x = 1;
+var x = 1;
 
 // FUNCTION SCOPE
 function print(){
@@ -15,11 +15,13 @@ var w;
 
 let y;
 const z = 3;
-y = 2;
 
+console.log('w: ', w);
 console.log('x: ', x);
 console.log('y: ', y);
 console.log('z: ', z);
+
+y = 2;
 
 console.log('-------------');
 //---------------------

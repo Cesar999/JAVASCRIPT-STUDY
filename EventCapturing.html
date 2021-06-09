@@ -17,7 +17,7 @@
             align-items: center;
             background-color: black;
         }
-        .bubble {
+        .capturing {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,7 +28,7 @@
             font-weight: 600;
             cursor: pointer;
         }
-        .bubble .form {
+        .capturing .form {
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -36,12 +36,12 @@
             height: 50%;
             background-color: teal;
         }
-        .bubble .mydiv {
+        .capturing .mydiv {
             width: 50%;
             height: 50%;
             background-color: tomato;
         }
-        .bubble .myp {
+        .capturing .myp {
             width: 50%;
             height: 50%;
             background-color: royalblue;
@@ -65,12 +65,14 @@
 
         const handler = (e)=>{
             console.log(`target: ${e.target.tagName }, currentTarget: ${event.currentTarget.tagName}`);
-            // e.stopPropagation();
+            //e.stopPropagation(); // stop the event propagation
+            //e.stopImmediatePropagation(); // same as stopPropagation plus the other same events
         };
 
         capturingForm.addEventListener('click', handler, true);
         capturingDiv.addEventListener('click', handler, true);
         capturingP.addEventListener('click', handler, true);
+        capturingForm.addEventListener('click', (e)=>console.log(`other event - target: ${e.target.tagName }, currentTarget: ${event.currentTarget.tagName}`), true);
 
     </script>
 </body>

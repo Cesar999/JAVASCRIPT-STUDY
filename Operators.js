@@ -1,21 +1,21 @@
 if(true && true) {
-    console.log('True AND true', ''); // true
+    console.log('true AND true', ''); // true
 }
 if(true && false) {
-    console.log('True AND false'); // false
+    console.log('true AND false'); // false
 }
 if(false && false) {
-    console.log('True AND false'); // false
+    console.log('false AND false'); // false
 }
 
 if(true || true) {
-    console.log('True OR true'); // true
+    console.log('true OR true'); // true
 }
 if(true || false) {
-    console.log('True OR true'); // true
+    console.log('true OR false'); // true
 }
 if(false || false) {
-    console.log('True OR true'); // false
+    console.log('false OR false'); // false
 }
 
 

@@ -4,5 +4,6 @@ console.log(set1.has(6));
 console.log(set1.delete(6));
 console.log(set1.has(6));
 console.log(set1);
+console.log(Array.from(set1));
 set1.clear()
 console.log(set1);

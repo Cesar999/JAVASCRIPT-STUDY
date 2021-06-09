@@ -1,5 +1,5 @@
 let obj = {x: 1, y: 2, z: 3};
-console.log({a: 0, ...obj, x: 9});
+console.log({a: 0, y: 5, ...obj, x: 9});
 
 let arr = [1,2,3,4,5];
 let max = Math.max(...arr);

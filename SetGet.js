@@ -10,7 +10,7 @@ const language = {
   
   language.langs = 'en';
   language.langs = 'fa';
-  language.langs = 'sP'
+  language.langs = 'sP';
   
   console.log(language.log);
   console.log(language.langs);

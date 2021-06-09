@@ -23,7 +23,7 @@ console object?
    .\JavaScript\Console.js
 
 Javascript Types?
-    Javascript has 7 types in wich 6 are primitives.
+    Javascript has 7 types in wcich 6 are primitives.
     The primitive types are: Number, String, Boolean, Null, Undefined and Symbol.
     The other type is Object.
 
@@ -67,7 +67,7 @@ Number Operations?
     increment adn decremenet:
         ++ inrement operator increase by 1 the variable.
         -- decreament operator decreases by 1 the variable.
-        if the operator is before the variable the vlaue is update and then assign to the variable else the value is asign to the variable and then update it.
+        if the operator is before the variable the vlaue is update and then assign to the variable else the value is assigned to the variable and then update it.
 
     Assignment operators:
         +=	Addition assignment	Adds the value on the right to the variable value on the left, then returns the new variable value
@@ -293,7 +293,7 @@ array methods: Array.from() isArray() flat()?
     .\JavaScript\ArrayMethods0.js
 
 array methods: indexOf() includes() split() join() reverse() concat() fill()?
-    The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+    The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present. Expects a value as first parameter. This makes it a good choice to find the index in arrays of primitive types (like string, number, or boolean).
 
     The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
 
@@ -314,10 +314,12 @@ Reduce, Filter, Map (ES6)?
         Four arguments: Accumulator (acc), Current Value (cur), Current Index (idx) and Source Array (src).
         Your reducer function's returned value is assigned to the accumulator, whose value is remembered across each iteration throughout the array and ultimately becomes the final, single resulting value.
 
-    Filter: Method creates a new array with all elements that pass the test implemented by the provided function.
+    Filter: Method creates a new array with all elements that pass the test implemented by the provided function. 
+        The callback should return true or false.
         Three arguments: Current Value (cur), Current Index (idx) and Source Array (src).
 
     Map: Method creates a new array with the results of calling a provided function on every element in the calling array. Creates a new array with the results of calling a provided function on every element in the calling array.
+        The calback returns the new value.
         Three arguments: Current Value (cur), Current Index (idx) and Source Array (src).
 
     forEach:  executes a provided function once for each array element. (does not return a new array)
@@ -325,7 +327,7 @@ Reduce, Filter, Map (ES6)?
     .\JavaScript\ArrayMethods2.js
 
 Array.findIndex(), Array.find(), Array.some(), Array.every()?
-    findIndex() The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
+    findIndex() The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test. expects a callback as first parameter. Use this if you need the index in arrays with non-primitive types (e.g. objects) or your find condition is more complex than just a value.
 
     The find() method returns the value of the first element in the provided array that satisfies the provided testing function. If no values satisfies the testing function, undefined is returned.
 
@@ -814,8 +816,8 @@ RegExp?
     \w Matches any alphanumeric character including the underscore. Equivalent to [A-Za-z0-9_].
     \d Matches a digit character. Equivalent to [0-9].
 
-    greedy .+ Matches the last match of a pattern
-    lazy .+? Matches the first match of a pattern 
+    greedy + Matches the last match of a pattern
+    lazy +? Matches the first match of a pattern 
 
     .\JavaScript\RegExp1.js
     .\JavaScript\RegExp2.js
@@ -967,6 +969,19 @@ Element?
     Element.offsetLeft: read-only property returns the number of pixels that the upper left corner of the current element is offset to the left within the HTMLElement.offsetParent node.
 
     Element.getBoundingClientRect(): method returns a DOMRect object providing information about the size of an element and its position relative to the viewport. The returned value is a DOMRect object which is the smallest rectangle which contains the entire element, including its padding and border-width. The left, top, right, bottom, x, y, width, and height properties describe the position and size of the overall rectangle in pixels. Properties other than width and height are relative to the top-left of the viewport.
+
+    The Element.scrollHeight read-only property is a measurement of the height of an element's content, including content not visible on the screen due to overflow.
+
+    The Element.scrollWidth read-only property is a measurement of the width of an element's content, including content not visible on the screen due to overflow.
+
+        clientHeight:
+            returns the inner height of an element in pixels, including padding but not the horizontal scrollbar height, border, or margin
+
+        offsetHeight:
+            is a measurement which includes the element borders, the element vertical padding, the element horizontal scrollbar (if present, if rendered) and the element CSS height.
+
+        scrollHeight:
+            is a measurement of the height of an element's content including content not visible on the screen due to overflow
 
     scroll(): method of the Element interface scrolls the element to a particular set of coordinates inside a given element.
     scroll-behavior: auto;
@@ -1320,7 +1335,7 @@ Clippboard?
 Event Bubbling, Delegation, Capturing?
     Event propagation is a mechanism that defines how events propagate or travel through the DOM tree to arrives at its target and what happens to it afterward.
     In modern browser event propagation proceeds in two phases: capturing, and bubbling phase. In the capturing phase, events propagate from the Window down through the DOM tree to the target node.
-    from -> div -> p
+    form -> div -> p
 
     In the bubbling phase, the exact opposite occurs. In this phase event propagates or bubbles back up the DOM tree, from the target element up to the Window, visiting all of the ancestors of the target element one by one.
     p -> div -> form
@@ -1587,6 +1602,10 @@ Mouse Coordinates?
 
     movementX/movementY: read-only property of the MouseEvent interface provides the difference in the X coordinate of the mouse pointer between the given event and the previous mousemove event. In other words, the value of the property is computed like this: currentEvent.movementX = currentEvent.screenX - previousEvent.screenX.
 
+    pageX/Y gives the coordinates relative to the <html> element in CSS pixels.
+    clientX/Y gives the coordinates relative to the viewport in CSS pixels.
+    screenX/Y gives the coordinates relative to the screen in device pixels.
+
     .\JavaScript\MouseClient.html
 
 Canvas?
@@ -1610,7 +1629,7 @@ Canvas?
     To get the canvas' 2D rendering context, call getContext() on the <canvas> element, supplying '2d' as the argument. 
     (const ctx = CanvasRenderingContext2D) // just for the examples
 
-    Coordinate Space / Grid: The origin of this grid is positioned in the top left corner at coordinate (0,0). All elements are placed relative to this origin. So the position of the top left corner of the blue square becomes x pixels from the left and y pixels from the top, at coordinate (x,y). Later in this tutorial we'll see how we can translate the origin to a different position, rotate the grid and even scale it, but for now we'll stick to the default. Normally 1 unit in the grid corresponds to 1 pixel on the canvas.
+    Coordinate Space / Grid: The origin of this grid is positioned in the top left corner at coordinate (0,0). All elements are placed relative to this origin. So the position of the top left corner of the blue square becomes x pixels from the left and y pixels from the top, at coordinate (x,y). Normally 1 unit in the grid corresponds to 1 pixel on the canvas.
 
     path: is a list of points, connected by segments of lines that can be of different shapes, curved or not, of different width and of different color. A path, or even a subpath, can be closed. To make shapes using paths, we take some extra steps:
         First, you create the path.
@@ -1889,7 +1908,7 @@ HTTP Request?
     Most common status:
         200 - OK - The request has succeeded.
         204 - No Content - There is no content to send for this request, but the headers may be useful. 
-        301 - Moved Permanently -nThe URL of the requested resource has been changed permanently. The new URL is given in the response.
+        301 - Moved Permanently - The URL of the requested resource has been changed permanently. The new URL is given in the response.
         400 - Bad Request - The server could not understand the request due to invalid syntax.
         401 - Unauthorized - Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated".
         403 - Forbidden - The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource.
@@ -1920,7 +1939,7 @@ HTTP Request?
             * (wildcard): For requests without credentials, the literal value "*" can be specified, as a wildcard; the value tells browsers to allow requesting code from any origin to access the resource.
             <origin>: Specifies an origin. Only a single origin can be specified. If the server supports clients from multiple origins, it must return the origin for the specific client making the request. Web content's origin is defined by the scheme (protocol), host (domain), and port of the URL used to access it. Two objects have the same origin only when the scheme, host, and port all match.
 
-        Access-Control-Allow-Methods: esponse header specifies the method or methods allowed when accessing the resource in response to a preflight request.
+        Access-Control-Allow-Methods: response header specifies the method or methods allowed when accessing the resource in response to a preflight request.
             <method>: Comma-delimited list of the allowed HTTP request methods.
             * (wildcard): The value "*" only counts as a special wildcard value for requests without credentials (requests without HTTP cookies or HTTP authentication information). In requests with credentials, it is treated as the literal method name "*" without special semantics.
 
@@ -1997,7 +2016,7 @@ Patterns?
         
     Structural Design Patterns: These patterns are concerned with class and object composition. They help structure or restructure one or more parts without affecting the entire system. In other words, they help obtain new functionalities without tampering with the existing ones. Adapter Pattern, Decorator Pattern, Façade Pattern, Flyweight Pattern, and Proxy Pattern.
 
-        Adapter Pattern: This is a structural pattern where the interface of one class is translated into another. This pattern lets classes work together that could not otherwise because of incompatible interfaces.
+        Adapter Pattern: This is a structural pattern where the interface of one class is translated into another. This pattern let classes work together that could not otherwise because of incompatible interfaces.
 
         Decorator Pattern: This is also a structural design pattern that focuses on the ability to add behaviour or functionalities to existing classes dynamically. It is another viable alternative to sub-classing.
 

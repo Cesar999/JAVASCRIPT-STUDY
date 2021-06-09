@@ -87,7 +87,7 @@
         const levelprogress = document.querySelector('#levelprogress');
         const span = document.querySelector('label[for="levelprogress"] span');
 
-        level.addEventListener('change', (e) => {
+        level.addEventListener('input', (e) => {
             levelprogress.value = level.value;
             span.textContent = `${level.value}%`;
             level.style.setProperty('--scrollbar-background', `linear-gradient(90deg, tomato ${(level.value / 100) * 100}%, teal ${(level.value / 100) * 100}%)`);

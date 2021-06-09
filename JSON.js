@@ -23,7 +23,7 @@ function reviver(key, val) {
 };
 
 console.log(JSON.stringify(object1), ' - stringify');
-console.log(JSON.stringify(object1, replacer, 2), ' - stringify and replacer');
+console.log(JSON.stringify(object1, replacer), ' - stringify and replacer');
 
 console.log(JSON.parse('{"name":"Cesar","age":28}'), ' - parse');
 console.log(JSON.parse('{"name":"Cesar","age":28}', reviver), ' - parse, reviver');
