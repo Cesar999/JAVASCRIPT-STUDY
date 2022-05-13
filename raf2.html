@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAF 2</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        .container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        .polygon {
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+            background-color: teal;
+            height: 400px;
+            width: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .polygon.back {
+            background-color: rebeccapurple;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .polygon#polygon {
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="polygon" id="polygon"></div>
+        <div class="polygon back"></div>
+    </div>
+    <script>
+        const polygon = document.querySelector('#polygon');
+
+        const halfwayEvent = new CustomEvent("halfway", {
+            detail: {
+                time: new Date(),
+                color: 'tomato'
+            }
+        });
+
+        polygon.addEventListener('halfway', (e) => {
+            polygon.style.color = e.detail.color;
+        });
+
+        const getRefreshRate = () => new Promise(resolve => {
+            requestAnimationFrame(t1 => requestAnimationFrame(t2 => resolve(Math.round(1000 / (t2 - t1)))));
+        });
+
+        async function animate(endTime){
+            let startTime = 0;
+            const moveX = 1000; // px
+            const REFRESH_RATE = await getRefreshRate();
+            console.log(REFRESH_RATE);
+            let right = true;
+
+            function step(timestamp){
+                if(startTime === 0) {
+                    startTime = timestamp;
+                    window.requestAnimationFrame(step);
+                } else {
+                    const delta = timestamp - startTime;
+
+                    if(delta >= endTime){
+                        startTime = timestamp;
+                        right = !right;
+                    } else {
+                        if(right){
+                            polygon.style.transform = `translateX(${(delta / endTime) * moveX}px)`;
+                        } else {
+                            polygon.style.transform = `translateX(${moveX - (delta / endTime) * moveX}px)`;
+                        }
+                        
+                        if(Math.round(delta * 100 / endTime) === 50){
+                            polygon.dispatchEvent(halfwayEvent);
+                        }
+                        if(Math.round(delta * 100 / endTime) === 100 || Math.round(delta * 100 / endTime) === 0){
+                            polygon.style.color = '#fff';
+                        }
+
+                       console.log(`${delta * 100 / endTime}%`);
+                       polygon.textContent = `${Math.round(delta * 100 / endTime)}%`;
+                    }
+
+                    window.requestAnimationFrame(step);
+                }
+
+                // polygon.style.transform = 'translateX(' + count + 'px)';
+                // window.requestAnimationFrame(step);
+            }
+
+           window.requestAnimationFrame(step);
+        }
+
+        animate(4000);
+
+        //window.requestAnimationFrame(step);
+        // clip-path: polygon(50% 0, 75% 50%, 100% 100%, 0 100%, 25% 50%);
+        // clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    
+    </script>
+</body>
+</html>

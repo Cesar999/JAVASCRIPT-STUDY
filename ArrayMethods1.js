@@ -1,10 +1,10 @@
 const myArray = ['a', 'b', 'c', 'x', 'y', 'z'];
 
-console.log(myArray.indexOf('c'));
-console.log(myArray.indexOf('d'));
+console.log(myArray.indexOf('c')); // 2
+console.log(myArray.indexOf('d')); // -1
 
-console.log(myArray.includes('x'));
-console.log(myArray.includes('w'));
+console.log(myArray.includes('x')); // true
+console.log(myArray.includes('w')); // false
 
 console.log('a,b,c,x,y,z'.split(','));
 console.log(myArray.join('-'));

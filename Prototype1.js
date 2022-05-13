@@ -14,4 +14,6 @@ console.log(mage1 instanceof Character, 'Character');
 console.log(mage1 instanceof Mage, 'Mage');
 console.log(mage1.__proto__, Mage.prototype);
 console.log(mage1.__proto__.__proto__, Character.prototype);
+console.log(Object.getPrototypeOf(mage1), Mage.prototype);
+console.log(Object.getPrototypeOf(Object.getPrototypeOf(mage1)), Character.prototype);
 //---------------------------------------------------

@@ -18,7 +18,7 @@ console object?
 
     console.timeEnd(): Stops a timer that was previously started by calling console.time().
 
-    console.table(): Displays tabular data as a table. This function takes one mandatory argument data, which must be an array or an object, and one additional optional parameter columns.It logs data as a table. Each element in the array (or enumerable property if data is an object) will be a row in the table.
+    console.table(): Displays tabular data as a table. This function takes one mandatory argument data, which must be an array or an object, and one additional optional parameter columns. It logs data as a table. Each element in the array (or enumerable property if data is an object) will be a row in the table.
 
    .\JavaScript\Console.js
 
@@ -64,8 +64,8 @@ Number Operations?
     **	Exponent	Raises a base number to the exponent power, that is, the base number multiplied by itself, exponent times.
     toFixed() The toFixed() method formats a number using fixed-point notation.
 
-    increment adn decremenet:
-        ++ inrement operator increase by 1 the variable.
+    increment and decremenet:
+        ++ increment operator increase by 1 the variable.
         -- decreament operator decreases by 1 the variable.
         if the operator is before the variable the vlaue is update and then assign to the variable else the value is assigned to the variable and then update it.
 
@@ -284,7 +284,7 @@ Array?
 
 array methods: Array.from() isArray() flat()?
 
-    The Array.from() static method creates a new, shallow-copied Array instance from an array-like or iterable object.
+    The Array.from() static method creates a new, shallow-copied Array instance from an array-like or iterable object. Fist argument is the array and the seocnd is the map function.
 
     The Array.isArray() method determines whether the passed value is an Array.
 
@@ -614,9 +614,9 @@ Asynchronous vs Syncronous?
     In asynchronous programs, you can have two lines of code (L1 followed by L2), where L1 schedules some task to be run in the future, but L2 runs before that task completes. Note that asynchronous does not mean the same thing as concurrent or multi-threaded. JavaScript can have asynchronous code, but it is generally single-threaded.
 
 Stack, Queue, Event Loop and Heap?
-    Heap Memory: This is where all the memory allocation happens for your variables,that you have defined in your program.
+    Heap Memory: This is where all the memory allocation happens for your variables, that you have defined in your program.
 
-    Call Stack:  It stores data about procedures that are currently running in a given 	program. This is where all your javascript code gets pushed and executed one by one as the interpreter reads your program, and gets popped out once the execution is done. 
+    Call Stack: It stores data about procedures that are currently running in a given program. This is where all your javascript code gets pushed and executed one by one as the interpreter reads your program, and gets popped out once the execution is done. 
 
     Node API: runs JavaScript that requires an asynchronous task to be performed.
 
@@ -682,7 +682,7 @@ Spread/Rest(ES6)?
 ES6: Destructuring, Default Parameters, Template Literals, Classes, Modules, (Promises, Arrow Functions, Spread/Rest, [Reduce, Filter, Map])?
 
     Destructuring: 
-        The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects,into distinct variables.
+        The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
 
     Default Parameters: 
         Default function parameters allow named parameters to be initialized with default values if no value or undefined is passed.
@@ -800,11 +800,11 @@ RegExp?
 
     The test() method executes a search for a match between a regular expression and a specified string. Returns true or false.
 
+    The exec() method executes a search for a match  between a regular expression and a specified string. Returns a result array, or null.
+
     The match() method retrieves the result of matching a string against a regular expression.
 
     replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match. If pattern is a string, only the first occurrence will be replaced.
-
-    The exec() method executes a search for a match in a specified string. Returns a result array, or null.
 
     ^ Matches beginning of input. 
     $ Matches end of input. 
@@ -818,6 +818,8 @@ RegExp?
 
     greedy + Matches the last match of a pattern
     lazy +? Matches the first match of a pattern 
+
+    [a-z] Square brackets match something that you kind of don’t know about a string you’re looking for. If you are searching for a name in a string but you’re not sure of the exact name you could use instead of that letter a square bracket. Everything you put inside these brackets are alternatives in place of one character.
 
     .\JavaScript\RegExp1.js
     .\JavaScript\RegExp2.js
@@ -841,6 +843,9 @@ Date?
 
 Metaprogramming?
     Metaprogramming is a programming technique in which computer programs have the ability to treat other programs as their data. It means that a program can be designed to read, generate, analyze or transform other programs, and even modify itself while running.
+
+    A proxy may refer to an object that is authorized to act for another or it may designate the function or authority of serving in another's stead.
+    Based on the proxy pattern is a software design pattern. A proxy, in its most general form, is a class functioning as an interface to something else. The proxy could interface to anything: a network connection, a large object in memory, a file, or some other resource that is expensive or impossible to duplicate. In short, a proxy is a wrapper or agent object that is being called by the client to access the real serving object behind the scenes. Use of the proxy can simply be forwarding to the real object, or can provide additional logic. In the proxy, extra functionality can be provided, for example caching when operations on the real object are resource intensive, or checking preconditions before operations on the real object are invoked. For the client, usage of a proxy object is similar to using the real object, because both implement the same interface.
 
     The Proxy object enables you to create a proxy for another object, which can intercept and redefine fundamental operations for that object.
     Use the Proxy() constructor to create a new Proxy object. This constructor takes two mandatory arguments:
@@ -879,7 +884,7 @@ DOM?
     The querySelector() method of the Element interface returns the first element that is a descendant of the element on which it is invoked that matches the specified group of selectors.
     The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned. 
 
-    The Element method querySelectorAll() returns a static (not live) NodeList representing a list of elements matching the specified group of selectors which are descendants of the element on which the method was called.     The Document method querySelectorAll() returns a static (not live) NodeList representing a list of the document's elements that match the specified group of selectors.
+    The Element method querySelectorAll() returns a static (not live) NodeList representing a list of elements matching the specified group of selectors which are descendants of the element on which the method was called.
 
 Document?
     The Document interface represents any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree. The DOM tree includes elements such as <body> and <table>, among many others. It provides functionality globally to the document, like how to obtain the page's URL and create new elements in the document.
@@ -987,7 +992,7 @@ Element?
     scroll-behavior: auto;
     scroll-behavior: smooth;
 
-    scrollTo(): method of the Element interface scrolls to a particular set of coordinates inside a given element. Same as scroll(); Scrolls exact amount from the chord (0, 0).
+    scrollTo(): method of the Element interface scrolls to a particular set of coordinates inside a given element. Same as scroll(); Scrolls exact amount from the coordinates (0, 0).
 
     scrollBy(): method of the Element interface scrolls an element by the given amount. Scrolls from the screen current position.
 
@@ -1309,7 +1314,7 @@ Events?
     Clipboard: 
         copy: event fires when the user initiates a copy action through the browser's user interface.
         paste: event is fired when the user has initiated a "paste" action through the browser's user interface.
-        cut event is fired when the user has initiated a "cut" action through the browser's user interface.
+        cut: event is fired when the user has initiated a "cut" action through the browser's user interface.
 
     .\JavaScript\Events1.html
     .\JavaScript\Events2.html
@@ -1509,7 +1514,7 @@ Store Data on the Browser?
 
     Cookie:
     Stores data that has to be sent back to the server with subsequent requests. Its expiration varies based on the type and the expiration duration can be set from either server-side or client-side (normally from server-side).
-    Cookies are primarily for server-side reading (can also be read on client-side),localStorage and sessionStorage can only be read on client-side.
+    Cookies are primarily for server-side reading (can also be read on client-side), localStorage and sessionStorage can only be read on client-side.
     Size must be less than 4KB.
 
     LocalStorage:

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let start, previousTimeStamp;
+        const timeLimit = 1000;
+        let triggered = false;
+
+        const animate = (timestamp) => {
+            console.log(timestamp);
+        }
+
+        const animateCustom = (progress, percentage) => {
+            if(progress >= timeLimit * percentage){
+                console.log('------------CUSTOM-------------');
+                triggered = true;
+            }
+            
+        }
+
+        function step(timestamp) {
+            if (start === undefined){
+                start = timestamp;
+            }
+                
+            const progress = timestamp - start;
+
+            if (previousTimeStamp !== timestamp) {
+                animate(timestamp);
+                if(!triggered){
+                    animateCustom(progress, 0.5);
+                }
+            }
+
+            if (progress < timeLimit) { // Stop the animation 
+                previousTimeStamp = timestamp;
+                window.requestAnimationFrame(step);
+            } else {
+                //start = timestamp;
+                //triggered = false;
+                //window.requestAnimationFrame(step);
+            }
+        }
+
+        window.requestAnimationFrame(step);
+
+
+    </script>
+</body>
+</html>

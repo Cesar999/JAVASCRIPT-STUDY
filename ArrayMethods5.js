@@ -1,11 +1,11 @@
 
 // substring and substr are only for Strings
 const myString = 'Cesar_Encinas';
-console.log('A - ', myString.substring(0, 5)); // Cesar
+console.log('A - ', myString.substring(0, 5)); // Cesar index A to index B
 console.log('B - ', myString.substring(5, 6)); // _
 console.log('C - ', myString.substring(5, 0)); // Cesar
 
-console.log('D - ', myString.substr(0, 5)); // Cesar
+console.log('D - ', myString.substr(0, 5)); // Cesar Index A to length
 console.log('E - ', myString.substr(5, 1)); // _
 console.log('F - ', myString.substr(5, 0)); // 
 console.log('G - ', myString.substr(6)); // Encinas

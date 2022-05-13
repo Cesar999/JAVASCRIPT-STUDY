@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            position: relative;
+            width: 100vw;
+            max-width: 100%;
+            height: 3000px;
+            background-color: #eaeaea;
+            display: flex;
+            justify-content: center;
+        }
+        .sticky {
+            position: sticky;
+            top: 50px;
+            background-color: #C90873;
+            width: 25vw;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sticky">
+            
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+        const sticky = document.querySelector('.sticky');
+        
+        window.addEventListener('scroll', () => {
+            const stickyTop = sticky.offsetTop;
+            const stickyStyles = window.getComputedStyle(sticky);
+            const top = stickyStyles.getPropertyValue('top');
+            const topNumber = parseInt(top.match(/[0-9]/g).join(''));
+            const distance = container.clientHeight - window.innerHeight + topNumber;
+            const deg = ((stickyTop - topNumber) / (distance - topNumber)* 360);   
+            sticky.style.filter = `hue-rotate(${deg}deg)`;
+            console.log(stickyTop, deg, distance);
+        });
+    </script>
+</body>
+</html>

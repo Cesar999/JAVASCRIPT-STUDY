@@ -12,7 +12,7 @@ console.table(array);
 
 const obj = {
     name:'Cesar',
-    age: 28,
+    age: 29,
     weight: '83kg',
     height: '180cm'
 }
